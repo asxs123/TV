@@ -1,5 +1,25 @@
 # 更新日志（Changelog）
 
+## v1.4.7
+
+### 2024/09/23
+
+- 修复部分设备本地运行软件 driver 问题(#335)
+- 修复 driver 模式下新版谷歌浏览器白屏问题
+
+- Fix some issues with local software driver operation on certain devices (#335)
+- Fix the white screen issue with the new version of Google Chrome in driver mode
+
+## v1.4.6
+
+### 2024/9/20
+
+- 优化 IPv6 测试是否支持(#328)
+- 优化 404 类接口测速(#329)
+
+- Optimize IPv6 test support (#328)
+- Optimize 404 class interface speed test (#329)
+
 ## v1.4.5
 
 ### 2024/9/19
