@@ -1,14 +1,36 @@
 # 更新日志（Changelog）
 
+## v1.4.8
+
+### 2024/09/27
+
+- 默认模板增加部分频道：咪咕直播、央视付费频道、电影频道、港澳台、地方频道等
+- 订阅源增加默认订阅地址
+- 优化订阅源、在线搜索测速效率
+- 增加汕头频道组播
+- 调整默认接口数量为 30
+
+- Add some channels to the default template: Migu Live, CCTV Pay Channels, Movie Channel, Hong Kong and Macau Channels, Local Channels, etc
+- Add default subscription addresses to the subscription source
+- Optimize the efficiency of subscription source and online search speed tests
+- Add Shantou channel multicast
+- Adjust the default number of interfaces to 30
+
 ## v1.4.7
 
-### 2024/09/23
+### 2024/09/26
 
 - 修复部分设备本地运行软件 driver 问题(#335)
 - 修复 driver 模式下新版谷歌浏览器白屏问题
+- 增加历史结果缓存(result_cache.pkl)，用于测速优化
+- 重构测速方法，提升测速效率
+- 优化测速进度条显示
 
 - Fix some issues with local software driver operation on certain devices (#335)
 - Fix the white screen issue with the new version of Google Chrome in driver mode
+- Add historical result cache (result_cache.pkl) for performance optimization
+- Refactor speed test methods to improve efficiency
+- Optimize speed test progress bar display
 
 ## v1.4.6
 
