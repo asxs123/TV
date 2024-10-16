@@ -418,8 +418,6 @@ CETV-3,http://114.243.106.85:8888/rtp/239.3.1.55:4120$1920x1080
 CETV-3,http://114.243.111.3:8822/rtp/239.3.1.55:4120$1920x1080
 CETV-4,http://[2409:8087:1a0b:df::4020]:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225783/index.m3u8
 早期教育,http://183.185.205.236:8082/rtp/226.0.2.99:8704$1920x1080
-CETV-早期教育,http://221.205.180.219:8001/rtp/226.0.2.99:8704$1920x1080
-CETV-早期教育,http://111.165.215.158:50000/rtp/225.1.2.207:5002$1920x1080
 CGTN记录,https://news.cgtn.com/resource/live/document/cgtn-doc.m3u8
 CGTN,P2p://generationnexxxt.com:19806/1b5e656dd2604b7e9af1133db1f40955
 CGTN,http://113.57.20.158:9901/tsfile/live/1002_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -1145,8 +1143,6 @@ CN卡通
 安徽综艺体育,http://36.35.16.98:9901/tsfile/live/0001_38.m3u8?key=txiptv&playlive=0&authid=0
 安徽综艺体育,http://112.30.194.221:20080/live/c41f112b83f644ddb082669501c8ecd3/hls.m3u8
 安徽综艺体育,http://112.30.194.221:20080/live/c41f112b83f644ddb082669501c8ecd3/hls.m3u8
-精品体育,http://[2409:8087:1a0b:df::4004]:80/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225674/index.m3u8
-精品体育,http://[2409:8087:5e00:24::1e]:6060/200000001898/460000089800010078/1.m3u8
 辽宁体育休闲,http://124.94.193.136:9902/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
 山东体育,http://119.163.199.98:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
 山东体育,http://222.134.245.16:9901/tsfile/live/1006_1.m3u8?key=txiptv&playlive=1&authid=0
@@ -1167,7 +1163,6 @@ CN卡通
 劲爆体育,http://[2409:8087:5e01:24::16]:6610/000000001000/2000000002000000008/index.m3u8?stbId=3&livemode=1&HlsProfileId=&channel-id=hnbblive&Contentid=2000000002000000008&IASHttpSessionId=OTT19019320240419154124000281
 劲爆体育,http://[2409:8087:5e08:24::11]:6610/000000001000/2000000002000000008/index.m3u8?stbId=3&livemode=1&HlsProfileId=&channel-id=hnbblive&Contentid=2000000002000000008&IASHttpSessionId=OTT19019320240419154124000281
 爱体育
-超级体育
 广州竞赛
 深圳体育
 福建体育
