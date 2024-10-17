@@ -19,7 +19,7 @@ CCTV-16
 CCTV-17
 CCTV-4K
 CCTV-8K
-CCTV-戏曲 
+CCTV-戏曲
 CCTV-娱乐
 中视购物
 风云音乐
@@ -47,8 +47,8 @@ CETV-2
 CETV-3
 CETV-4
 早期教育
-CGTN记录
 CGTN
+CGTN记录
 CGTN阿语
 CGTN俄语
 CGTN法语
@@ -380,13 +380,6 @@ CN卡通
 五星体育,http://210.22.75.86:9901/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
 广东体育
 纬来体育,https://cloud.yumixiu768.com:443/tmp/123.m3u8
-纬来体育,https://cloud.yumixiu768.com/tmp/123.m3u8$LR•IPV4『线路3』
-纬来体育,https://cdn.iptv8k.top/dl/jrys.php?id=291&time=20240926215313&ip=111.229.253.40$1920x1080
-纬来体育,https://cloud.yumixiu768.com/tmp/123.m3u8
-纬来体育,https://cdn.iptv8k.top/dl/jrys.php?id=292&time=20240926215313&ip=111.229.253.40$LR•IPV4『线路2』|1920x1080
-纬来体育,https://cdn.iptv8k.top/dl/jrys.php?id=291&time=20240926215313&ip=111.229.253.40$LR•IPV4『线路1』|1920x1080
-纬来体育,https://cloud.yumixiu768.com:443/tmp/123.m3u8$LR•IPV4『线路7』
-纬来体育,https://cdn.iptv8k.top/dl/jrys.php?id=292&time=20240926215313&ip=111.229.253.40$1920x1080
 体育赛事
 劲爆体育,http://117.86.191.207:8889/rtp/239.49.1.180:6000$1920x1080
 劲爆体育,http://49.75.18.152:8888/rtp/239.49.1.180:6000$1920x1080
@@ -427,7 +420,7 @@ JJ斗地主
 翡翠台(华丽台),P2p://generationnexxxt.com:19806/06940c129fd5442d9ecfa568fb42859f
 明珠台,P2p://generationnexxxt.com:19806/066930b0d2764f05a9b8a0019efe82fe
 明珠台,P2p://generationnexxxt.com:19806/6ea5ab8d22f04024b3fac9bfb2b243aa
-J2
+J2,P2p://generationnexxxt.com:19806/6ea5ab8d22f04
 TVB星河台,https://edge6a.v2h-cdn.com/xinghe/xinghe.stream/chunklist.m3u8$1280x720
 TVB星河,P2p://generationnexxxt.com:19806/e94f4c244af8464fb06eff4c9da250a6
 TVB星河,P2p://generationnexxxt.com:19806/afcbb73766d64754bd8d35fc330aae1c
