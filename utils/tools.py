@@ -288,7 +288,9 @@ def convert_to_m3u():
     """
     Convert result txt to m3u format
     """
+    # 读取配置文件中的最终文件名
     user_final_file = config.get("Settings", "final_file")
+    # 检查文件是否存在
     if os.path.exists(resource_path(user_final_file)):
         with open(resource_path(user_final_file), "r", encoding="utf-8") as file:
             m3u_output = '#EXTM3U x-tvg-url="https://live.fanmingming.com/e.xml"\n'
@@ -299,22 +301,32 @@ def convert_to_m3u():
                     if "#genre#" in trimmed_line:
                         current_group = trimmed_line.replace(",#genre#", "").strip()
                     else:
-                        original_channel_name, channel_link = map(
-                            str.strip, trimmed_line.split(",")
-                        )
-                        processed_channel_name = re.sub(
-                            r"(CCTV|CETV)-(\d+)(\+.*)?",
-                            lambda m: f"{m.group(1)}{m.group(2)}"
-                            + ("+" if m.group(3) else ""),
-                            original_channel_name,
-                        )
-                        m3u_output += f'#EXTINF:-1 tvg-name="{processed_channel_name}" tvg-logo="https://live.fanmingming.com/tv/{processed_channel_name}.png"'
-                        if current_group:
-                            m3u_output += f' group-title="{current_group}"'
-                        m3u_output += f",{original_channel_name}\n{channel_link}\n"
+                        # 尝试分割行并解包到两个变量中
+                        parts = trimmed_line.split(",")
+                        if len(parts) == 2:
+                            original_channel_name, channel_link = map(
+                                str.strip, parts
+                            )
+                            # 处理频道名称
+                            processed_channel_name = re.sub(
+                                r"(CCTV|CETV)-(\d+)(\+.*)?",
+                                lambda m: f"{m.group(1)}{m.group(2)}"
+                                + ("+" if m.group(3) else ""),
+                                original_channel_name,
+                            )
+                            # 构建M3U条目
+                            m3u_output += f'#EXTINF:-1 tvg-name="{processed_channel_name}" tvg-logo="https://live.fanmingming.com/tv/{processed_channel_name}.png"'
+                            if current_group:
+                                m3u_output += f' group-title="{current_group}"'
+                            m3u_output += f",{original_channel_name}\n{channel_link}\n"
+                        else:
+                            # 打印错误信息并跳过这行
+                            print(f"Error: Invalid line format in {user_final_file}: {trimmed_line}")
+            # 生成M3U文件路径并写入内容
             m3u_file_path = os.path.splitext(resource_path(user_final_file))[0] + ".m3u"
             with open(m3u_file_path, "w", encoding="utf-8") as m3u_file:
                 m3u_file.write(m3u_output)
+            # 打印生成的M3U文件路径
             print(f"Result m3u file generated at: {m3u_file_path}")
 
 
