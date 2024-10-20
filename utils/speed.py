@@ -118,7 +118,7 @@ def add_info_url(url, info):
     """
     Format the url
     """
-    separator = "|" if "$" in url else "$"
+    separator = "📺" if "$" in url else "$"
     url += f"{separator}{info}"
     return url
 
