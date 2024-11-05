@@ -136,10 +136,19 @@ def get_total_urls_from_info_list(infoList, ipv6=False):
 
     total_urls = []
     for url, _, resolution, origin in infoList:
+        if not origin:
+            continue
+
         if origin == "important":
-            pure_url, _, info = url.partition("$")
-            new_info = info.partition("!")[2]
-            total_urls.append(f"{pure_url}${new_info}" if new_info else pure_url)
+            im_url, _, im_info = url.partition("$")
+            im_info_value = im_info.partition("!")[2]
+            total_urls.append(f"{im_url}${im_info_value}" if im_info_value else im_url)
+            continue
+
+        if origin == "subscribe" and "/rtp/" in url:
+            origin = "multicast"
+
+        if origin not in origin_type_prefer:
             continue
 
         if config.open_filter_resolution and resolution:
@@ -147,15 +156,13 @@ def get_total_urls_from_info_list(infoList, ipv6=False):
             if resolution_value < config.min_resolution_value:
                 continue
 
-        if not origin or (origin not in origin_type_prefer):
-            continue
-
-        if origin == "subscribe" and "/rtp/" in url:
-            origin = "multicast"
+        pure_url, _, info = url.partition("$")
+        if not info:
+            url = add_url_info(pure_url, origin)
 
         url_is_ipv6 = is_ipv6(url)
         if url_is_ipv6:
-            url += "|IPv6"
+            url = add_url_info(url, "IPv6")
 
         if url_is_ipv6:
             categorized_urls[origin]["ipv6"].append(url)
