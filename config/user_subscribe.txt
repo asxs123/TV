@@ -13,6 +13,7 @@ https://m3u.ibert.me/txt/j_iptv.txt
 https://raw.githubusercontent.com/xzw832/cmys/main/S_weishi.txt
 https://raw.githubusercontent.com/asdjkl6/tv/tv/.m3u/整套直播源/测试/整套直播源/l.txt
 https://raw.githubusercontent.com/asdjkl6/tv/tv/.m3u/整套直播源/测试/整套直播源/kk.txt
+https://raw.githubusercontent.com/yuanzl77/IPTV/master/live.txt
 http://www.lyyytv.cn/yt/zhibo/1.txt
 http://yydf.540734621.xyz/wx/zb/chunyingzhibo.txt
 https://raw.githubusercontent.com/wwb521/live/refs/heads/main/tv.m3u
