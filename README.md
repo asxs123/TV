@@ -164,7 +164,7 @@ https://cdn.jsdelivr.net/gh/Guovin/iptv-api@gd/source.json
 | open_subscribe         | 开启订阅源功能                                                                                                                                               | False             |
 | open_update            | 开启更新，用于控制是否更新接口，若关闭则所有工作模式（获取接口和测速）均停止                                                                                                                | True              |
 | open_update_time       | 开启显示更新时间                                                                                                                                              | True              |
-| open_url_info          | 开启显示接口说明信息，用于控制是否显示分辨率、接口协议类型等信息，为$符号后的内容，播放软件使用该信息对接口进行描述                                                                                            | True              |
+| open_url_info          | 开启显示接口说明信息，用于控制是否显示接口来源、分辨率、协议类型等信息，为$符号后的内容，播放软件使用该信息对接口进行描述，若部分播放器（如PotPlayer）不支持解析导致无法播放可关闭                                                        | True              |
 | open_use_cache         | 开启使用本地缓存数据，适用于查询请求失败场景（仅针对酒店源与组播源）                                                                                                                    | True              |
 | open_use_old_result    | 开启使用历史更新结果（包含模板与结果文件的接口），合并至本次更新中                                                                                                                     | True              |
 | app_port               | 页面服务端口，用于控制页面服务的端口号                                                                                                                                   | 8000              |

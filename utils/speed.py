@@ -152,17 +152,22 @@ async def get_delay_requests(url, timeout=config.sort_timeout, proxy=None):
         return int(round((end - start) * 1000)) if end else float("inf")
 
 
-def is_ffmpeg_installed():
+def check_ffmpeg_installed_status():
     """
     Check ffmpeg is installed
     """
+    status = False
     try:
         result = subprocess.run(
             ["ffmpeg", "-version"], stdout=subprocess.PIPE, stderr=subprocess.PIPE
         )
-        return result.returncode == 0
+        status = result.returncode == 0
     except FileNotFoundError:
-        return False
+        status = False
+    except Exception as e:
+        print(e)
+    finally:
+        return status
 
 
 async def ffmpeg_url(url, timeout=config.sort_timeout):
