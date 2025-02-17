@@ -16,7 +16,6 @@ https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u
 https://aktv.top/live.txt
 # https://m3u.ibert.me/txt/j_iptv.txt
 http://www.lyyytv.cn/yt/zhibo/1.txt
-http://yydf.540734621.xyz/wx/zb/chunyingzhibo.txt
 https://raw.githubusercontent.com/wwb521/live/refs/heads/main/tv.m3u
 https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt
 https://m3u.ibert.me/txt/ycl_iptv.txt
@@ -31,3 +30,20 @@ https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715581
 https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1715581924675/live2.txt
 https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1716213337323/live3.txt
 http://so.owo.vin/newtv
+http://so.owo.vin/风云音乐
+http://so.owo.vin/第一剧场
+http://so.owo.vin/风云剧场
+http://so.owo.vin/世界地理
+http://so.owo.vin/高尔夫网球
+http://so.owo.vin/风云足球
+http://so.owo.vin/女性时尚
+http://so.owo.vin/央视台球
+http://so.owo.vin/央广购物
+http://so.owo.vin/环球奇观
+http://so.owo.vin/聚鲨环球精选
+http://so.owo.vin/中国交通
+http://so.owo.vin/老故事
+http://so.owo.vin/发现之旅
+http://so.owo.vin/中学生
+http://so.owo.vin/CETV3
+http://so.owo.vin/早期教育
