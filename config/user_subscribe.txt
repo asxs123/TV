@@ -20,6 +20,7 @@
 # http://so.owo.vin/CETV3
 # http://so.owo.vin/早期教育
 # http://so.owo.vin/河南
+https://raw.githubusercontent.com/Guovin/iptv-database/master/result.txt
 https://raw.githubusercontent.com/iptv-org/iptv/gh-pages/countries/cn.m3u
 https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u
 https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
