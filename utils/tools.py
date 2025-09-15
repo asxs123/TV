@@ -4,12 +4,11 @@ import logging
 import os
 import re
 import shutil
-import socket
 import sys
-import urllib.parse
 from collections import defaultdict
 from logging.handlers import RotatingFileHandler
 from time import time
+from urllib.parse import urlparse, urlunparse
 
 import pytz
 import requests
@@ -18,16 +17,18 @@ from flask import send_file, make_response
 from opencc import OpenCC
 
 import utils.constants as constants
-from utils.config import config
+from utils.config import config, resource_path
 from utils.types import ChannelData
+
+opencc_t2s = OpenCC("t2s")
 
 
 def get_logger(path, level=logging.ERROR, init=False):
     """
     get the logger
     """
-    if not os.path.exists(constants.output_path):
-        os.makedirs(constants.output_path)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    os.makedirs(constants.output_dir, exist_ok=True)
     if init and os.path.exists(path):
         os.remove(path)
     handler = RotatingFileHandler(path, encoding="utf-8")
@@ -149,7 +150,7 @@ def get_resolution_value(resolution_str):
     return 0
 
 
-def get_total_urls(info_list: list[ChannelData], ipv_type_prefer, origin_type_prefer) -> list:
+def get_total_urls(info_list: list[ChannelData], ipv_type_prefer, origin_type_prefer, rtmp_type=None) -> list:
     """
     Get the total urls from info list
     """
@@ -162,42 +163,42 @@ def get_total_urls(info_list: list[ChannelData], ipv_type_prefer, origin_type_pr
     categorized_urls = {origin: {ipv_type: [] for ipv_type in ipv_type_prefer} for origin in origin_type_prefer}
     total_urls = []
     for info in info_list:
-        url, origin, resolution, url_ipv_type = info["url"], info["origin"], info["resolution"], info["ipv_type"]
+        channel_id, url, origin, resolution, url_ipv_type, extra_info = (
+            info["id"],
+            info["url"],
+            info["origin"],
+            info["resolution"],
+            info["ipv_type"],
+            info.get("extra_info", ""),
+        )
         if not origin:
             continue
 
-        if origin == "whitelist":
-            w_url, _, w_info = url.partition("$")
-            w_info_value = w_info.partition("!")[2] or "白名单"
-            total_urls.append(add_url_info(w_url, w_info_value))
-            continue
+        if origin in ["live", "hls"]:
+            if not rtmp_type or (rtmp_type and origin in rtmp_type):
+                total_urls.append(info)
+                continue
+            else:
+                continue
 
-        if origin == "subscribe" and "/rtp/" in url:
-            origin = "multicast"
+        if origin == "whitelist":
+            total_urls.append(info)
+            continue
 
         if origin_prefer_bool and (origin not in origin_type_prefer):
             continue
 
-        pure_url, _, info = url.partition("$")
-        if not info:
-            origin_name = constants.origin_map[origin]
-            if origin_name:
-                url = add_url_info(pure_url, origin_name)
-
-        if url_ipv_type == 'ipv6':
-            url = add_url_info(url, "IPv6")
-
-        if resolution:
-            url = add_url_info(url, resolution)
+        if not extra_info:
+            info["extra_info"] = constants.origin_map[origin]
 
         if not origin_prefer_bool:
             origin = "all"
 
         if ipv_prefer_bool:
             if url_ipv_type in ipv_type_prefer:
-                categorized_urls[origin][url_ipv_type].append(url)
+                categorized_urls[origin][url_ipv_type].append(info)
         else:
-            categorized_urls[origin]["all"].append(url)
+            categorized_urls[origin]["all"].append(info)
 
     ipv_num = {ipv_type: 0 for ipv_type in ipv_type_prefer}
     urls_limit = config.urls_limit
@@ -223,19 +224,15 @@ def get_total_urls(info_list: list[ChannelData], ipv_type_prefer, origin_type_pr
             else:
                 continue
 
-    total_urls = list(dict.fromkeys(total_urls))[:urls_limit]
+    total_urls = total_urls[:urls_limit]
 
-    if not config.open_url_info:
-        return [url.partition("$")[0] for url in total_urls]
-    else:
-        return total_urls
+    return total_urls
 
 
 def get_total_urls_from_sorted_data(data):
     """
     Get the total urls with filter by date and duplicate from sorted data
     """
-    total_urls = []
     if len(data) > config.urls_limit:
         total_urls = [channel_data["url"] for channel_data, _ in filter_by_date(data)]
     else:
@@ -243,26 +240,12 @@ def get_total_urls_from_sorted_data(data):
     return list(dict.fromkeys(total_urls))[: config.urls_limit]
 
 
-def check_url_ipv6(url):
-    """
-    Check if the url is ipv6
-    """
-    try:
-        host = urllib.parse.urlparse(url).hostname
-        if host:
-            addr_info = socket.getaddrinfo(host, None, socket.AF_UNSPEC, socket.SOCK_STREAM)
-            for info in addr_info:
-                if info[0] == socket.AF_INET6:
-                    return True
-        return False
-    except:
-        return False
-
-
 def check_ipv6_support():
     """
     Check if the system network supports ipv6
     """
+    if os.getenv("GITHUB_ACTIONS"):
+        return False
     url = "https://ipv6.tokyo.test-ipv6.com/ip/?callback=?&testdomain=test-ipv6.com&testname=test_aaaa"
     try:
         print("Checking if your network supports IPv6...")
@@ -272,7 +255,7 @@ def check_ipv6_support():
             return True
     except Exception:
         pass
-    print("Your network does not support IPv6, don't worry, these results will be saved")
+    print("Your network does not support IPv6, don't worry, the IPv6 results will be saved")
     return False
 
 
@@ -298,9 +281,13 @@ def check_url_by_keywords(url, keywords=None):
         return any(keyword in url for keyword in keywords)
 
 
-def merge_objects(*objects):
+def merge_objects(*objects, match_key=None):
     """
     Merge objects
+
+    Args:
+        *objects: Dictionaries to merge
+        match_key: If dict1[key] is a list of dicts, this key will be used to match and merge dicts
     """
 
     def merge_dicts(dict1, dict2):
@@ -310,11 +297,18 @@ def merge_objects(*objects):
                     merge_dicts(dict1[key], value)
                 elif isinstance(dict1[key], set):
                     dict1[key].update(value)
-                elif isinstance(dict1[key], list):
-                    if value:
+                elif isinstance(dict1[key], list) and isinstance(value, list):
+                    if match_key and all(isinstance(x, dict) for x in dict1[key] + value):
+                        existing_items = {item[match_key]: item for item in dict1[key]}
+                        for new_item in value:
+                            if match_key in new_item and new_item[match_key] in existing_items:
+                                merge_dicts(existing_items[new_item[match_key]], new_item)
+                            else:
+                                dict1[key].append(new_item)
+                    else:
                         dict1[key].extend(x for x in value if x not in dict1[key])
-                elif value:
-                    dict1[key] = {dict1[key], value}
+                elif value != dict1[key]:
+                    dict1[key] = value
             else:
                 dict1[key] = value
 
@@ -331,26 +325,30 @@ def get_ip_address():
     """
     Get the IP address
     """
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    ip = "127.0.0.1"
-    try:
-        s.connect(("10.255.255.255", 1))
-        ip = s.getsockname()[0]
-    except:
-        ip = "127.0.0.1"
-    finally:
-        s.close()
-        return f"http://{ip}:{config.app_port}"
+    host = os.getenv("APP_HOST", config.app_host)
+    port = os.getenv("APP_PORT", config.app_port)
+    return f"{host}:{port}"
 
 
-def convert_to_m3u(first_channel_name=None):
+def get_epg_url():
+    """
+    Get the epg result url
+    """
+    if os.getenv("GITHUB_ACTIONS"):
+        repository = os.getenv("GITHUB_REPOSITORY", "Guovin/iptv-api")
+        ref = os.getenv("GITHUB_REF", "gd")
+        return join_url(config.cdn_url, f"https://raw.githubusercontent.com/{repository}/{ref}/output/epg/epg.gz")
+    else:
+        return f"{get_ip_address()}/epg/epg.gz"
+
+
+def convert_to_m3u(path=None, first_channel_name=None, data=None):
     """
     Convert result txt to m3u format
     """
-    user_final_file = resource_path(config.final_file)
-    if os.path.exists(user_final_file):
-        with open(user_final_file, "r", encoding="utf-8") as file:
-            m3u_output = f'#EXTM3U x-tvg-url="{join_url(config.cdn_url, 'https://raw.githubusercontent.com/fanmingming/live/main/e.xml')}"\n'
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as file:
+            m3u_output = f'#EXTM3U x-tvg-url="{get_epg_url()}"\n'
             current_group = None
             for line in file:
                 trimmed_line = line.strip()
@@ -373,29 +371,46 @@ def convert_to_m3u(first_channel_name=None):
                         m3u_output += f'#EXTINF:-1 tvg-name="{processed_channel_name}" tvg-logo="{join_url(config.cdn_url, f'https://raw.githubusercontent.com/fanmingming/live/main/tv/{processed_channel_name}.png')}"'
                         if current_group:
                             m3u_output += f' group-title="{current_group}"'
-                        m3u_output += f",{original_channel_name}\n{channel_link}\n"
-            m3u_file_path = os.path.splitext(user_final_file)[0] + ".m3u"
+                        item_data = {}
+                        if data:
+                            item_list = data.get(original_channel_name, [])
+                            for item in item_list:
+                                if item["url"] == channel_link:
+                                    item_data = item
+                                    break
+                        if item_data:
+                            catchup = item_data.get("catchup")
+                            if catchup:
+                                for key, value in catchup.items():
+                                    m3u_output += f' {key}="{value}"'
+                        m3u_output += f",{original_channel_name}\n"
+                        if item_data and config.open_headers:
+                            headers = item_data.get("headers")
+                            if headers:
+                                for key, value in headers.items():
+                                    m3u_output += f"#EXTVLCOPT:http-{key.lower()}={value}\n"
+                        m3u_output += f"{channel_link}\n"
+            m3u_file_path = os.path.splitext(path)[0] + ".m3u"
             with open(m3u_file_path, "w", encoding="utf-8") as m3u_file:
                 m3u_file.write(m3u_output)
-            print(f"✅ M3U result file generated at: {m3u_file_path}")
+            # print(f"✅ M3U result file generated at: {m3u_file_path}")
 
 
-def get_result_file_content(show_content=False, file_type=None):
+def get_result_file_content(path=None, show_content=False, file_type=None):
     """
     Get the content of the result file
     """
-    user_final_file = resource_path(config.final_file)
     result_file = (
-        os.path.splitext(user_final_file)[0] + f".{file_type}"
+        os.path.splitext(path)[0] + f".{file_type}"
         if file_type
-        else user_final_file
+        else path
     )
     if os.path.exists(result_file):
         if config.open_m3u_result:
             if file_type == "m3u" or not file_type:
-                result_file = os.path.splitext(user_final_file)[0] + ".m3u"
+                result_file = os.path.splitext(path)[0] + ".m3u"
             if file_type != "txt" and show_content == False:
-                return send_file(result_file, as_attachment=True)
+                return send_file(resource_path(result_file), as_attachment=True)
         with open(result_file, "r", encoding="utf-8") as file:
             content = file.read()
     else:
@@ -405,38 +420,32 @@ def get_result_file_content(show_content=False, file_type=None):
     return response
 
 
-def remove_duplicates_from_list(data_list, seen, flag=None, force_str=None):
+def remove_duplicates_from_list(data_list, seen, filter_host=False, ipv6_support=True):
     """
     Remove duplicates from data list
     """
     unique_list = []
     for item in data_list:
-        item_first = item["url"]
-        part = item_first
-        if force_str:
-            info = item_first.partition("$")[2]
-            if info and info.startswith(force_str):
-                continue
-        if flag:
-            matcher = re.search(flag, item_first)
-            if matcher:
-                part = matcher.group(1)
-        seen_num = seen.get(part, 0)
-        if (seen_num < config.sort_duplicate_limit) or (seen_num == 0 and config.sort_duplicate_limit == 0):
-            seen[part] = seen_num + 1
+        if item["origin"] in ["whitelist", "live", "hls"]:
+            continue
+        if not ipv6_support and item["ipv_type"] == "ipv6":
+            continue
+        part = item["host"] if filter_host else item["url"]
+        if part not in seen:
+            seen.add(part)
             unique_list.append(item)
     return unique_list
 
 
-def process_nested_dict(data, seen, flag=None, force_str=None):
+def process_nested_dict(data, seen, filter_host=False, ipv6_support=True):
     """
     Process nested dict
     """
     for key, value in data.items():
         if isinstance(value, dict):
-            process_nested_dict(value, seen, flag, force_str)
+            process_nested_dict(value, seen, filter_host, ipv6_support)
         elif isinstance(value, list):
-            data[key] = remove_duplicates_from_list(value, seen, flag, force_str)
+            data[key] = remove_duplicates_from_list(value, seen, filter_host, ipv6_support)
 
 
 def get_url_host(url):
@@ -514,8 +523,7 @@ def format_name(name: str) -> str:
     """
     Format the  name with sub and replace and lower
     """
-    cc = OpenCC("t2s")
-    name = cc.convert(name)
+    name = opencc_t2s.convert(name)
     for region in constants.region_list:
         name = name.replace(f"{region}｜", "")
     name = constants.sub_pattern.sub("", name)
@@ -524,17 +532,57 @@ def format_name(name: str) -> str:
     return name.lower()
 
 
-def get_name_url(content, pattern, check_url=True):
+def get_headers_key_value(content: str) -> dict:
     """
-    Get name and url from content
+    Get the headers key value from content
     """
-    matches = pattern.findall(content)
-    channels = [
-        {"name": match[0].strip(), "url": match[1].strip()}
-        for match in matches
-        if (check_url and match[1].strip()) or not check_url
-    ]
-    return channels
+    key_value = {}
+    for match in constants.key_value_pattern.finditer(content):
+        key = match.group("key").strip().replace("http-", "").replace("-", "").lower()
+        if "refer" in key:
+            key = "referer"
+        value = match.group("value").replace('"', "").strip()
+        if key and value:
+            key_value[key] = value
+    return key_value
+
+
+def get_name_url(content, pattern, open_headers=False, check_url=True):
+    """
+    Extract name and URL from content using a regex pattern.
+    :param content: str, the input content to search.
+    :param pattern: re.Pattern, the compiled regex pattern to match.
+    :param open_headers: bool, whether to extract headers.
+    :param check_url: bool, whether to validate the presence of a URL.
+    """
+    result = []
+    for match in pattern.finditer(content):
+        group_dict = match.groupdict()
+        name = (group_dict.get("name", "") or "").strip()
+        url = (group_dict.get("url", "") or "").strip()
+        if not name or (check_url and not url):
+            continue
+        data = {"name": name, "url": url}
+        attributes = {**get_headers_key_value(group_dict.get("attributes", "")),
+                      **get_headers_key_value(group_dict.get("options", ""))}
+        headers = {
+            "User-Agent": attributes.get("useragent", ""),
+            "Referer": attributes.get("referer", ""),
+            "Origin": attributes.get("origin", "")
+        }
+        catchup = {
+            "catchup": attributes.get("catchup", ""),
+            "catchup-source": attributes.get("catchupsource", ""),
+        }
+        headers = {k: v for k, v in headers.items() if v}
+        catchup = {k: v for k, v in catchup.items() if v}
+        if not open_headers and headers:
+            continue
+        if open_headers:
+            data["headers"] = headers
+        data["catchup"] = catchup
+        result.append(data)
+    return result
 
 
 def get_real_path(path) -> str:
@@ -547,7 +595,7 @@ def get_real_path(path) -> str:
     return real_path
 
 
-def get_urls_from_file(path: str) -> list:
+def get_urls_from_file(path: str, pattern_search: bool = True) -> list:
     """
     Get the urls from file
     """
@@ -557,11 +605,14 @@ def get_urls_from_file(path: str) -> list:
         with open(real_path, "r", encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
-                if line.startswith("#"):
+                if not line or line.startswith("#"):
                     continue
-                match = constants.url_pattern.search(line)
-                if match:
-                    urls.append(match.group().strip())
+                if pattern_search:
+                    match = constants.url_pattern.search(line)
+                    if match:
+                        urls.append(match.group().strip())
+                else:
+                    urls.append(line)
     return urls
 
 
@@ -583,6 +634,19 @@ def get_name_urls_from_file(path: str, format_name_flag: bool = False) -> dict[s
                     url = name_url[0]["url"]
                     if url not in name_urls[name]:
                         name_urls[name].append(url)
+    return name_urls
+
+
+def get_name_uri_from_dir(path: str) -> dict:
+    """
+    Get the name and uri from dir, only from file name
+    """
+    real_path = get_real_path(resource_path(path))
+    name_urls = defaultdict(list)
+    if os.path.exists(real_path):
+        for file in os.listdir(real_path):
+            filename = file.rsplit(".", 1)[0]
+            name_urls[filename].append(f"{real_path}/{file}")
     return name_urls
 
 
@@ -617,3 +681,76 @@ def join_url(url1: str, url2: str) -> str:
     if not url1.endswith("/"):
         url1 += "/"
     return url1 + url2
+
+
+def add_port_to_url(url: str, port: int) -> str:
+    """
+    Add port to the url
+    """
+    parsed = urlparse(url)
+    netloc = parsed.netloc
+    if parsed.username and parsed.password:
+        netloc = f"{parsed.username}:{parsed.password}@{netloc}"
+    if port:
+        netloc = f"{netloc}:{port}"
+    new_url = urlunparse((
+        parsed.scheme,
+        netloc,
+        parsed.path,
+        parsed.params,
+        parsed.query,
+        parsed.fragment
+    ))
+    return new_url
+
+
+def get_url_without_scheme(url: str) -> str:
+    """
+    Get the url without scheme
+    """
+    parsed = urlparse(url)
+    return parsed.netloc + parsed.path
+
+
+def find_by_id(data: dict, id: int) -> dict:
+    """
+    Find the nested dict by id
+    :param data: target data
+    :param id: target id
+    :return: target dict
+    """
+    if isinstance(data, dict) and 'id' in data and data['id'] == id:
+        return data
+    for key, value in data.items():
+        if isinstance(value, dict):
+            result = find_by_id(value, id)
+            if result is not None:
+                return result
+        elif isinstance(value, list):
+            for item in value:
+                if isinstance(item, dict):
+                    result = find_by_id(item, id)
+                    if result is not None:
+                        return result
+    return {}
+
+
+def custom_print(*args, **kwargs):
+    """
+    Custom print
+    """
+    if not custom_print.disable:
+        print(*args, **kwargs)
+
+
+def get_urls_len(data) -> int:
+    """
+    Get the dict urls length
+    """
+    urls = set(
+        url_info["url"]
+        for value in data.values()
+        for url_info_list in value.values()
+        for url_info in url_info_list
+    )
+    return len(urls)
