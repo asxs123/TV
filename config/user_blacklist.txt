@@ -94,42 +94,66 @@ ls.qingting.fm/live/1861.m3u8
 play-radio-stream3.hndt.com/now/Or5au0KN/playlist.m3u8
 radio.pull.hebtv.com/live/hebnczx.m3u8
 wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv9_1/index.m3u8?adapt=0&BR=audio
+satellitepull.cnr.cn/live/wx32dfws/playlist.m3u8
 satellitepull.cnr.cn/live/wx32fjdnjjgb/playlist.m3u8
 satellitepull.cnr.cn/live/wxsdtyxxgb/playlist.m3u8
+satellitepull.cnr.cn/live/wxsdws/playlist.m3u8
+satellitepull.cnr.cn/live/wxssxws/playlist.m3u8
 satellitepull.cnr.cn/live/wxybws/playlist.m3u8
 satellitepull.cnr.cn/live/wxzjjjgb/playlist.m3u8
 satellitepull.cnr.cn/live/wxbjxwgb/playlist.m3u8
 satellitepull.cnr.cn/live/wx32fjxwgb/playlist.m3u8
 satellitepull.cnr.cn/live/wxcqxwgb/playlist.m3u8
 satellitepull.cnr.cn/live/wx32nmgjjgb/playlist.m3u8
+satellitepull.cnr.cn/live/wx32nmgws/playlist.m3u8
 satellitepull.cnr.cn/live/wxhainxwgb/playlist.m3u8
 satellitepull.cnr.cn/live/wx32nmgyygb/playlist.m3u8
 satellitepull.cnr.cn/live/wxgdws/playlist.m3u8
 satellitepull.cnr.cn/live/wxbtv/playlist.m3u8
+satellitepull.cnr.cn/live/wxcqws/playlist.m3u8
 satellitepull.cnr.cn/live/wx32hubws/playlist.m3u8
 satellitepull.cnr.cn/live/wxahws/playlist.m3u8
 satellitepull.cnr.cn/live/wx32fjws/playlist.m3u8
 satellitepull.cnr.cn/live/wx32gzws/playlist.m3u8
+satellitepull.cnr.cn/live/wx32hljws/playlist.m3u8
 satellitepull.cnr.cn/live/wxhainlyws/playlist.m3u8
 satellitepull.cnr.cn/live/wxhebws/playlist.m3u8
 satellitepull.cnr.cn/live/wxjlws/playlist.m3u8
+satellitepull.cnr.cn/live/wxlnws/playlist.m3u8
 stream3.jlntv.cn:80/aac_slgb/playlist.m3u8
 stream9.jlntv.cn:80/aac_longjinggb/playlist.m3u8
 # 直播中国
 gcalic.v.myalicdn.com/gc/ahhs01_1/index.m3u8
-# 标题错误，固定历史节目回放
+# 固定历史节目回放非直播
 p2.bdstatic.com/rtmp.liveshow.lss-user.baidubce.com/live/stream_bduid_6488563992_8982723413/merged_1707497046297_88536_25144_41936.m3u8
 ku9.3n.cc/smt.php?id=ftvtaiwan_twn
 ku9.3n.cc/smt.php?id=lunghuajingdian_twn
 #浙江新闻
 https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8?
-#测试源
+# 虞城综合
+tvpull.dxhmt.cn:9081/tv/11425-1.m3u8
+# 测试源
 8.138.7.223/tv/dl/douyincdn.php
 8.138.7.223/tv/migu8.php
 8.138.7.223/tv/dl/careryun.php
+8.138.7.223/tv/hot.php?id=6
+8.138.7.223/tv/hot.php?id=19
+8.138.7.223/tv/hot.php?id=35
+8.138.7.223/tv/hot.php?id=40
+8.138.7.223/tv/hot.php?id=31
+8.138.7.223/tv/hot.php?id=42
+8.138.7.223/tv/hot.php?id=25
+8.138.7.223/tv/hot.php?id=23
 124.222.114.206:35455/yy/26744898
 124.222.114.206:35455/yy/28099939
+mgtv.ottiptv.cc/mg/641886773.m3u8?sign=7f31c3f4d80af4cf5f6c2f2189018d92&tm=1757355490&token=2e38e2525e228ba0c61d7b6ea8126b93bd9a0b66bc9b8f25393b448d83e3772f559f1809acbbae607935ba6cc079da9006d580597c0841854f0dd9bf739eeb3655d878737fcb742ebc40bac19f
+mgtv.ottiptv.cc/mg/673168223.m3u8?sign=d70930bbe31c54f032b793ee5de257ba&tm=1757436314&token=328b8555ab91befa5029aace27308cb3e33181df6b55d8e7bec9b200a8039f272e759d1023c612d5a12a1cdf68c48fd91f5c504bb8f8c4ea26edde2f90ac14aa4137c858d506d8adda1238f4db
+mgtv.ottiptv.cc/mg/667987558.m3u8?sign=7b09e0869ff91af07c7491fa4aeddbbd&tm=1757436314&token=d1948230057b17e4617cbe500ed80080f20bd34f00c5c4b208c5adb8f4bc3aa9be69de183ac8c743e6a889ad74921065ff926532a199e060693cd91368ab0f0e78439aa08183428323628a35e3
 # 无版权
 http://1.94.31.214/php/hntv.php?id=hnds
 # 广告，付费
 117.158.43.187:2016/全网通.php?id=CCTV2
+http://free.cnlive.club/channel/n7ba2911b/index.m3u8?q=1758504052918
+free.cnlive.club
+# 无信号
+stream1.freetv.fun/zhou-kou-xin-wen-zong-he-1.m3u8

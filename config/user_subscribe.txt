@@ -39,14 +39,12 @@ https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
 https://raw.githubusercontent.com/xzw832/cmys/main/S_weishi.txt
 https://raw.githubusercontent.com/YueChan/Live/main/Hunan.txt
 # 5月
+https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
 https://raw.githubusercontent.com/asdjkl6/tv/tv/.m3u/整套直播源/测试/整套直播源/l.txt
 https://raw.githubusercontent.com/asdjkl6/tv/tv/.m3u/整套直播源/测试/整套直播源/kk.txt
 # 8月
 https://raw.githubusercontent.com/yuanzl77/IPTV/master/live.txt
 https://raw.githubusercontent.com/MemoryCollection/IPTV/main/hotel.txt
-# 5月
-https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
-
 
 http://www.lyyytv.cn/yt/zhibo/1.txt
 http://home.jundie.top:81/Cat/tv/live.txt
