@@ -153,7 +153,8 @@ mgtv.ottiptv.cc/mg/667987558.m3u8?sign=7b09e0869ff91af07c7491fa4aeddbbd&tm=17574
 http://1.94.31.214/php/hntv.php?id=hnds
 # 广告，付费
 117.158.43.187:2016/全网通.php?id=CCTV2
-http://free.cnlive.club/channel/n7ba2911b/index.m3u8?q=1758504052918
-free.cnlive.club
+free.cnlive.club/channel/n7ba2911b/index.m3u8?q=1758504052918
+# free.cnlive.club
+live.catvod.com/live.php?id=CGTN&token=53ecb867df7b7d47b34104c5cefac2844ce9053439b4adca258e37152c9f6a07%3A1761096021%3AMTcyLjE4Mi4yMTIuOA%3D%3D
 # 无信号
 stream1.freetv.fun/zhou-kou-xin-wen-zong-he-1.m3u8
