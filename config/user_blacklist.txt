@@ -28,7 +28,9 @@ smart.tv.home.kg
 61.221.215.25:8800/hls/48/index.m3u8
 ali-m-l.cztv.com/channels/lantian/channel02/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel04/720p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel07/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel10/1080p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel12/720p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel005/1080p.m3u8
 epg.pw/stream/8f19ffa80587df7ce12caae69cfd3dc322e239a02f081eaf7991f5b3d994ae6f.m3u8
 l.cztvcloud.com/channels/lantian/SXdongtou1/720p.m3u8
@@ -47,10 +49,13 @@ l.cztvcloud.com/channels/lantian/SXyuhang1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXyuhang3/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXyuyao1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXyuyao2/720p.m3u8
+l.cztvcloud.com/channels/lantian/SXyuyao3/720p.m3u8
 live.cms.anhuinews.com/video/s10003-lbtv/index.m3u8
 live.ybtvyun.com/video/s10006-1c8f0ebfee9f/index.m3u8
 live.ybtvyun.com/video/s10006-9ccd00054351/index.m3u8
 live.ybtvyun.com/video/s10016-af95004b6d1a/index.m3u8
+lxfile.lxxcb.cn:80/nmip-media/channellive/channel103799/playlist.m3u8
+lxfile.lxxcb.cn/nmip-media/channellive/channel103799/playlist.m3u8
 m3u8channel-sm.yunxya.com/nmip-media/channellive/channel100420/playlist.m3u8
 t.live.cntv.cn/m3u8/cctv400.m3u8
 tvpull.dxhmt.cn:9081/tv/10526-1.m3u8
@@ -94,6 +99,10 @@ ls.qingting.fm/live/1861.m3u8
 play-radio-stream3.hndt.com/now/Or5au0KN/playlist.m3u8
 radio.pull.hebtv.com/live/hebnczx.m3u8
 wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv9_1/index.m3u8?adapt=0&BR=audio
+wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv2_1/index.m3u8?adapt=0&BR=audio
+wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv4_1/index.m3u8?adapt=0&BR=audio
+wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv5_1/index.m3u8?adapt=0&BR=audio
+wstvcpudali.v.myalicdn.com/wstvcpud/udrmbtv7_1/index.m3u8?adapt=0&BR=audio
 satellitepull.cnr.cn/live/wx32dfws/playlist.m3u8
 satellitepull.cnr.cn/live/wx32fjdnjjgb/playlist.m3u8
 satellitepull.cnr.cn/live/wxsdtyxxgb/playlist.m3u8
@@ -128,10 +137,18 @@ gcalic.v.myalicdn.com/gc/ahhs01_1/index.m3u8
 p2.bdstatic.com/rtmp.liveshow.lss-user.baidubce.com/live/stream_bduid_6488563992_8982723413/merged_1707497046297_88536_25144_41936.m3u8
 ku9.3n.cc/smt.php?id=ftvtaiwan_twn
 ku9.3n.cc/smt.php?id=lunghuajingdian_twn
+# cctv5+
+iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221227348/index.m3u8
 #浙江新闻
 https://ali-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8?
 # 虞城综合
 tvpull.dxhmt.cn:9081/tv/11425-1.m3u8
+# KTTV-1 奎屯综合
+jzb.wwkejishe.top/?id=623
+# 昌黎县综合
+jwcdnqx.hebyun.com.cn/live/clzhpd/1500k/tzwj_video.m3u8?zhebd
+# 北京卫视
+113.57.93.165:9900/tsfile/live/1017_1.m3u8
 # 测试源
 8.138.7.223/tv/dl/douyincdn.php
 8.138.7.223/tv/migu8.php
@@ -150,11 +167,13 @@ mgtv.ottiptv.cc/mg/641886773.m3u8?sign=7f31c3f4d80af4cf5f6c2f2189018d92&tm=17573
 mgtv.ottiptv.cc/mg/673168223.m3u8?sign=d70930bbe31c54f032b793ee5de257ba&tm=1757436314&token=328b8555ab91befa5029aace27308cb3e33181df6b55d8e7bec9b200a8039f272e759d1023c612d5a12a1cdf68c48fd91f5c504bb8f8c4ea26edde2f90ac14aa4137c858d506d8adda1238f4db
 mgtv.ottiptv.cc/mg/667987558.m3u8?sign=7b09e0869ff91af07c7491fa4aeddbbd&tm=1757436314&token=d1948230057b17e4617cbe500ed80080f20bd34f00c5c4b208c5adb8f4bc3aa9be69de183ac8c743e6a889ad74921065ff926532a199e060693cd91368ab0f0e78439aa08183428323628a35e3
 # 无版权
-http://1.94.31.214/php/hntv.php?id=hnds
+1.94.31.214/php/hntv.php?id=hnds
+jwplay.hebyun.com.cn/live/cctv13/1500k/tzwj_video.m3u8
+live1.habctv.com/ysylsl/sd/live.m3u8
 # 广告，付费
 117.158.43.187:2016/全网通.php?id=CCTV2
-free.cnlive.club/channel/n7ba2911b/index.m3u8?q=1758504052918
-# free.cnlive.club
-live.catvod.com/live.php?id=CGTN&token=53ecb867df7b7d47b34104c5cefac2844ce9053439b4adca258e37152c9f6a07%3A1761096021%3AMTcyLjE4Mi4yMTIuOA%3D%3D
+free.cnlive.club
+live.catvod.com
 # 无信号
 stream1.freetv.fun/zhou-kou-xin-wen-zong-he-1.m3u8
+event.pull.hebtv.com/jishi/cp1.m3u8
