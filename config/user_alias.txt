@@ -53,7 +53,7 @@ CETV4,CETV-4,CETV4中国教育,CETV4 中国教育,中国教育4,中国教育4HD,
 CETV早期教育,CETV早教,早期教育
 CGTN,CGTN英语,CGTN英语新闻,CGTN (1080p)
 CGTN俄语,CGTN俄罗斯语
-CGTN记录,CGTN Documentary (1080p)
+CGTN纪录,CGTN记录,CGTN Documentary (1080p)
 
 广东珠江,GDTV-2,珠江,珠江频道,珠江台,广东珠江高清,珠江高清
 
@@ -82,6 +82,7 @@ Russia Today Balkan,RT Balkan （塞尔维亚语）
 Russia Today Arabic,RT Arabic（阿语）
 寰宇新闻,寰宇新聞,寰宇新聞台
 TLC 旅游生活,亚洲TLC
+EBC东森财经新闻,东森财经
 
 黑莓电影,NewTV黑莓电影
 黑莓动画,NewTV黑莓动画
@@ -211,10 +212,10 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 南通社教,南通都市生活
 内蒙古蒙语卫视,Nei Monggol TV
 内蒙古新闻综合,Nei Monggol TV News Channel
-内蒙古经济生活,Nei Monggol TV Economic & Life Channel
-内蒙古文体娱乐,Nei Monggol TV Culture Entertainment Channel
-内蒙古少儿,Nei Monggol TV Children Channel
-内蒙古农牧,Nei Monggol TV Agriculture & Animal Channel
+内蒙古经济生活,Nei Monggol TV Economic & Life Channel,内蒙经济
+内蒙古文体娱乐,Nei Monggol TV Culture Entertainment Channel,内蒙文体
+内蒙古少儿,Nei Monggol TV Children Channel,内蒙少儿
+内蒙古农牧,Nei Monggol TV Agriculture & Animal Channel,内蒙农牧
 内蒙古蒙语文化,Nei Monggol TV 2 Mongolian Culture Channel
 平遥综合,平遥新闻综合
 七星关综合,七星关电视台
@@ -277,3 +278,8 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 新安综合,新安新闻综合
 嵩县综合新闻,嵩县综合
 河北文旅公共,河北公共
+河北经济生活,河北经济
+河北影视剧,河北影视
+河北少儿科教,河北少儿
+TV BRICS Chinese,TV BRICS Chinese (1080p)
+通化新闻综合,Tonghua TV
