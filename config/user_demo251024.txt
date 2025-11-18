@@ -724,7 +724,7 @@ CGTN俄语
 桦甸综合
 榆树市综合
 江源综合,白山市江源区综合
-辉南新闻综合,辉南县综合
+辉南综合,辉南县综合
 长白朝鲜族自治县综合
 长岭县综合
 大安新闻综合,大安市综合
@@ -782,7 +782,7 @@ CGTN俄语
 宝清县综合
 友谊县综合
 逊克县综合
-甘南县综合
+甘南综合,甘南县综合
 尚志市综合
 哈尔滨市阿城区综合
 哈尔滨市双城区综合
@@ -3324,3 +3324,210 @@ CGTN俄语
 吐鲁番市高昌区综合
 阿拉山口市综合
 霍尔果斯市综合
+
+NewTV,#genre#
+NewTV军旅剧场
+NewTV惊悚悬疑
+NewTV金牌综艺
+NewTV潮妈辣婆
+NewTV超级综艺
+NewTV超级电影
+NewTV超级电视剧
+NewTV爱情喜剧
+NewTV动作电影
+NewTV中国功夫
+NewTV家庭剧场
+NewTV欢乐剧场
+NewTV古装剧场
+NewTV东北热剧
+NewTV超级体育
+
+🌊港·澳·台,#genre#
+翡翠台
+TVB J1
+明珠台
+TVB Plus
+凤凰中文
+凤凰资讯
+凤凰香港
+凤凰卫视
+凤凰卫视电影
+TVBS亚洲
+纬来体育
+纬来育乐
+J2
+Viutv
+三立台湾
+无线新闻
+三立新闻
+东森综合
+东森超视
+东森电影
+EBC东森财经新闻,东森财经
+靖天资讯
+人间卫视
+番薯台
+美亚C+
+莲花卫视
+TVB无线新闻
+TVB明珠
+TVB娱乐新闻
+TVBS新闻
+Taiwan Plus
+台视新闻
+澳视澳门
+民视新闻台
+民视
+中天亚洲
+中视菁采
+
+🎬电影频道,#genre#
+CHC家庭影院
+CHC动作电影
+CHC高清电影
+CHC影迷电影
+NewTV动作电影
+1905电影网
+1905国外电影
+黑莓电影
+靖天映画
+靖天戏剧
+经典电影
+IPTV经典电影
+天映经典
+无线星河
+星空卫视
+东森洋片
+MovieSphere
+
+🏀体育频道,#genre#
+劲爆体育
+爱体育
+精品体育
+辽宁体育
+魅力足球
+快乐垂钓
+JJ斗地主
+
+🪁动画频道,#genre#
+少儿动画
+卡酷动画
+新动漫
+爱动漫
+CN卡通
+金鹰卡通
+黑莓动画
+炫动卡通
+24H国漫热播
+七龙珠
+火影忍者
+海绵宝宝
+中华小当家
+猫和老鼠
+经典动漫
+蜡笔小新
+漫画解说
+
+🎮游戏频道,#genre#
+游戏风云
+爱电竞
+
+🎵音乐频道,#genre#
+音乐现场
+音乐之声
+潮流音乐
+
+世界,#genre#
+TV BRICS Chinese
+РТР Планета Азия
+WionNews
+Wild Earth
+Russia Today News
+Russia Today Français
+Russia Today Español
+Russia Today Doc-Русский
+Russia Today Documentary
+Russia Today DE
+Russia Today Balkan
+Russia Today Arabic
+NBC News Now
+Love Nature
+GB News
+France 24
+Fox LiveNow
+FIFA+
+Fashion TV
+CNA
+CBN News
+CBC News
+BBC
+Arirang
+半岛新闻
+Trace Sports
+Tastemade
+NHK World
+Newsmax
+MovieSphere
+ION
+ROCK Action
+Sky News
+tvN
+东森新闻
+环球电视
+龍華日韓台
+寰宇新闻
+寰宇新闻台湾
+寰宇财经
+亚洲旅游
+美食星球
+亚洲综合
+寰宇综合
+梅迪奇艺术
+Discovery
+discovery+
+CNN
+DC
+欧洲体育,Eurosport
+HBO
+HBO Max
+TLC 旅游生活
+动物星球
+HGTV,居家乐活
+Travel Channel
+Food Network
+Investigation Discovery
+Magnolia Network
+TNT
+TBS
+truTV
+MotorTrend
+Warner Bros. Pictures
+New Line Cinema
+Adult Swim
+ION Plus
+Stadium
+TRT World
+Angel TV Chinese
+Angel TV AFRICA
+Angel TV AMERICA
+Angel TV ARABIA
+Angel TV AUSTRALIA
+Angel TV EUROPE
+Angel TV HEBREW
+Angel TV INDIA
+Angel TV INDO-CHINA
+Angel TV INDONESIA
+Angel TV PORTUGUESE
+Angel TV RUSSIAN
+Angel TV SPANISH
+PowerNation
+Mytime Movie
+
+电影轮播,#genre#
+星光邵氏台,星光影视
+西游记续集
+欧美大片
+小鬼华语影院
+华语影院
+林正英电影
+邵氏影院
