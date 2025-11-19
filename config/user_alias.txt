@@ -285,3 +285,4 @@ TV BRICS Chinese,TV BRICS Chinese (1080p)
 通化新闻综合,Tonghua TV
 辉南综合,辉南县综合,辉南新闻综合
 甘南综合,甘南县综合
+宿迁综合,宿迁新闻综合

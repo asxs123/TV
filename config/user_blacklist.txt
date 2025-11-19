@@ -41,6 +41,7 @@ ali-m-l.cztv.com/channels/lantian/channel07/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel10/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel12/720p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel005/1080p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel06/1080p.m3u8
 epg.pw/stream/8f19ffa80587df7ce12caae69cfd3dc322e239a02f081eaf7991f5b3d994ae6f.m3u8
 l.cztvcloud.com/channels/lantian/SXdongtou1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXdongyang1/720p.m3u8
@@ -69,6 +70,7 @@ m3u8channel-sm.yunxya.com/nmip-media/channellive/channel100420/playlist.m3u8
 t.live.cntv.cn/m3u8/cctv400.m3u8
 tvpull.dxhmt.cn:9081/tv/10526-1.m3u8
 stream3.huaihai.tv/xz2t/sd/live.m3u8
+[2409:8087:4402:20:1:1216:401:38]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226114/index.m3u8
 # 音频
 a1live.livecdn.yicai.com/live/radio_tv.m3u8
 a.live.hnradio.com/yypd/radio120k_yypd.m3u8
@@ -195,6 +197,7 @@ live.zohi.tv/video/s10001-fztv-3/index.m3u8
 117.158.43.187:2016/全网通.php?id=CCTV2
 free.cnlive.club
 live.catvod.com
+iptv.catvod.com
 # 无信号
 stream1.freetv.fun/zhou-kou-xin-wen-zong-he-1.m3u8
 event.pull.hebtv.com/jishi/cp1.m3u8
