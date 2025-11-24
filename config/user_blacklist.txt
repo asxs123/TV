@@ -68,6 +68,7 @@ live.cms.anhuinews.com/video/s10003-lbtv/index.m3u8
 live.ybtvyun.com/video/s10006-1c8f0ebfee9f/index.m3u8
 live.ybtvyun.com/video/s10006-9ccd00054351/index.m3u8
 live.ybtvyun.com/video/s10016-af95004b6d1a/index.m3u8
+live.yjtvw.com:8081/live/yjtv1.m3u8
 lxfile.lxxcb.cn:80/nmip-media/channellive/channel103799/playlist.m3u8
 lxfile.lxxcb.cn/nmip-media/channellive/channel103799/playlist.m3u8
 m3u8channel-sm.yunxya.com/nmip-media/channellive/channel100420/playlist.m3u8
@@ -98,6 +99,7 @@ live.xmcdn.com/live/128/64.m3u8
 live.xmcdn.com/live/1678/64.m3u8
 live.xmcdn.com/live/1205/64.m3u8
 live.ximalaya.com/radio-first-page-app/live/252/64.m3u8
+live.ximalaya.com/radio-first-page-app/live/245/64.m3u8?transcode=ts
 ls.qingting.fm/live/276.m3u8
 ls.qingting.fm/live/1794199.m3u8
 ls.qingting.fm/live/267.m3u8
