@@ -3388,3 +3388,9 @@ VIU,http://php.jdshipin.com/TVOD/iptv.php?id=viutv2
 内江公共,http://180.153.168.29:2380/hw1live.rxip.sc96655.com.huan.tv/live/njgg_4000.m3u8
 武胜综合,http://iptv.666230.xyz/iptv/sxg.php/wsxw_2000
 武胜综合,http://180.153.168.29:2380/hw1live.rxip.sc96655.com.huan.tv/live/wsxw_2000.m3u8
+
+
+宁波新闻综合,https://l.cztvcloud.com/channels/lantian/sxchannel02/1080p.m3u8
+金华新闻综合,https://l.cztvcloud.com/channels/lantian/sxchannel07/1080p.m3u8
+丽水新闻综合,https://l.cztvcloud.com/channels/lantian/sxchannel09/1080p.m3u8
+台州新闻综合,https://l.cztvcloud.com/channels/lantian/sxchannel10/1080p.m3u8
