@@ -92,6 +92,8 @@ m3u8channel-sm.yunxya.com/nmip-media/channellive/channel100420/playlist.m3u8
 t.live.cntv.cn/m3u8/cctv400.m3u8
 tvpull.dxhmt.cn:9081/tv/10526-1.m3u8
 stream3.huaihai.tv/xz2t/sd/live.m3u8
+stream3.huaihai.tv/xwzh1t/sd/live.m3u8
+stream3.huaihai.tv/xz4t/sd/live.m3u8
 [2409:8087:4402:20:1:1216:401:38]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226114/index.m3u8
 # 音频
 a1live.livecdn.yicai.com/live/radio_tv.m3u8
