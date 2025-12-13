@@ -22,16 +22,43 @@ goo.bkpcp.top
 /audiolive/
 smart.tv.home.kg
 # 只有片段视频，非实时直播
+111.43.126.240:7777/hls/7/index.m3u8
+111.43.126.240:7777/hls/8/index.m3u8
+111.43.126.240:7777/hls/10/index.m3u8
+111.43.126.240:7777/hls/12/index.m3u8
+111.43.126.240:7777/hls/18/index.m3u8
+111.43.126.240:7777/hls/29/index.m3u8
+111.43.126.240:7777/hls/37/index.m3u8
+111.43.126.240:7777/hls/39/index.m3u8
+111.43.126.240:7777/hls/47/index.m3u8
+111.43.126.240:7777/hls/48/index.m3u8
+111.43.126.240:7777/hls/49/index.m3u8
+111.43.126.240:7777/hls/50/index.m3u8
+111.43.126.240:7777/hls/52/index.m3u8
+111.43.126.240:7777/hls/53/index.m3u8
+111.43.126.240:7777/hls/57/index.m3u8
+111.43.126.240:7777/hls/99/index.m3u8
+111.43.126.240:7777/hls/100/index.m3u8
+111.53.96.67:8081/live/1/index.m3u8
+222.128.55.152:9080/live/dwq.m3u8
 222.128.55.152:9080/live/fc.m3u8
 222.128.55.152:9080/live/ts.m3u8
 39.164.174.139:5000/nl.m3u8?id=ZKZH
+61.221.215.25:8800/hls/9/index.m3u8
 61.221.215.25:8800/hls/48/index.m3u8
+ali-m-l.cztv.com/channels/lantian/channel01/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel02/1080p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel03/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel04/720p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel04/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel07/1080p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel07/720p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel10/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel12/720p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel12/1080p.m3u8
 ali-m-l.cztv.com/channels/lantian/channel005/1080p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel06/1080p.m3u8
+ali-m-l.cztv.com/channels/lantian/channel21/1080p.m3u8
 epg.pw/stream/8f19ffa80587df7ce12caae69cfd3dc322e239a02f081eaf7991f5b3d994ae6f.m3u8
 l.cztvcloud.com/channels/lantian/SXdongtou1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXdongyang1/720p.m3u8
@@ -40,7 +67,7 @@ l.cztvcloud.com/channels/lantian/SXkaihua2/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXlanxi1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXputuo1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXqingyuan1/720p.m3u8
-l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8
+# l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXwuyi1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXxinchang1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXxinchang2/720p.m3u8
@@ -50,16 +77,24 @@ l.cztvcloud.com/channels/lantian/SXyuhang3/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXyuyao1/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXyuyao2/720p.m3u8
 l.cztvcloud.com/channels/lantian/SXyuyao3/720p.m3u8
+l.cztvcloud.com/channels/lantian/SXxiaoshan3/720p.m3u8
+l.cztvcloud.com/channels/lantian/SXcangnan1/720p.m3u8
+l.cztvcloud.com/channels/lantian/SXsuichang1/720p.m3u8
+l.cztvcloud.com/channels/lantian/SXwencheng1/720p.m3u8
 live.cms.anhuinews.com/video/s10003-lbtv/index.m3u8
 live.ybtvyun.com/video/s10006-1c8f0ebfee9f/index.m3u8
 live.ybtvyun.com/video/s10006-9ccd00054351/index.m3u8
 live.ybtvyun.com/video/s10016-af95004b6d1a/index.m3u8
+live.yjtvw.com:8081/live/yjtv1.m3u8
 lxfile.lxxcb.cn:80/nmip-media/channellive/channel103799/playlist.m3u8
 lxfile.lxxcb.cn/nmip-media/channellive/channel103799/playlist.m3u8
 m3u8channel-sm.yunxya.com/nmip-media/channellive/channel100420/playlist.m3u8
 t.live.cntv.cn/m3u8/cctv400.m3u8
 tvpull.dxhmt.cn:9081/tv/10526-1.m3u8
 stream3.huaihai.tv/xz2t/sd/live.m3u8
+stream3.huaihai.tv/xwzh1t/sd/live.m3u8
+stream3.huaihai.tv/xz4t/sd/live.m3u8
+[2409:8087:4402:20:1:1216:401:38]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226114/index.m3u8
 # 音频
 a1live.livecdn.yicai.com/live/radio_tv.m3u8
 a.live.hnradio.com/yypd/radio120k_yypd.m3u8
@@ -83,6 +118,7 @@ live.xmcdn.com/live/128/64.m3u8
 live.xmcdn.com/live/1678/64.m3u8
 live.xmcdn.com/live/1205/64.m3u8
 live.ximalaya.com/radio-first-page-app/live/252/64.m3u8
+live.ximalaya.com/radio-first-page-app/live/245/64.m3u8?transcode=ts
 ls.qingting.fm/live/276.m3u8
 ls.qingting.fm/live/1794199.m3u8
 ls.qingting.fm/live/267.m3u8
@@ -149,6 +185,14 @@ jzb.wwkejishe.top/?id=623
 jwcdnqx.hebyun.com.cn/live/clzhpd/1500k/tzwj_video.m3u8?zhebd
 # 北京卫视
 113.57.93.165:9900/tsfile/live/1017_1.m3u8
+# CCTV4美洲
+iptv.catvod.com/live.php?id=CCTV4%E7%BE%8E%E6%B4%B2
+# CCTV4欧洲
+iptv.catvod.com/live.php?id=CCTV4%E6%AC%A7%E6%B4%
+# CCTV4美洲
+iptv.catvod.com/live.php?id=CCTV4%E7%BE%8E%E6%B4%B2
+# CCTV4K
+117.174.25.254:8188/rtp/239.0.0.184:5140
 # 测试源
 8.138.7.223/tv/dl/douyincdn.php
 8.138.7.223/tv/migu8.php
@@ -166,14 +210,21 @@ jwcdnqx.hebyun.com.cn/live/clzhpd/1500k/tzwj_video.m3u8?zhebd
 mgtv.ottiptv.cc/mg/641886773.m3u8?sign=7f31c3f4d80af4cf5f6c2f2189018d92&tm=1757355490&token=2e38e2525e228ba0c61d7b6ea8126b93bd9a0b66bc9b8f25393b448d83e3772f559f1809acbbae607935ba6cc079da9006d580597c0841854f0dd9bf739eeb3655d878737fcb742ebc40bac19f
 mgtv.ottiptv.cc/mg/673168223.m3u8?sign=d70930bbe31c54f032b793ee5de257ba&tm=1757436314&token=328b8555ab91befa5029aace27308cb3e33181df6b55d8e7bec9b200a8039f272e759d1023c612d5a12a1cdf68c48fd91f5c504bb8f8c4ea26edde2f90ac14aa4137c858d506d8adda1238f4db
 mgtv.ottiptv.cc/mg/667987558.m3u8?sign=7b09e0869ff91af07c7491fa4aeddbbd&tm=1757436314&token=d1948230057b17e4617cbe500ed80080f20bd34f00c5c4b208c5adb8f4bc3aa9be69de183ac8c743e6a889ad74921065ff926532a199e060693cd91368ab0f0e78439aa08183428323628a35e3
+mgtv.ottiptv.cc/mg
+www.freetv.top/migu
 # 无版权
 1.94.31.214/php/hntv.php?id=hnds
+1.94.31.214/php/hebei.php?id=sekj
 jwplay.hebyun.com.cn/live/cctv13/1500k/tzwj_video.m3u8
 live1.habctv.com/ysylsl/sd/live.m3u8
+live.zohi.tv/video/s10001-fztv-3/index.m3u8
 # 广告，付费
 117.158.43.187:2016/全网通.php?id=CCTV2
 free.cnlive.club
 live.catvod.com
+iptv.catvod.com
 # 无信号
 stream1.freetv.fun/zhou-kou-xin-wen-zong-he-1.m3u8
 event.pull.hebtv.com/jishi/cp1.m3u8
+event.pull.hebtv.com/jishi/cp2.m3u8
+epg.pw/stream/d2edf469b9079064a283f4b0811cbf6f2597ebbb3d08dcf77036a4b5a791b7cf.m3u8

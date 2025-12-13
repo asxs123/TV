@@ -53,7 +53,7 @@ CETV4,CETV-4,CETV4中国教育,CETV4 中国教育,中国教育4,中国教育4HD,
 CETV早期教育,CETV早教,早期教育
 CGTN,CGTN英语,CGTN英语新闻,CGTN (1080p)
 CGTN俄语,CGTN俄罗斯语
-CGTN记录,CGTN Documentary (1080p)
+CGTN纪录,CGTN记录,CGTN Documentary (1080p)
 
 广东珠江,GDTV-2,珠江,珠江频道,珠江台,广东珠江高清,珠江高清
 
@@ -82,6 +82,7 @@ Russia Today Balkan,RT Balkan （塞尔维亚语）
 Russia Today Arabic,RT Arabic（阿语）
 寰宇新闻,寰宇新聞,寰宇新聞台
 TLC 旅游生活,亚洲TLC
+EBC东森财经新闻,东森财经
 
 黑莓电影,NewTV黑莓电影
 黑莓动画,NewTV黑莓动画
@@ -200,7 +201,7 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 临沂综合,临沂新闻综合
 临沂经济,临沂农科
 灵宝综合,灵宝新闻综合
-龙泉综合,龙泉新闻综合
+龙泉综合,龙泉新闻综合,龙泉新闻
 鹿泉综合,鹿泉一套 
 洛阳新闻综合,洛阳综合
 门源新闻综合,门源综合
@@ -211,16 +212,16 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 南通社教,南通都市生活
 内蒙古蒙语卫视,Nei Monggol TV
 内蒙古新闻综合,Nei Monggol TV News Channel
-内蒙古经济生活,Nei Monggol TV Economic & Life Channel
-内蒙古文体娱乐,Nei Monggol TV Culture Entertainment Channel
-内蒙古少儿,Nei Monggol TV Children Channel
-内蒙古农牧,Nei Monggol TV Agriculture & Animal Channel
+内蒙古经济生活,Nei Monggol TV Economic & Life Channel,内蒙经济
+内蒙古文体娱乐,Nei Monggol TV Culture Entertainment Channel,内蒙文体
+内蒙古少儿,Nei Monggol TV Children Channel,内蒙少儿
+内蒙古农牧,Nei Monggol TV Agriculture & Animal Channel,内蒙农牧
 内蒙古蒙语文化,Nei Monggol TV 2 Mongolian Culture Channel
 平遥综合,平遥新闻综合
 七星关综合,七星关电视台
 祁县综合,祁县新闻综合
 沁阳综合,沁阳新闻综合
-青田综合,浙江青田
+青田综合,浙江青田,青田电视台
 衢江综合,衢江新闻综合
 如东新闻综合,如东一套新闻综合
 山东教育卫视,山东教育
@@ -246,7 +247,7 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 西藏影视文化,Xizang TV Tibetan,Xizang TV Chinese
 西双版纳新闻综合,西双版纳综合
 淅川综合,淅川电视
-象山新闻综合,象山综合
+象山新闻综合,象山综合,象山新闻
 萧山综合,萧山生活,萧山新闻综合
 新疆哈萨克语综艺,Xinjiang TV 8
 新乡县综合,新乡县电视台
@@ -266,14 +267,27 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 优漫卡通,江苏优漫卡通
 余杭新闻,余杭综合
 云和综合,云和新闻综合
-浙江钱江都市,浙江钱江
+浙江钱江都市,浙江钱江,钱江都市
 浙江经济生活,浙江生活
 浙江教科影视,浙江教育,浙江教科影院,浙江教科
 浙江民生休闲,浙江休闲台
-之江纪录,浙江数码时代
+之江纪录,浙江数码时代,之江记录
 泗洪综合,泗洪新闻综合
 宁化综合,宁化电视一套
 扶沟综合,周口扶沟
 新安综合,新安新闻综合
 嵩县综合新闻,嵩县综合
 河北文旅公共,河北公共
+河北经济生活,河北经济
+河北影视剧,河北影视
+河北少儿科教,河北少儿
+TV BRICS Chinese,TV BRICS Chinese (1080p)
+通化新闻综合,Tonghua TV
+辉南综合,辉南县综合,辉南新闻综合
+甘南综合,甘南县综合
+宿迁综合,宿迁新闻综合
+肥西新闻综合,肥西县综合
+津南综合,津南一套
+临夏综合,临夏回族自治州综合,临夏州综合
+衢江综合,衢江新闻
+云和综合,云和新闻
