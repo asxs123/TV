@@ -223,8 +223,16 @@ live.zohi.tv/video/s10001-fztv-3/index.m3u8
 free.cnlive.club
 live.catvod.com
 iptv.catvod.com
+ott.watch/stream/E9LDH2ZCN7
 # 无信号
 stream1.freetv.fun/zhou-kou-xin-wen-zong-he-1.m3u8
 event.pull.hebtv.com/jishi/cp1.m3u8
 event.pull.hebtv.com/jishi/cp2.m3u8
 epg.pw/stream/d2edf469b9079064a283f4b0811cbf6f2597ebbb3d08dcf77036a4b5a791b7cf.m3u8
+eastscreen.tv/ooooo.php
+smart.pendy.dpdns.org/Smart.php?id=ettvcaijing_twn
+smart.pendy.dpdns.org/Smart.php?id=Hbo
+smart.pendy.dpdns.org/Smart.php?id=tlc_twn
+smart.pendy.dpdns.org/Smart.php?id=tvbs_n
+smart.pendy.dpdns.org/Smart.php?id=nanfang_twn
+smart.pendy.dpdns.org/Smart.php?id=ettvwestern
