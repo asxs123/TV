@@ -57,3 +57,7 @@ https://fs-im-kefu.7moor-fs1.com/ly/4d2c3f00-7d4c-11e5-af15-41bf63ae4ea0/1716213
 # https://yyrj.fun/tv
 # https://raw.githubusercontent.com/YanG-1989/m3u/main/Gather.m3u
 # http://aktv.space/live.m3u
+
+[WHITELIST]
+# 以下是订阅源的白名单，白名单内的订阅源获取的接口将不会参与测速，始终保留至结果最前。
+# This is the whitelist for subscription sources. Subscription sources in the whitelist will not participate in speed testing and will always be retained at the front of the results.
