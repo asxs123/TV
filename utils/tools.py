@@ -1,3 +1,4 @@
+import copy
 import datetime
 import json
 import logging
@@ -28,13 +29,38 @@ def get_logger(path, level=logging.ERROR, init=False):
     """
     get the logger
     """
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    dir_name = os.path.dirname(path) or "."
+    os.makedirs(dir_name, exist_ok=True)
     os.makedirs(constants.output_dir, exist_ok=True)
-    if init and os.path.exists(path):
-        os.remove(path)
-    handler = RotatingFileHandler(path, encoding="utf-8")
+
     logger = logging.getLogger(path)
-    logger.addHandler(handler)
+
+    if init:
+        for h in logger.handlers[:]:
+            try:
+                logger.removeHandler(h)
+                h.close()
+            except Exception:
+                pass
+
+        if os.path.exists(path):
+            try:
+                with open(path, "w", encoding="utf-8"):
+                    pass
+            except PermissionError:
+                pass
+            except Exception:
+                pass
+
+    handler = RotatingFileHandler(path, encoding="utf-8", delay=True)
+
+    abs_path = os.path.abspath(path)
+    if not any(
+            isinstance(h, RotatingFileHandler) and getattr(h, "baseFilename", None) == abs_path
+            for h in logger.handlers
+    ):
+        logger.addHandler(handler)
+
     logger.setLevel(level)
     return logger
 
@@ -280,39 +306,72 @@ def check_url_by_keywords(url, keywords=None):
 
 def merge_objects(*objects, match_key=None):
     """
-    Merge objects
-
+    Merge objects while preserving defaultdict types (including default_factory).
     Args:
         *objects: Dictionaries to merge
         match_key: If dict1[key] is a list of dicts, this key will be used to match and merge dicts
     """
+
+    def clone_empty(value):
+        """
+        Return an empty container of the same *container* type as value,
+        preserving defaultdict default_factory when applicable.
+        """
+        if isinstance(value, defaultdict):
+            return defaultdict(value.default_factory)
+        if isinstance(value, dict):
+            return {}
+        if isinstance(value, list):
+            return []
+        if isinstance(value, set):
+            return set()
+        try:
+            return copy.copy(value)
+        except Exception:
+            return value
 
     def merge_dicts(dict1, dict2):
         for key, value in dict2.items():
             if key in dict1:
                 if isinstance(dict1[key], dict) and isinstance(value, dict):
                     merge_dicts(dict1[key], value)
-                elif isinstance(dict1[key], set):
+                elif isinstance(dict1[key], set) and isinstance(value, (set, list)):
                     dict1[key].update(value)
                 elif isinstance(dict1[key], list) and isinstance(value, list):
                     if match_key and all(isinstance(x, dict) for x in dict1[key] + value):
-                        existing_items = {item[match_key]: item for item in dict1[key]}
+                        existing_items = {item.get(match_key): item for item in dict1[key] if match_key in item}
                         for new_item in value:
                             if match_key in new_item and new_item[match_key] in existing_items:
                                 merge_dicts(existing_items[new_item[match_key]], new_item)
                             else:
                                 dict1[key].append(new_item)
                     else:
-                        dict1[key].extend(x for x in value if x not in dict1[key])
+                        for x in value:
+                            if x not in dict1[key]:
+                                dict1[key].append(x)
                 elif value != dict1[key]:
-                    dict1[key] = value
+                    dict1[key] = copy.deepcopy(value)
             else:
-                dict1[key] = value
+                if isinstance(value, dict):
+                    dict1[key] = clone_empty(value)
+                    merge_dicts(dict1[key], value)
+                else:
+                    dict1[key] = copy.deepcopy(value)
 
-    merged_dict = {}
+    if not objects:
+        return {}
+
     for obj in objects:
         if not isinstance(obj, dict):
             raise TypeError("All input objects must be dictionaries")
+
+    first_obj = objects[0]
+    if isinstance(first_obj, defaultdict):
+        merged_dict = defaultdict(first_obj.default_factory)
+    else:
+        merged_dict = {}
+
+    for obj in objects:
         merge_dicts(merged_dict, obj)
 
     return merged_dict
@@ -544,22 +603,22 @@ def get_headers_key_value(content: str) -> dict:
     return key_value
 
 
-def get_name_url(content, pattern, open_headers=False, check_url=True):
+def get_name_value(content, pattern, open_headers=False, check_value=True):
     """
-    Extract name and URL from content using a regex pattern.
+    Extract name and value from content using a regex pattern.
     :param content: str, the input content to search.
     :param pattern: re.Pattern, the compiled regex pattern to match.
     :param open_headers: bool, whether to extract headers.
-    :param check_url: bool, whether to validate the presence of a URL.
+    :param check_value: bool, whether to validate the presence of a URL.
     """
     result = []
     for match in pattern.finditer(content):
         group_dict = match.groupdict()
         name = (group_dict.get("name", "") or "").strip()
-        url = (group_dict.get("url", "") or "").strip()
-        if not name or (check_url and not url):
+        value = (group_dict.get("value", "") or "").strip()
+        if not name or (check_value and not value):
             continue
-        data = {"name": name, "url": url}
+        data = {"name": name, "value": value}
         attributes = {**get_headers_key_value(group_dict.get("attributes", "")),
                       **get_headers_key_value(group_dict.get("options", ""))}
         headers = {
@@ -625,10 +684,10 @@ def get_name_urls_from_file(path: str, format_name_flag: bool = False) -> dict[s
                 line = line.strip()
                 if line.startswith("#"):
                     continue
-                name_url = get_name_url(line, pattern=constants.txt_pattern)
-                if name_url and name_url[0]:
-                    name = format_name(name_url[0]["name"]) if format_name_flag else name_url[0]["name"]
-                    url = name_url[0]["url"]
+                name_value = get_name_value(line, pattern=constants.txt_pattern)
+                if name_value and name_value[0]:
+                    name = format_name(name_value[0]["name"]) if format_name_flag else name_value[0]["name"]
+                    url = name_value[0]["value"]
                     if url not in name_urls[name]:
                         name_urls[name].append(url)
     return name_urls
