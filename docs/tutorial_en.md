@@ -340,7 +340,7 @@ docker compose up -d
 docker pull guovern/iptv-api:latest
 ```
 
-🚀 Proxy acceleration (recommended for users in China, may be cached):
+🚀 Proxy acceleration (use this command if pulling fails, but it may download an older version):
 
 ```bash
 docker pull docker.1ms.run/guovern/iptv-api:latest
@@ -349,13 +349,14 @@ docker pull docker.1ms.run/guovern/iptv-api:latest
 #### 2. Run the container
 
 ```bash
-docker run -d -p 5180:5180 guovern/iptv-api
+docker run -d -p 80:8080 guovern/iptv-api
 ```
 
 **Environment Variables:**
 
 | Variable        | Description             | Default Value |
 |:----------------|:------------------------|:--------------|
+| PUBLIC_PORT     | Public network port     | 80            |
 | APP_PORT        | Service port            | 5180          |
 | NGINX_HTTP_PORT | Nginx HTTP service port | 8080          |
 | NGINX_RTMP_PORT | Nginx RTMP service port | 1935          |
@@ -401,20 +402,22 @@ Mount output directory:
 **RTMP Streaming:**
 
 > [!NOTE]
-> 1. After enabling streaming, obtained sources (for example subscription sources) will be streamed by default.
-> 2. To stream local video sources, create an `hls` folder inside the `config` directory.
-> 3. Place video files named with the `channel name` into that folder; the program will automatically stream them to the
-     corresponding channels.
-> 4. Visit `http://127.0.0.1:8080/stat` to view real-time streaming status and statistics.
+> 1. If deploying on a server, be sure to set the `PUBLIC_DOMAIN` environment variable to the server's domain name or IP
+     address and the `PUBLIC_PORT` environment variable to the public port; otherwise the streaming addresses will not
+     be accessible.
+> 2. When streaming is enabled, obtained interfaces (e.g., subscription sources) will be streamed by default.
+> 3. To stream local video sources, create an `hls` folder under the `config` directory and place video files named
+     after the channel; the program will automatically stream them to the corresponding channels.
 
-| Streaming Endpoint | Description                         |
-|:-------------------|:------------------------------------|
-| /hls               | hls streaming endpoint              |
-| /hls/txt           | hls txt streaming endpoint          |
-| /hls/m3u           | hls m3u streaming endpoint          |
-| /hls/ipv4          | hls ipv4 default streaming endpoint |
-| /hls/ipv6          | hls ipv6 default streaming endpoint |
-| /hls/ipv4/txt      | hls ipv4 txt streaming endpoint     |
-| /hls/ipv4/m3u      | hls ipv4 m3u streaming endpoint     |
-| /hls/ipv6/txt      | hls ipv6 txt streaming endpoint     |
-| /hls/ipv6/m3u      | hls ipv6 m3u streaming endpoint     |
+| Streaming Endpoint | Description                          |
+|:-------------------|:-------------------------------------|
+| /hls               | hls streaming endpoint               |
+| /hls/txt           | hls txt streaming endpoint           |
+| /hls/m3u           | hls m3u streaming endpoint           |
+| /hls/ipv4          | hls ipv4 default streaming endpoint  |
+| /hls/ipv6          | hls ipv6 default streaming endpoint  |
+| /hls/ipv4/txt      | hls ipv4 txt streaming endpoint      |
+| /hls/ipv4/m3u      | hls ipv4 m3u streaming endpoint      |
+| /hls/ipv6/txt      | hls ipv6 txt streaming endpoint      |
+| /hls/ipv6/m3u      | hls ipv6 m3u streaming endpoint      |
+| /stat              | Streaming status statistics endpoint |
