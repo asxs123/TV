@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/asxs123/TV/refs/heads/master/output/epg/epg.gz"
-#EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV1.png" group-title="🕘️更新时间",2026-01-26 06:54:03
+#EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV1.png" group-title="🕘️更新时间",2026-01-29 06:56:21
 http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
 #EXTINF:-1 tvg-name="CCTV1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV1.png" group-title="📺央视频道",CCTV-1
 http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
@@ -3705,6 +3705,8 @@ https://mgev.188766.xyz/?migutoken=273bcba0a873bc98c51e29ecc89dd254&id=hk_tvbp&t
 http://hls.168.us.kg/u/82/master.m3u8
 #EXTINF:-1 tvg-name="TVB Plus" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/TVB Plus.png" group-title="🌊港·澳·台",TVB Plus
 https://mgev.188766.xyz/?migutoken=1f89a707230b6fa13ad33e607452dc10&id=hk_tvbp&type=dy
+#EXTINF:-1 tvg-name="TVB Plus" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/TVB Plus.png" group-title="🌊港·澳·台",TVB Plus
+https://mgev.188766.xyz/?migutoken=5b8b02532b5405e2b7f0845df7208f94&id=hk_tvbp&type=dy
 #EXTINF:-1 tvg-name="凤凰卫视电影" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/凤凰卫视电影.png" group-title="🌊港·澳·台",凤凰卫视电影
 https://hls-gateway.vpstv.net/streams/708910.m3u8
 #EXTINF:-1 tvg-name="EBC东森财经新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/EBC东森财经新闻.png" group-title="🌊港·澳·台",EBC东森财经新闻
@@ -3715,6 +3717,8 @@ https://tv.iill.top/litv/4gtv-4gtv153&token=d25986dec232345e7d991eb80f90d884b603
 https://tv.iill.top/litv/4gtv-4gtv153&token=5bff6a3365ed694a693fc78c1d3aa05f304ccf644170a0b0e6dc66b8e11f6ba5
 #EXTINF:-1 tvg-name="EBC东森财经新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/EBC东森财经新闻.png" group-title="🌊港·澳·台",EBC东森财经新闻
 https://tv.iill.top/litv/4gtv-4gtv153&token=c64ff03f373cb016eeebc1c3564c14243b887a6398f1467d878b2ff084b447ca
+#EXTINF:-1 tvg-name="EBC东森财经新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/EBC东森财经新闻.png" group-title="🌊港·澳·台",EBC东森财经新闻
+https://tv.iill.top/litv/4gtv-4gtv153&token=d55321c7e1d8c84684d6d133e8fb7be853963ef893eb2a44fb9e22b44fa8b0b1
 #EXTINF:-1 tvg-name="人间卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/人间卫视.png" group-title="🌊港·澳·台",人间卫视
 https://hls-gateway.vpstv.net/streams/488957.m3u8
 #EXTINF:-1 tvg-name="人间卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/人间卫视.png" group-title="🌊港·澳·台",人间卫视
@@ -3807,6 +3811,8 @@ https://tv.iill.top/litv/4gtv-4gtv072&token=5bff6a3365ed694a693fc78c1d3aa05f304c
 https://t.freetv.fun/live/tvbsxin-wen.php
 #EXTINF:-1 tvg-name="TVBS新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/TVBS新闻.png" group-title="🌊港·澳·台",TVBS新闻
 https://tv.iill.top/litv/4gtv-4gtv072&token=c64ff03f373cb016eeebc1c3564c14243b887a6398f1467d878b2ff084b447ca
+#EXTINF:-1 tvg-name="TVBS新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/TVBS新闻.png" group-title="🌊港·澳·台",TVBS新闻
+https://tv.iill.top/litv/4gtv-4gtv072&token=d55321c7e1d8c84684d6d133e8fb7be853963ef893eb2a44fb9e22b44fa8b0b1
 #EXTINF:-1 tvg-name="Taiwan Plus" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/Taiwan Plus.png" group-title="🌊港·澳·台",Taiwan Plus
 https://bcovlive-a.akamaihd.net/rce33d845cb9e42dfa302c7ac345f7858/ap-northeast-1/6282251407001/playlist.m3u8
 #EXTINF:-1 tvg-name="台视新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/台视新闻.png" group-title="🌊港·澳·台",台视新闻
@@ -3877,6 +3883,8 @@ https://mgev.188766.xyz/?migutoken=4585663e4e47540f5fe68dfb07462662&id=hk_asam&t
 http://cdn.163189.xyz/live/asam/stream.m3u8
 #EXTINF:-1 tvg-name="澳视澳门" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/澳视澳门.png" group-title="🌊港·澳·台",澳视澳门
 https://cdn.163189.xyz/live/asam/stream.m3u8
+#EXTINF:-1 tvg-name="澳视澳门" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/澳视澳门.png" group-title="🌊港·澳·台",澳视澳门
+https://mgev.188766.xyz/?migutoken=c474671bcb5fc57f01eef1e76a995b10&id=hk_asam&type=dy
 #EXTINF:-1 tvg-name="民视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/民视.png" group-title="🌊港·澳·台",民视
 http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv002
 #EXTINF:-1 tvg-name="民视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/民视.png" group-title="🌊港·澳·台",民视
@@ -4191,6 +4199,10 @@ http://gat.bkpcp.top:80/ymg.php?id=ymdy
 https://migu.188766.xyz/?migutoken=8e5a4a5043891d719ce7f0324da73df9&id=CHC%E5%BD%B1%E8%BF%B7%E7%94%B5%E5%BD%B1&type=yy
 #EXTINF:-1 tvg-name="CHC影迷电影" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CHC影迷电影.png" group-title="🎬电影频道",CHC影迷电影
 https://migu.188766.xyz/?migutoken=01bce4f8a285d7fe0496e125ce467c11&id=CHC%E5%BD%B1%E8%BF%B7%E7%94%B5%E5%BD%B1&type=yy
+#EXTINF:-1 tvg-name="CHC影迷电影" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CHC影迷电影.png" group-title="🎬电影频道",CHC影迷电影
+https://migu.188766.xyz/?migutoken=49e279fa21119790ef26badbdbe4e626&id=CHC%E5%BD%B1%E8%BF%B7%E7%94%B5%E5%BD%B1&type=yy
+#EXTINF:-1 tvg-name="CHC影迷电影" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CHC影迷电影.png" group-title="🎬电影频道",CHC影迷电影
+https://t.freetv.fun/live/chcying-mi-dian-ying-3.m3u8
 #EXTINF:-1 tvg-name="1905电影网" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/1905电影网.png" group-title="🎬电影频道",1905电影网
 http://php.jdshipin.com:8880/1905.php?id=1905dy
 #EXTINF:-1 tvg-name="1905国外电影" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/1905国外电影.png" group-title="🎬电影频道",1905国外电影
@@ -4489,6 +4501,8 @@ https://migu.188766.xyz/?migutoken=ffa00450331f948f0d25e604e3c708d8&id=%E5%BF%AB
 https://migu.188766.xyz/?migutoken=1cec33b8a7faebb61da8af030d76f763&id=%E5%BF%AB%E4%B9%90%E5%9E%82%E9%92%93&type=yy
 #EXTINF:-1 tvg-name="快乐垂钓" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/快乐垂钓.png" group-title="🏀体育频道",快乐垂钓
 https://migu.188766.xyz/?migutoken=52f3c85fc2380abbf995f144e7a9c59e&id=%E5%BF%AB%E4%B9%90%E5%9E%82%E9%92%93&type=yy
+#EXTINF:-1 tvg-name="快乐垂钓" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/快乐垂钓.png" group-title="🏀体育频道",快乐垂钓
+https://migu.188766.xyz/?migutoken=89afef1f3d3819f3e81728d7698a1756&id=%E5%BF%AB%E4%B9%90%E5%9E%82%E9%92%93&type=yy
 #EXTINF:-1 tvg-name="JJ斗地主" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/JJ斗地主.png" group-title="🏀体育频道",JJ斗地主
 https://live.iill.top/douyin/685317364746
 #EXTINF:-1 tvg-name="卡酷动画" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷动画.png" group-title="🪁动画频道",卡酷动画
@@ -4579,6 +4593,10 @@ https://tv.iill.top/migu/xdm&token=d25986dec232345e7d991eb80f90d884b6037b42c12c8
 https://migu.188766.xyz/?migutoken=4c1db416509b084f1f2e2916b561b99e&id=%E6%96%B0%E5%8A%A8%E6%BC%AB&type=yy
 #EXTINF:-1 tvg-name="新动漫" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/新动漫.png" group-title="🪁动画频道",新动漫
 https://migu.188766.xyz/?migutoken=6885c858e489efddd2cdb4e1e1894117&id=%E6%96%B0%E5%8A%A8%E6%BC%AB&type=yy
+#EXTINF:-1 tvg-name="新动漫" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/新动漫.png" group-title="🪁动画频道",新动漫
+https://tv.iill.top/migu/xdm&token=ad73153cdea1fbd107ecb21f633c449542412c1ff26b11caafd59267d0eec755
+#EXTINF:-1 tvg-name="新动漫" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/新动漫.png" group-title="🪁动画频道",新动漫
+https://migu.188766.xyz/?migutoken=5507eb7ea85c1cf8fa5a58d5a37563b6&id=%E6%96%B0%E5%8A%A8%E6%BC%AB&type=yy
 #EXTINF:-1 tvg-name="爱动漫" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/爱动漫.png" group-title="🪁动画频道",爱动漫
 http://php.jdshipin.com:8880/itv6s.php?cid=wasusyt&id=6000000006000280630
 #EXTINF:-1 tvg-name="爱动漫" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/爱动漫.png" group-title="🪁动画频道",爱动漫
@@ -4641,6 +4659,8 @@ http://[2409:8087:1a0b:df::4008]:80/ottrrs.hl.chinamobile.com/TVOD/88888888/224/
 http://[2409:8087:1a01:df::7005]/ottrrs.hl.chinamobile.com/PLTV/2/224/3221225653/2.m3u8
 #EXTINF:-1 tvg-name="金鹰卡通" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/金鹰卡通.png" group-title="🪁动画频道",金鹰卡通
 https://t.freetv.fun/live/jin-ying-qia-tong-3.m3u8
+#EXTINF:-1 tvg-name="金鹰卡通" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/金鹰卡通.png" group-title="🪁动画频道",金鹰卡通
+https://t.freetv.fun/live/jin-ying-qia-tong.php
 #EXTINF:-1 tvg-name="黑莓动画" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/黑莓动画.png" group-title="🪁动画频道",黑莓动画
 http://[2409:8087:1a01:df::4007]:80/TVOD/88888888/224/3221225529/main.m3u8
 #EXTINF:-1 tvg-name="黑莓动画" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/黑莓动画.png" group-title="🪁动画频道",黑莓动画
@@ -5613,6 +5633,8 @@ https://migu.188766.xyz/?migutoken=98daa3ba4c81372351b73d9075023b9b&id=CETV2&typ
 https://migu.188766.xyz/?migutoken=9a5154f3ec195d81bb5dbde686dcbeba&id=CETV2&type=yy
 #EXTINF:-1 tvg-name="CETV2" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV2.png" group-title="中央",CETV2
 https://migu.188766.xyz/?migutoken=abfa7e64d410c9bf2260fd7955bd4245&id=CETV2&type=yy
+#EXTINF:-1 tvg-name="CETV2" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV2.png" group-title="中央",CETV2
+https://migu.188766.xyz/?migutoken=4d07bac23d004cc1621f378cb5e88fa2&id=CETV2&type=yy
 #EXTINF:-1 tvg-name="CETV3" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV3.png" group-title="中央",CETV3
 http://iptv.huuc.edu.cn/hls/cetv3.m3u8
 #EXTINF:-1 tvg-name="CETV3" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV3.png" group-title="中央",CETV3
@@ -5663,6 +5685,8 @@ http://[2409:8087:5e08:24::17]:6610/000000001000/5000000011000031126/index.m3u8?
 https://migu.188766.xyz/?migutoken=24163db9db210fd8010ada1ad27ff526&id=CETV4&type=yy
 #EXTINF:-1 tvg-name="CETV4" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV4.png" group-title="中央",CETV4
 https://migu.188766.xyz/?migutoken=dc45439be55f170e7b1e37adca8e2b7f&id=CETV4&type=yy
+#EXTINF:-1 tvg-name="CETV4" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV4.png" group-title="中央",CETV4
+https://migu.188766.xyz/?migutoken=0dc08bbbe9c79f35d60171478e6e5169&id=CETV4&type=yy
 #EXTINF:-1 tvg-name="CETV早期教育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CETV早期教育.png" group-title="中央",CETV早期教育
 https://hls-gateway.vpstv.net/streams/708970.m3u8
 #EXTINF:-1 tvg-name="风云足球" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/风云足球.png" group-title="中央",风云足球
@@ -5739,12 +5763,20 @@ https://hls-gateway.vpstv.net/streams/708856.m3u8
 http://iptv.666230.xyz/iptv/jsyd.php/G_BINGQIKJ-CQ
 #EXTINF:-1 tvg-name="兵器科技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/兵器科技.png" group-title="中央",兵器科技
 http://www.xiaomo520.cn:4020/udp/239.252.219.98:5140
+#EXTINF:-1 tvg-name="兵器科技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/兵器科技.png" group-title="中央",兵器科技
+https://hls-gateway.vpstv.net/streams/708856.m3u8
+#EXTINF:-1 tvg-name="兵器科技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/兵器科技.png" group-title="中央",兵器科技
+http://iptv.666230.xyz/iptv/jsyd.php/G_BINGQIKJ-CQ
+#EXTINF:-1 tvg-name="兵器科技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/兵器科技.png" group-title="中央",兵器科技
+http://www.xiaomo520.cn:4020/udp/239.252.219.98:5140
 #EXTINF:-1 tvg-name="发现之旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/发现之旅.png" group-title="中央",发现之旅
 https://migu.188766.xyz/?migutoken=a2251703b1415be75c5ed67de0589f20&id=%E5%8F%91%E7%8E%B0%E4%B9%8B%E6%97%85&type=yy
 #EXTINF:-1 tvg-name="发现之旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/发现之旅.png" group-title="中央",发现之旅
 https://migu.188766.xyz/?migutoken=7aa2b22b0112dfa4f417abfa06293d62&id=%E5%8F%91%E7%8E%B0%E4%B9%8B%E6%97%85&type=yy
 #EXTINF:-1 tvg-name="发现之旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/发现之旅.png" group-title="中央",发现之旅
 https://migu.188766.xyz/?migutoken=5f37df0fafbc5a75640f1d4dabb09272&id=%E5%8F%91%E7%8E%B0%E4%B9%8B%E6%97%85&type=yy
+#EXTINF:-1 tvg-name="发现之旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/发现之旅.png" group-title="中央",发现之旅
+https://migu.188766.xyz/?migutoken=01c6a46cf7d10ad90150d2a251b306b2&id=%E5%8F%91%E7%8E%B0%E4%B9%8B%E6%97%85&type=yy
 #EXTINF:-1 tvg-name="女性时尚" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/女性时尚.png" group-title="中央",女性时尚
 http://iptv.666230.xyz/iptv/jsyd.php/G_NVXINGSS-CQ
 #EXTINF:-1 tvg-name="央视台球" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/央视台球.png" group-title="中央",央视台球
@@ -5767,6 +5799,8 @@ http://cdn3.132.us.kg/live/cwjd/stream.m3u8
 https://migu.188766.xyz/?migutoken=b2f99830a62e0efb91e98ac7644a619a&id=%E8%80%81%E6%95%85%E4%BA%8B&type=yy
 #EXTINF:-1 tvg-name="重温经典" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/重温经典.png" group-title="中央",重温经典
 https://migu.188766.xyz/?migutoken=6ec2eab99a39e8daa4f50bef6e18efdf&id=%E8%80%81%E6%95%85%E4%BA%8B&type=yy
+#EXTINF:-1 tvg-name="重温经典" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/重温经典.png" group-title="中央",重温经典
+https://migu.188766.xyz/?migutoken=69eeea40b9c0ab58058bb3d5caae20e8&id=%E8%80%81%E6%95%85%E4%BA%8B&type=yy
 #EXTINF:-1 tvg-name="老故事" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/老故事.png" group-title="中央",老故事
 https://other.ottiptv.cc/cwjd.m3u8
 #EXTINF:-1 tvg-name="老故事" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/老故事.png" group-title="中央",老故事
@@ -5781,12 +5815,16 @@ http://php.jdshipin.com/TVOD/iptv.php?id=cwjd
 http://cdn3.132.us.kg/live/cwjd/stream.m3u8
 #EXTINF:-1 tvg-name="老故事" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/老故事.png" group-title="中央",老故事
 https://migu.188766.xyz/?migutoken=b2f99830a62e0efb91e98ac7644a619a&id=%E8%80%81%E6%95%85%E4%BA%8B&type=yy
+#EXTINF:-1 tvg-name="老故事" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/老故事.png" group-title="中央",老故事
+https://migu.188766.xyz/?migutoken=6ec2eab99a39e8daa4f50bef6e18efdf&id=%E8%80%81%E6%95%85%E4%BA%8B&type=yy
 #EXTINF:-1 tvg-name="中学生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中学生.png" group-title="中央",中学生
 https://migu.188766.xyz/?migutoken=b2b376a716718078ac39679d2c97b32a&id=%E4%B8%AD%E5%AD%A6%E7%94%9F&type=yy
 #EXTINF:-1 tvg-name="中学生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中学生.png" group-title="中央",中学生
 https://migu.188766.xyz/?migutoken=69294c55e10e68166dec1b01ed950768&id=%E4%B8%AD%E5%AD%A6%E7%94%9F&type=yy
 #EXTINF:-1 tvg-name="中学生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中学生.png" group-title="中央",中学生
 https://migu.188766.xyz/?migutoken=204107f873c87c00d2dd516db95a7e61&id=%E4%B8%AD%E5%AD%A6%E7%94%9F&type=yy
+#EXTINF:-1 tvg-name="中学生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中学生.png" group-title="中央",中学生
+https://migu.188766.xyz/?migutoken=b566a8f99b4d00870da06f229653c84c&id=%E4%B8%AD%E5%AD%A6%E7%94%9F&type=yy
 #EXTINF:-1 tvg-name="中国天气" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中国天气.png" group-title="中央",中国天气
 https://tv.iill.top/migu/zgtq&token=d25986dec232345e7d991eb80f90d884b6037b42c12c8b793d52ff710cbe29b7
 #EXTINF:-1 tvg-name="睛彩竞技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/睛彩竞技.png" group-title="中央",睛彩竞技
@@ -5913,6 +5951,8 @@ http://www.xiaomo520.cn:4020/udp/239.252.219.86:5140
 https://migu.188766.xyz/?migutoken=302541e4df55efa30b3e10f7ced3cbff&id=CCTV4%E7%BE%8E%E6%B4%B2&type=yy
 #EXTINF:-1 tvg-name="CCTV4美洲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV4美洲.png" group-title="中央",CCTV-4美洲
 https://migu.188766.xyz/?migutoken=745f11e46cb2248ead0677d1c55a9762&id=CCTV4%E7%BE%8E%E6%B4%B2&type=yy
+#EXTINF:-1 tvg-name="CCTV4美洲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV4美洲.png" group-title="中央",CCTV-4美洲
+https://migu.188766.xyz/?migutoken=4fc6141a762d2db1fab26c5a06f271c4&id=CCTV4%E7%BE%8E%E6%B4%B2&type=yy
 #EXTINF:-1 tvg-name="CGTN" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CGTN.png" group-title="中央",CGTN
 http://iptv.huuc.edu.cn/hls/cgtnhd.m3u8
 #EXTINF:-1 tvg-name="CGTN" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CGTN.png" group-title="中央",CGTN
@@ -7007,6 +7047,8 @@ http://hlsbkmgsplive.miguvideo.com/migu/kailu/shan3xiws/57/20220809/index.m3u8?m
 https://migu.188766.xyz/?migutoken=80536eb12a5ffef3fa57cf398d7a6a41&id=%E9%99%95%E8%A5%BF%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="陕西卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/陕西卫视.png" group-title="卫视",陕西卫视
 https://migu.188766.xyz/?migutoken=ab71b12cf81a6b29e9db87930541b2de&id=%E9%99%95%E8%A5%BF%E5%8D%AB%E8%A7%86&type=yy
+#EXTINF:-1 tvg-name="陕西卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/陕西卫视.png" group-title="卫视",陕西卫视
+https://migu.188766.xyz/?migutoken=dd06848d859edc47bb6d8e806fbb04f9&id=%E9%99%95%E8%A5%BF%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="四川卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/四川卫视.png" group-title="卫视",四川卫视
 http://iptv.huuc.edu.cn/hls/schd.m3u8
 #EXTINF:-1 tvg-name="四川卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/四川卫视.png" group-title="卫视",四川卫视
@@ -7321,6 +7363,8 @@ http://mobilelive-timeshift.ysp.cctv.cn/timeshift/ysp/2022606701/timeshift.m3u8?
 https://migu.188766.xyz/?migutoken=a965e4595c267c9b9433bb2a089af030&id=%E5%85%B5%E5%9B%A2%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="兵团卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/兵团卫视.png" group-title="卫视",兵团卫视
 https://migu.188766.xyz/?migutoken=4017e6ef9dd3bed40958653517c75636&id=%E5%85%B5%E5%9B%A2%E5%8D%AB%E8%A7%86&type=yy
+#EXTINF:-1 tvg-name="兵团卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/兵团卫视.png" group-title="卫视",兵团卫视
+https://migu.188766.xyz/?migutoken=14136124f078318a93c5e8c3c95cee1f&id=%E5%85%B5%E5%9B%A2%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="农林卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/农林卫视.png" group-title="卫视",农林卫视
 https://migu.188766.xyz/?migutoken=2fd3d1e5da88d9eec231402982103286&id=%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9E%97%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="农林卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/农林卫视.png" group-title="卫视",农林卫视
@@ -7331,6 +7375,8 @@ http://[2409:8087:74d9:21::6]:80/270000001128/9900000060/index.m3u8
 https://migu.188766.xyz/?migutoken=478467ae013bba51f5131b412c5799ab&id=%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9E%97%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="农林卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/农林卫视.png" group-title="卫视",农林卫视
 https://migu.188766.xyz/?migutoken=66f6df02757fef8e658e1f2a411bae3f&id=%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9E%97%E5%8D%AB%E8%A7%86&type=yy
+#EXTINF:-1 tvg-name="农林卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/农林卫视.png" group-title="卫视",农林卫视
+https://migu.188766.xyz/?migutoken=e3ce98a2d5891abecf36982130d873b3&id=%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9E%97%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="北京文艺" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京文艺.png" group-title="北京",北京文艺
 http://iptv.huuc.edu.cn/hls/btv2hd.m3u8
 #EXTINF:-1 tvg-name="北京文艺" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京文艺.png" group-title="北京",北京文艺
@@ -7343,6 +7389,8 @@ http://[2409:8087:1:20:20::29]/otttv.bj.chinamobile.com/PLTV/88888888/224/322122
 https://migu.188766.xyz/?migutoken=87c4422a4e7165b2c19c99b073422ce7&id=%E5%8C%97%E4%BA%AC%E6%96%87%E8%89%BA&type=yy
 #EXTINF:-1 tvg-name="北京文艺" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京文艺.png" group-title="北京",北京文艺
 https://migu.188766.xyz/?migutoken=57503170f300bc4fa36a5547d06750ad&id=%E5%8C%97%E4%BA%AC%E6%96%87%E8%89%BA&type=yy
+#EXTINF:-1 tvg-name="北京文艺" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京文艺.png" group-title="北京",北京文艺
+https://migu.188766.xyz/?migutoken=14621354f258b572f901c3840a95a41c&id=%E5%8C%97%E4%BA%AC%E6%96%87%E8%89%BA&type=yy
 #EXTINF:-1 tvg-name="北京体育休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京体育休闲.png" group-title="北京",北京体育休闲
 http://[2409:8087:1:20:20::29]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226438/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7EeVAybrHg955d_IRT9e_uHQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNMLCKqkSfuGOusJwBMwlCbz%2CEND
 #EXTINF:-1 tvg-name="北京影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京影视.png" group-title="北京",北京影视
@@ -7357,6 +7405,8 @@ http://[2409:8087:1:20:20::2a]/otttv.bj.chinamobile.com/PLTV/88888888/224/322122
 https://migu.188766.xyz/?migutoken=62b8c8a2e880e5fd569fb1303e2411b3&id=%E5%8C%97%E4%BA%AC%E5%BD%B1%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="北京影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京影视.png" group-title="北京",北京影视
 https://migu.188766.xyz/?migutoken=aa87c6acc8836cc27e71685010b055fe&id=%E5%8C%97%E4%BA%AC%E5%BD%B1%E8%A7%86&type=yy
+#EXTINF:-1 tvg-name="北京影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京影视.png" group-title="北京",北京影视
+https://migu.188766.xyz/?migutoken=876f9c3f26413e814131b47f144218dd&id=%E5%8C%97%E4%BA%AC%E5%BD%B1%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="北京财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京财经.png" group-title="北京",北京财经
 http://iptv.huuc.edu.cn/hls/btv5.m3u8
 #EXTINF:-1 tvg-name="北京财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京财经.png" group-title="北京",北京财经
@@ -7379,6 +7429,10 @@ https://migu.188766.xyz/?migutoken=4a29066f60f205a3d4d4fa00195af34b&id=%E5%8C%97
 https://migu.188766.xyz/?migutoken=c5cae7b7f4da574581dc3d8c0ad12625&id=%E5%8C%97%E4%BA%AC%E8%B4%A2%E7%BB%8F&type=yy
 #EXTINF:-1 tvg-name="北京财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京财经.png" group-title="北京",北京财经
 https://migu.188766.xyz/?migutoken=f99c2ff2497251ed646e89257da9f6a0&id=%E5%8C%97%E4%BA%AC%E8%B4%A2%E7%BB%8F&type=yy
+#EXTINF:-1 tvg-name="北京财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京财经.png" group-title="北京",北京财经
+https://migu.188766.xyz/?migutoken=7e679653bf0bede43714ad99f810268c&id=%E5%8C%97%E4%BA%AC%E8%B4%A2%E7%BB%8F&type=yy
+#EXTINF:-1 tvg-name="北京财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京财经.png" group-title="北京",北京财经
+https://migu.188766.xyz/?migutoken=0141bab02a84635b0a257417f9b8f5f7&id=%E5%8C%97%E4%BA%AC%E8%B4%A2%E7%BB%8F&type=yy
 #EXTINF:-1 tvg-name="北京生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京生活.png" group-title="北京",北京生活
 http://iptv.huuc.edu.cn/hls/btv7.m3u8
 #EXTINF:-1 tvg-name="北京生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京生活.png" group-title="北京",北京生活
@@ -7403,6 +7457,8 @@ https://migu.188766.xyz/?migutoken=fcf2fd8a9f5159838c6ecfd1749b8828&id=%E5%8C%97
 https://migu.188766.xyz/?migutoken=7676312050265378b211c7827880d7f5&id=%E5%8C%97%E4%BA%ACi%E7%94%9F%E6%B4%BB&type=yy
 #EXTINF:-1 tvg-name="北京生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京生活.png" group-title="北京",北京生活
 https://migu.188766.xyz/?migutoken=11986cfe06e640a63c6f2f9285294f89&id=%E5%8C%97%E4%BA%ACi%E7%94%9F%E6%B4%BB&type=yy
+#EXTINF:-1 tvg-name="北京生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京生活.png" group-title="北京",北京生活
+https://migu.188766.xyz/?migutoken=a10d6809d817766c3bf59b62e8d09140&id=%E5%8C%97%E4%BA%ACi%E7%94%9F%E6%B4%BB&type=yy
 #EXTINF:-1 tvg-name="北京新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京新闻.png" group-title="北京",北京新闻
 http://iptv.huuc.edu.cn/hls/btv9hd.m3u8
 #EXTINF:-1 tvg-name="北京新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京新闻.png" group-title="北京",北京新闻
@@ -7427,6 +7483,8 @@ http://[2409:8087:1:20:20::2a]/otttv.bj.chinamobile.com/PLTV/88888888/224/322122
 https://migu.188766.xyz/?migutoken=ebea0366986c40ef5dbdccaf9930a8e3&id=%E5%8C%97%E4%BA%AC%E6%96%B0%E9%97%BB&type=yy
 #EXTINF:-1 tvg-name="北京新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京新闻.png" group-title="北京",北京新闻
 https://migu.188766.xyz/?migutoken=9a3331932fd8812bf89a1850edf974a4&id=%E5%8C%97%E4%BA%AC%E6%96%B0%E9%97%BB&type=yy
+#EXTINF:-1 tvg-name="北京新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京新闻.png" group-title="北京",北京新闻
+https://migu.188766.xyz/?migutoken=55495a8c403b5c7af43fa710946f4459&id=%E5%8C%97%E4%BA%AC%E6%96%B0%E9%97%BB&type=yy
 #EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
 http://iptv.huuc.edu.cn/hls/btv10.m3u8
 #EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
@@ -7457,6 +7515,16 @@ http://ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225654/index.m3u8
 https://migu.188766.xyz/?migutoken=7e3f10fdaeaf92fd1622504fea9ea371&id=%E5%8C%97%E4%BA%AC%E5%8D%A1%E9%85%B7%E5%B0%91%E5%84%BF&type=yy
 #EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
 https://migu.188766.xyz/?migutoken=3a74a23191e2a6ae7952faae2ef1332a&id=%E5%8C%97%E4%BA%AC%E5%8D%A1%E9%85%B7%E5%B0%91%E5%84%BF&type=yy
+#EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
+http://[2409:8087:5e08:25::16]:6610/200000001898/460000089800010081/1.m3u8
+#EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
+https://migu.188766.xyz/?migutoken=1023983db6b5249e61d4950c1654cd84&id=%E5%8C%97%E4%BA%AC%E5%8D%A1%E9%85%B7%E5%B0%91%E5%84%BF&type=yy
+#EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
+https://migu.188766.xyz/?migutoken=2c51384549aec8a85219fdc0c475e40b&id=%E5%8C%97%E4%BA%AC%E5%8D%A1%E9%85%B7%E5%B0%91%E5%84%BF&type=yy
+#EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
+https://migu.188766.xyz/?migutoken=238a8755ee64728b0980917e10720623&id=%E5%8C%97%E4%BA%AC%E5%8D%A1%E9%85%B7%E5%B0%91%E5%84%BF&type=yy
+#EXTINF:-1 tvg-name="卡酷少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/卡酷少儿.png" group-title="北京",卡酷少儿
+https://migu.188766.xyz/?migutoken=7d1e1120b370ad3cebcef8f780c94ded&id=%E5%8C%97%E4%BA%AC%E5%8D%A1%E9%85%B7%E5%B0%91%E5%84%BF&type=yy
 #EXTINF:-1 tvg-name="北京纪实科教" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京纪实科教.png" group-title="北京",北京纪实科教
 https://migu.188766.xyz/?migutoken=b393e567fa2fcc266afb90256881ce07&id=%E5%8C%97%E4%BA%AC%E7%BA%AA%E5%AE%9E%E7%A7%91%E6%95%99&type=yy
 #EXTINF:-1 tvg-name="北京纪实科教" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京纪实科教.png" group-title="北京",北京纪实科教
@@ -7465,6 +7533,8 @@ http://[2409:8087:1:20:20::29]/otttv.bj.chinamobile.com/PLTV/88888888/224/322122
 https://migu.188766.xyz/?migutoken=c4ce19e674a12c583c27e61508dee7f0&id=%E5%8C%97%E4%BA%AC%E7%BA%AA%E5%AE%9E%E7%A7%91%E6%95%99&type=yy
 #EXTINF:-1 tvg-name="北京纪实科教" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京纪实科教.png" group-title="北京",北京纪实科教
 https://migu.188766.xyz/?migutoken=1035a1e4d12a452546323fb0dbb9a176&id=%E5%8C%97%E4%BA%AC%E7%BA%AA%E5%AE%9E%E7%A7%91%E6%95%99&type=yy
+#EXTINF:-1 tvg-name="北京纪实科教" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/北京纪实科教.png" group-title="北京",北京纪实科教
+https://migu.188766.xyz/?migutoken=12c6c675f5674c267ad631262da93dc6&id=%E5%8C%97%E4%BA%AC%E7%BA%AA%E5%AE%9E%E7%A7%91%E6%95%99&type=yy
 #EXTINF:-1 tvg-name="萌宠TV" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/萌宠TV.png" group-title="北京",萌宠TV
 http://[2409:8087:1:20:20::26]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226555/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7E_PpxWPtvSZRFtu_Ged-vQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNO0istnBuoA2R9ODSCqyIyS%2CEND
 #EXTINF:-1 tvg-name="河北少儿科教" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河北少儿科教.png" group-title="河北",河北少儿科教
@@ -7661,6 +7731,8 @@ https://migu.188766.xyz/?migutoken=2da6fc3ee5600c20fc3a1ec99a5f510d&id=%E4%B8%8A
 https://migu.188766.xyz/?migutoken=0b022c0bdc6bb55ef1ec0c8f1923bbaa&id=%E4%B8%8A%E6%B5%B7%E6%96%B0%E9%97%BB%E7%BB%BC%E5%90%88&type=yy
 #EXTINF:-1 tvg-name="上海新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/上海新闻综合.png" group-title="上海",上海新闻综合
 https://migu.188766.xyz/?migutoken=c763c42366be86e2663211c0ea6d7c76&id=%E4%B8%8A%E6%B5%B7%E6%96%B0%E9%97%BB%E7%BB%BC%E5%90%88&type=yy
+#EXTINF:-1 tvg-name="上海新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/上海新闻综合.png" group-title="上海",上海新闻综合
+https://migu.188766.xyz/?migutoken=647c72ffc1278dfe09eefc4122b3e2d2&id=%E4%B8%8A%E6%B5%B7%E6%96%B0%E9%97%BB%E7%BB%BC%E5%90%88&type=yy
 #EXTINF:-1 tvg-name="东方影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/东方影视.png" group-title="上海",东方影视
 https://zby.130519.xyz/PLTV/11/224/3221225744/index.m3u8
 #EXTINF:-1 tvg-name="东方影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/东方影视.png" group-title="上海",东方影视
@@ -7703,6 +7775,8 @@ https://migu.188766.xyz/?migutoken=b449f238856c014962202eb56a065b91&id=dycj&type
 https://migu.188766.xyz/?migutoken=4d3493b3ed45588580c37f3b181235f2&id=dycj&type=sz
 #EXTINF:-1 tvg-name="第一财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/第一财经.png" group-title="上海",第一财经
 https://migu.188766.xyz/?migutoken=98cb271aa91416c1624edb62b8ac417e&id=dycj&type=sz
+#EXTINF:-1 tvg-name="第一财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/第一财经.png" group-title="上海",第一财经
+https://migu.188766.xyz/?migutoken=0a5e7ccab62caa0ea70c66ba9c25af42&id=dycj&type=sz
 #EXTINF:-1 tvg-name="五星体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/五星体育.png" group-title="上海",五星体育
 https://zby.130519.xyz/PLTV/11/224/3221225732/index.m3u8
 #EXTINF:-1 tvg-name="五星体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/五星体育.png" group-title="上海",五星体育
@@ -7733,6 +7807,8 @@ http://[2409:8087:5e08:24::17]:6610/000000001000/2000000002000000007/index.m3u8?
 http://[2409:8087:5e01:24::16]:6610/000000001000/2000000002000000007/index.m3u8?stbId=3&livemode=1&HlsProfileId=&channel-id=hnbblive&Contentid=2000000002000000007&IAS
 #EXTINF:-1 tvg-name="五星体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/五星体育.png" group-title="上海",五星体育
 https://migu.188766.xyz/?migutoken=4972fb08f25df5bd53b907a04affe23e&id=%E4%BA%94%E6%98%9F%E4%BD%93%E8%82%B2&pp=1
+#EXTINF:-1 tvg-name="五星体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/五星体育.png" group-title="上海",五星体育
+https://migu.188766.xyz/?migutoken=a8e5a19f9921717d6d58f669cf323826&id=%E4%BA%94%E6%98%9F%E4%BD%93%E8%82%B2&pp=1
 #EXTINF:-1 tvg-name="上海都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/上海都市.png" group-title="上海",上海都市
 https://zby.130519.xyz/PLTV/11/224/3221225749/index.m3u8
 #EXTINF:-1 tvg-name="上海都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/上海都市.png" group-title="上海",上海都市
@@ -7747,6 +7823,8 @@ https://t.freetv.fun/live/shang-hai-du-shi-3.m3u8
 http://www.zhch682022.cn:35455/itv/5000000010000018926.m3u8?cdn=bestzb
 #EXTINF:-1 tvg-name="上海都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/上海都市.png" group-title="上海",上海都市
 https://migu.188766.xyz/?migutoken=39a905a06235ed92091aa2a0a2f75434&id=shds&type=sz
+#EXTINF:-1 tvg-name="上海都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/上海都市.png" group-title="上海",上海都市
+https://migu.188766.xyz/?migutoken=dc1c1180a0f4c6630cdca93083f61289&id=shds&type=sz
 #EXTINF:-1 tvg-name="哈哈炫动" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/哈哈炫动.png" group-title="上海",哈哈炫动
 http://iptv.huuc.edu.cn/hls/xdkttv.m3u8
 #EXTINF:-1 tvg-name="哈哈炫动" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/哈哈炫动.png" group-title="上海",哈哈炫动
@@ -7773,6 +7851,8 @@ http://[2409:8087:74d9:21::6]/000000001000PLTV/88888888/224/3221226618/index.m3u
 http://otttv.bj.chinamobile.com/PLTV/88888888/224/3221227025/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7E7RoPnbSvRPd3KyTpQ76WpA%7EtP4-l0lmSfjwLWEfK_el1vH_mv-s1zo4AQJwdedaVwG9xkuFTDg8J26cwOrNJzn20BErrHdLhuZ9EzLUCD3PMW-OMx4MGteHV2vLeW6BqoY%2CEND
 #EXTINF:-1 tvg-name="哈哈炫动" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/哈哈炫动.png" group-title="上海",哈哈炫动
 https://migu.188766.xyz/?migutoken=436a1fd543ebe1fe104208c5dad7f36c&id=hhxd&type=sz
+#EXTINF:-1 tvg-name="哈哈炫动" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/哈哈炫动.png" group-title="上海",哈哈炫动
+https://migu.188766.xyz/?migutoken=b71e78a79cc58395a8321418e59500e3&id=hhxd&type=sz
 #EXTINF:-1 tvg-name="东方卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/东方卫视.png" group-title="上海",东方卫视
 http://iptv.huuc.edu.cn/hls/dfhd.m3u8
 #EXTINF:-1 tvg-name="东方卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/东方卫视.png" group-title="上海",东方卫视
@@ -7863,26 +7943,6 @@ http://[2409:8087:1e01:20::3]:80/PLTV/11/224/3221225762/index.m3u8
 https://shyd.695847.xyz/cms001/ch00000090990000001203/index.m3u8?IASHttpSessionId=RR4967720251014100028031761&ispcode=12
 #EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
 http://[2409:8087:1e01:20::3]/PLTV/11/224/3221226155/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-http://[2409:8087:4400:20:1:a0f:11:9]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226694/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-https://zby.130519.xyz/PLTV/11/224/3221225762/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-https://zby.130519.xyz/PLTV/11/224/3221226155/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226694/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-https://hls-gateway.vpstv.net/streams/708845.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-http://[2409:8087:5e00:24::1e]:6060/000000001000/5000000011000031111/1.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-http://[2409:8087:5e08:25::4]:6610/000000001000/5000000011000031111/index.m3u8?channel-id=bestzb&Contentid=5000000011000031111&Ace
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-http://[2409:8087:1e01:20::3]/PLTV/11/224/3221225762/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-http://[2409:8087:1e01:20::3]:80/PLTV/11/224/3221225762/index.m3u8
-#EXTINF:-1 tvg-name="都市剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/都市剧场.png" group-title="上海",都市剧场
-https://shyd.695847.xyz/cms001/ch00000090990000001203/index.m3u8?IASHttpSessionId=RR4967720251014100028031761&ispcode=12
 #EXTINF:-1 tvg-name="动漫秀场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/动漫秀场.png" group-title="上海",动漫秀场
 http://[2409:8087:4400:20:1:a0f:11:9]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226608/index.m3u8
 #EXTINF:-1 tvg-name="动漫秀场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/动漫秀场.png" group-title="上海",动漫秀场
@@ -7897,12 +7957,14 @@ http://[2409:8087:1e03:21::42]:6610/cms001/ch00000090990000001196/index.m3u8?
 http://[2409:8087:5e00:24::1e]:6060/000000001000/5000000011000031113/1.m3u8
 #EXTINF:-1 tvg-name="动漫秀场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/动漫秀场.png" group-title="上海",动漫秀场
 http://[2409:8087:74d9:21::6]/000000001000PLTV/88888888/224/3221226197/index.m3u8
-#EXTINF:-1 tvg-name="欢笑剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/欢笑剧场.png" group-title="上海",欢笑剧场
-http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226704/index.m3u8
+#EXTINF:-1 tvg-name="动漫秀场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/动漫秀场.png" group-title="上海",动漫秀场
+https://live.v1.mk/api/bestv.php?id=dmxc8m/8000000
 #EXTINF:-1 tvg-name="欢笑剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/欢笑剧场.png" group-title="上海",欢笑剧场
 https://zby.130519.xyz/PLTV/11/224/3221225771/index.m3u8
 #EXTINF:-1 tvg-name="欢笑剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/欢笑剧场.png" group-title="上海",欢笑剧场
 http://[2409:8087:5e00:24::1e]:6060/000000001000/5000000002000009455/1.m3u8
+#EXTINF:-1 tvg-name="欢笑剧场" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/欢笑剧场.png" group-title="上海",欢笑剧场
+http://iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226704/index.m3u8
 #EXTINF:-1 tvg-name="金色学堂" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/金色学堂.png" group-title="上海",金色学堂
 https://zby.130519.xyz/PLTV/11/224/3221225748/index.m3u8
 #EXTINF:-1 tvg-name="金色学堂" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/金色学堂.png" group-title="上海",金色学堂
@@ -8196,9 +8258,7 @@ https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-1.m3u8
 #EXTINF:-1 tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
 https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-2.m3u8
 #EXTINF:-1 tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
-https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-1.m3u8
-#EXTINF:-1 tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
-https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-2.m3u8
+https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-3.m3u8
 #EXTINF:-1 tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
 https://t.freetv.fun/live/zhe-jiang-min-sheng-3.m3u8
 #EXTINF:-1 tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
@@ -8467,6 +8527,8 @@ http://[2409:8087:1a09:df::401d]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/322
 https://migu.188766.xyz/?migutoken=33e756957b0f58d9c9ac9eb00c2cd753&id=%E5%B1%B1%E4%B8%9C%E6%95%99%E8%82%B2&type=yy
 #EXTINF:-1 tvg-name="山东教育卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/山东教育卫视.png" group-title="山东",山东教育卫视
 https://migu.188766.xyz/?migutoken=98181cb3c229bc0f349f838a3cf87f65&id=%E5%B1%B1%E4%B8%9C%E6%95%99%E8%82%B2&type=yy
+#EXTINF:-1 tvg-name="山东教育卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/山东教育卫视.png" group-title="山东",山东教育卫视
+https://migu.188766.xyz/?migutoken=e7498fc25d64bd67c3b4ce031dd90192&id=%E5%B1%B1%E4%B8%9C%E6%95%99%E8%82%B2&type=yy
 #EXTINF:-1 tvg-name="河南都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南都市.png" group-title="河南",河南都市
 https://migu.188766.xyz/?migutoken=3c7b839592f415b249663deca8801e89&id=%E9%83%BD%E5%B8%82%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南都市.png" group-title="河南",河南都市
@@ -8505,6 +8567,8 @@ https://migu.188766.xyz/?migutoken=9e4178857306e63d2136d06faf56dee5&id=%E9%83%BD
 https://t.freetv.fun/live/he-nan-du-shi-8.m3u8
 #EXTINF:-1 tvg-name="河南都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南都市.png" group-title="河南",河南都市
 https://migu.188766.xyz/?migutoken=6c4cecb6acc65f3b1a02fbe88966f45f&id=%E9%83%BD%E5%B8%82%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南都市.png" group-title="河南",河南都市
+https://migu.188766.xyz/?migutoken=b0256872361a062774c5e309589b89b0&id=%E9%83%BD%E5%B8%82%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南民生.png" group-title="河南",河南民生
 https://migu.188766.xyz/?migutoken=4a884c07c800248f7a295d74d86ba677&id=%E6%B0%91%E7%94%9F%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南民生.png" group-title="河南",河南民生
@@ -8543,22 +8607,32 @@ https://t.freetv.fun/live/he-nan-min-sheng-7.m3u8
 https://t.freetv.fun/live/he-nan-min-sheng-9.m3u8
 #EXTINF:-1 tvg-name="河南民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南民生.png" group-title="河南",河南民生
 https://migu.188766.xyz/?migutoken=5258e438d4df80f4eae0ff4bd1518d76&id=%E6%B0%91%E7%94%9F%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南民生.png" group-title="河南",河南民生
+https://migu.188766.xyz/?migutoken=e8880d705317cf8c1d3bfeaee55e911d&id=%E6%B0%91%E7%94%9F%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南法治" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南法治.png" group-title="河南",河南法治
 https://migu.188766.xyz/?migutoken=8323c5bf5bac5cacd06530c49c0bad2a&id=%E6%B3%95%E6%B2%BB%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南法治" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南法治.png" group-title="河南",河南法治
 https://migu.188766.xyz/?migutoken=6ab925fe548ddb1a310b98034a8a5298&id=%E6%B3%95%E6%B2%BB%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南法治" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南法治.png" group-title="河南",河南法治
 https://migu.188766.xyz/?migutoken=21319658ca44e9011d616ebd3bb1d039&id=%E6%B3%95%E6%B2%BB%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南法治" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南法治.png" group-title="河南",河南法治
+https://migu.188766.xyz/?migutoken=15b2dfb81ee7bee5fb27add8c9c1c09e&id=%E6%B3%95%E6%B2%BB%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南电视剧" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南电视剧.png" group-title="河南",河南电视剧
 https://migu.188766.xyz/?migutoken=1d779a5896d3a1d7b5e1101bcc3e4c63&id=%E7%94%B5%E8%A7%86%E5%89%A7%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南电视剧" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南电视剧.png" group-title="河南",河南电视剧
 https://migu.188766.xyz/?migutoken=5d12d0ddb74c1c75a0d5613225e90c54&id=%E7%94%B5%E8%A7%86%E5%89%A7%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南电视剧" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南电视剧.png" group-title="河南",河南电视剧
+https://migu.188766.xyz/?migutoken=37a64c541c8b0455e448da129ac7f6f2&id=%E7%94%B5%E8%A7%86%E5%89%A7%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南电视剧" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南电视剧.png" group-title="河南",河南电视剧
+https://migu.188766.xyz/?migutoken=a3bf188c7d0aa49ac8c68a5aa20676da&id=%E7%94%B5%E8%A7%86%E5%89%A7%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南新闻.png" group-title="河南",河南新闻
 https://migu.188766.xyz/?migutoken=cc17296add29a93844fcd14d49a92c4e&id=%E6%96%B0%E9%97%BB%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南新闻.png" group-title="河南",河南新闻
 https://migu.188766.xyz/?migutoken=5fd5bc9c2bac46857b64f19da77168d4&id=%E6%96%B0%E9%97%BB%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南新闻.png" group-title="河南",河南新闻
 https://migu.188766.xyz/?migutoken=98e6fb4bed1ae817ec20794eb89d7059&id=%E6%96%B0%E9%97%BB%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南新闻.png" group-title="河南",河南新闻
+https://migu.188766.xyz/?migutoken=ad7b0beeaf694172a53e481e9d0b0445&id=%E6%96%B0%E9%97%BB%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南公共" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南公共.png" group-title="河南",河南公共
 http://[2409:8087:4400:20:1:a0f:11:9]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226566/index.m3u8
 #EXTINF:-1 tvg-name="河南公共" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南公共.png" group-title="河南",河南公共
@@ -8567,6 +8641,8 @@ https://migu.188766.xyz/?migutoken=66d066e1a1caf9097a56caf0386d1509&id=%E5%85%AC
 https://migu.188766.xyz/?migutoken=d5f2affb7b34c91f5d78e52bbc28ebfd&id=%E5%85%AC%E5%85%B1%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南公共" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南公共.png" group-title="河南",河南公共
 https://migu.188766.xyz/?migutoken=0c1fa43f729e86d75a7a5380d31a8e50&id=%E5%85%AC%E5%85%B1%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南公共" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南公共.png" group-title="河南",河南公共
+https://migu.188766.xyz/?migutoken=e267b3a17e90bd853464bce38ba0e185&id=%E5%85%AC%E5%85%B1%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南乡村" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南乡村.png" group-title="河南",河南乡村
 http://[2409:8087:4400:20:1:a0f:11:9]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226576/index.m3u8
 #EXTINF:-1 tvg-name="河南乡村" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南乡村.png" group-title="河南",河南乡村
@@ -8577,6 +8653,10 @@ http://tvcdn.stream3.hndt.com/tv/65b8302b017e100019dc540f00000000_transios/playl
 http://tvcdn.stream3.hndt.com/tv/65b8302b017e100019dc540f00000000_transios/playlist.m3u8?wsSecret=c6eb40ee24d3c6a1a420764a32109480&wsTime=1769313549
 #EXTINF:-1 tvg-name="河南乡村" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南乡村.png" group-title="河南",河南乡村
 http://tvcdn.stream3.hndt.com/tv/65b8302b017e100019dc540f00000000_transios/playlist.m3u8?wsSecret=eeb5cb99499ddc69f621e7060ba5deb3&wsTime=1769299076
+#EXTINF:-1 tvg-name="河南乡村" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南乡村.png" group-title="河南",河南乡村
+http://tvcdn.stream3.hndt.com/tv/65b8302b017e100019dc540f00000000_transios/playlist.m3u8?wsSecret=fa8ea333100275d232596c2a0658572c&wsTime=1769536775
+#EXTINF:-1 tvg-name="河南乡村" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南乡村.png" group-title="河南",河南乡村
+http://tvcdn.stream3.hndt.com/tv/65b8302b017e100019dc540f00000000_transios/playlist.m3u8?wsSecret=1ab6f372921f32e09c7135d3f0ce8e7c&wsTime=1769572768
 #EXTINF:-1 tvg-name="河南移动戏曲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南移动戏曲.png" group-title="河南",河南移动戏曲
 https://migu.188766.xyz/?migutoken=1839d98134604235935e92257a73c9fd&id=%E7%A7%BB%E5%8A%A8%E6%88%8F%E6%9B%B2%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南移动戏曲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南移动戏曲.png" group-title="河南",河南移动戏曲
@@ -8585,6 +8665,8 @@ https://migu.188766.xyz/?migutoken=c50dbad8d116776e1951c15d8e290cfa&id=%E7%A7%BB
 https://migu.188766.xyz/?migutoken=2d52bca9adc1785b3a5a055d2d66f677&id=%E7%A7%BB%E5%8A%A8%E6%88%8F%E6%9B%B2%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="河南移动戏曲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南移动戏曲.png" group-title="河南",河南移动戏曲
 https://migu.188766.xyz/?migutoken=e116b526689c4715c1bc414d736fc79a&id=%E7%A7%BB%E5%8A%A8%E6%88%8F%E6%9B%B2%E9%A2%91%E9%81%93&type=yy
+#EXTINF:-1 tvg-name="河南移动戏曲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河南移动戏曲.png" group-title="河南",河南移动戏曲
+https://migu.188766.xyz/?migutoken=98ab09653f649094726bde1e24615030&id=%E7%A7%BB%E5%8A%A8%E6%88%8F%E6%9B%B2%E9%A2%91%E9%81%93&type=yy
 #EXTINF:-1 tvg-name="郑州新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/郑州新闻综合.png" group-title="河南",郑州新闻综合
 http://[2409:8087:4400:20:1:a0f:11:9]/iptv.cdn.ha.chinamobile.com/PLTV/88888888/224/3221226618/index.m3u8
 #EXTINF:-1 tvg-name="周口新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/周口新闻综合.png" group-title="河南",周口新闻综合
@@ -8961,6 +9043,8 @@ https://migu.188766.xyz/?migutoken=1cec33b8a7faebb61da8af030d76f763&id=%E5%BF%AB
 https://migu.188766.xyz/?migutoken=52f3c85fc2380abbf995f144e7a9c59e&id=%E5%BF%AB%E4%B9%90%E5%9E%82%E9%92%93&type=yy
 #EXTINF:-1 tvg-name="快乐垂钓" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/快乐垂钓.png" group-title="湖南",快乐垂钓
 https://migu.188766.xyz/?migutoken=89afef1f3d3819f3e81728d7698a1756&id=%E5%BF%AB%E4%B9%90%E5%9E%82%E9%92%93&type=yy
+#EXTINF:-1 tvg-name="快乐垂钓" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/快乐垂钓.png" group-title="湖南",快乐垂钓
+https://migu.188766.xyz/?migutoken=0987de3d9ebca8a9f1ddf3b18822e292&id=%E5%BF%AB%E4%B9%90%E5%9E%82%E9%92%93&type=yy
 #EXTINF:-1 tvg-name="先锋乒羽" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/先锋乒羽.png" group-title="湖南",先锋乒羽
 https://hls-gateway.vpstv.net/streams/708971.m3u8
 #EXTINF:-1 tvg-name="湖南国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/湖南国际.png" group-title="湖南",湖南国际
@@ -9031,6 +9115,18 @@ https://hk.188766.xyz/?migutoken=10d0cba5b3fb0b91180188690acfdbfd&id=gd_gdms&typ
 https://t.freetv.fun/live/yan-dong-min-sheng-3.m3u8
 #EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
 https://t.freetv.fun/live/yan-dong-min-sheng-1.m3u8
+#EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
+https://hk.188766.xyz/?migutoken=4dbbf49e9ca87c8ef3fac5c7df4efdfa&id=gd_gdms&type=sz
+#EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
+https://t.freetv.fun/live/yan-dong-min-sheng-18.m3u8
+#EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
+https://t.freetv.fun/live/yan-dong-min-sheng-7.m3u8
+#EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
+https://t.freetv.fun/live/yan-dong-min-sheng-14.m3u8
+#EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
+https://t.freetv.fun/live/yan-dong-min-sheng-9.m3u8
+#EXTINF:-1 tvg-name="广东民生" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东民生.png" group-title="广东",广东民生
+https://t.freetv.fun/live/yan-dong-min-sheng-19.m3u8
 #EXTINF:-1 tvg-name="广东体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东体育.png" group-title="广东",广东体育
 http://r.jdshipin.com/LiYdg
 #EXTINF:-1 tvg-name="广东体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东体育.png" group-title="广东",广东体育
@@ -9095,6 +9191,10 @@ https://migu.188766.xyz/?migutoken=acec28dd3077b092d570f17b7674227b&id=%E5%98%89
 https://hk.188766.xyz/?migutoken=b2748cbb4460b9c0000d2979cce0c956&id=gd_jjkt&type=sz
 #EXTINF:-1 tvg-name="嘉佳卡通" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/嘉佳卡通.png" group-title="广东",嘉佳卡通
 https://t.freetv.fun/live/jia-jia-qia-tong-2.m3u8
+#EXTINF:-1 tvg-name="嘉佳卡通" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/嘉佳卡通.png" group-title="广东",嘉佳卡通
+https://migu.188766.xyz/?migutoken=3224980d4f110b674f4b4fd63253dd4a&id=%E5%98%89%E4%BD%B3%E5%8D%A1%E9%80%9A&type=yy
+#EXTINF:-1 tvg-name="嘉佳卡通" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/嘉佳卡通.png" group-title="广东",嘉佳卡通
+https://hk.188766.xyz/?migutoken=98cbc14e5b88a9f36fef1f4b25c1b094&id=gd_jjkt&type=sz
 #EXTINF:-1 tvg-name="广东新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东新闻.png" group-title="广东",广东新闻
 https://hk.188766.xyz/?migutoken=4254e1ca8dcef82514ec6ce2a8bd39e4&id=gd_gdxw&type=sz
 #EXTINF:-1 tvg-name="广东新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东新闻.png" group-title="广东",广东新闻
@@ -9163,6 +9263,8 @@ https://migu.188766.xyz/?migutoken=67a71f4c9d50568f23d4cd353af12f01&id=%E5%A4%A7
 https://migu.188766.xyz/?migutoken=60d7d1d9b1136baa011f1825d7c939b6&id=%E5%A4%A7%E6%B9%BE%E5%8C%BA%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="大湾区卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/大湾区卫视.png" group-title="广东",大湾区卫视
 https://migu.188766.xyz/?migutoken=3be12ed462f52c88b960569849f57109&id=%E5%A4%A7%E6%B9%BE%E5%8C%BA%E5%8D%AB%E8%A7%86&type=yy
+#EXTINF:-1 tvg-name="大湾区卫视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/大湾区卫视.png" group-title="广东",大湾区卫视
+https://migu.188766.xyz/?migutoken=1e0cbd66db28b7f55f99f02707b40fe7&id=%E5%A4%A7%E6%B9%BE%E5%8C%BA%E5%8D%AB%E8%A7%86&type=yy
 #EXTINF:-1 tvg-name="广东影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东影视.png" group-title="广东",广东影视
 https://hk.188766.xyz/?migutoken=0a341adf7cbcd1b7bd97570bdbfd1739&id=gd_gdys&type=sz
 #EXTINF:-1 tvg-name="广东影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东影视.png" group-title="广东",广东影视
@@ -9239,6 +9341,10 @@ https://t.freetv.fun/live/yan-dong-shao-er-gao-qing-6.m3u8
 https://hk.188766.xyz/?migutoken=bb05016c301614099c35f03c2e75af58&id=gd_gdse&type=sz
 #EXTINF:-1 tvg-name="广东少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东少儿.png" group-title="广东",广东少儿
 https://t.freetv.fun/live/yan-dong-shao-er-3.m3u8
+#EXTINF:-1 tvg-name="广东少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东少儿.png" group-title="广东",广东少儿
+https://hk.188766.xyz/?migutoken=fb191d08ababa7adfe93f2d02361dcab&id=gd_gdse&type=sz
+#EXTINF:-1 tvg-name="广东少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广东少儿.png" group-title="广东",广东少儿
+https://t.freetv.fun/live/yan-dong-shao-er-10.m3u8
 #EXTINF:-1 tvg-name="广州综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广州综合.png" group-title="广东",广州综合
 http://r.jdshipin.com/iR6Gq
 #EXTINF:-1 tvg-name="广州综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广州综合.png" group-title="广东",广州综合
@@ -9297,6 +9403,8 @@ https://t.freetv.fun/live/yan-zhou-xin-wen-8.php
 https://t.freetv.fun/live/yan-zhou-xin-wen-14.m3u8
 #EXTINF:-1 tvg-name="广州新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广州新闻.png" group-title="广东",广州新闻
 https://t.freetv.fun/live/yan-zhou-xin-wen-6.php
+#EXTINF:-1 tvg-name="广州新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广州新闻.png" group-title="广东",广州新闻
+https://t.freetv.fun/live/yan-zhou-xin-wen-4.php
 #EXTINF:-1 tvg-name="南国都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/南国都市.png" group-title="广东",南国都市
 http://r.jdshipin.com/nWaZO
 #EXTINF:-1 tvg-name="广州法治" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广州法治.png" group-title="广东",广州法治
@@ -9409,6 +9517,8 @@ https://migu.188766.xyz/?migutoken=2dfad6aeaf2e57828323bbe505a61f4c&id=hn_ggpd&t
 https://t.freetv.fun/live/hai-nan-gong-gong-2.m3u8
 #EXTINF:-1 tvg-name="海南公共" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南公共.png" group-title="海南",海南公共
 https://t.freetv.fun/live/hai-nan-gong-gong-3.m3u8
+#EXTINF:-1 tvg-name="海南公共" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南公共.png" group-title="海南",海南公共
+https://migu.188766.xyz/?migutoken=92d7b3c3dc3e5d1197dbcc14c925f4cd&id=hn_ggpd&type=sz
 #EXTINF:-1 tvg-name="海南文旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南文旅.png" group-title="海南",海南文旅
 https://migu.188766.xyz/?migutoken=c9c9f8b653c1e1e8219e116f7e481879&id=hn_wlpd&type=sz
 #EXTINF:-1 tvg-name="海南文旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南文旅.png" group-title="海南",海南文旅
@@ -9435,6 +9545,8 @@ https://migu.188766.xyz/?migutoken=db951eaf6f2005f41b89fb27313d74f2&id=hn_wlpd&t
 https://t.freetv.fun/live/hai-nan-wen-lu-2.m3u8
 #EXTINF:-1 tvg-name="海南文旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南文旅.png" group-title="海南",海南文旅
 https://t.freetv.fun/live/hai-nan-wen-lu-3.m3u8
+#EXTINF:-1 tvg-name="海南文旅" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南文旅.png" group-title="海南",海南文旅
+https://migu.188766.xyz/?migutoken=5cfb1eb0c930eb2b156bf3f0b855c4cd&id=hn_wlpd&type=sz
 #EXTINF:-1 tvg-name="海南少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南少儿.png" group-title="海南",海南少儿
 https://migu.188766.xyz/?migutoken=6f0f1afceaa5258c040b50b1f89bfdc5&id=hn_sepd&type=sz
 #EXTINF:-1 tvg-name="海南少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南少儿.png" group-title="海南",海南少儿
@@ -9455,6 +9567,8 @@ https://migu.188766.xyz/?migutoken=5270a5c7850cc83ef1803e5ac45034ad&id=hn_sepd&t
 https://migu.188766.xyz/?migutoken=94fbdedd46714cce22095d35dee4d381&id=hn_sepd&type=sz
 #EXTINF:-1 tvg-name="海南少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南少儿.png" group-title="海南",海南少儿
 https://migu.188766.xyz/?migutoken=f3b69b71f4c3e9ad77f40d344c18ce7c&id=hn_sepd&type=sz
+#EXTINF:-1 tvg-name="海南少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南少儿.png" group-title="海南",海南少儿
+https://migu.188766.xyz/?migutoken=99cbf62f9d077a9dc5eb7359de704185&id=hn_sepd&type=sz
 #EXTINF:-1 tvg-name="海南自贸" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南自贸.png" group-title="海南",海南自贸
 https://migu.188766.xyz/?migutoken=2795391bf2380a7870585be391603d6a&id=hn_jjpd&type=sz
 #EXTINF:-1 tvg-name="海南自贸" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南自贸.png" group-title="海南",海南自贸
@@ -9475,6 +9589,8 @@ https://migu.188766.xyz/?migutoken=1d2bec3e12a18bf82d0a988bae5088a1&id=hn_jjpd&t
 https://migu.188766.xyz/?migutoken=a76a64fccf4619fe533b78bc86334f12&id=hn_jjpd&type=sz
 #EXTINF:-1 tvg-name="海南自贸" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南自贸.png" group-title="海南",海南自贸
 https://migu.188766.xyz/?migutoken=bbf4f6df8c4606d900dee13c1d2cb786&id=hn_jjpd&type=sz
+#EXTINF:-1 tvg-name="海南自贸" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南自贸.png" group-title="海南",海南自贸
+https://migu.188766.xyz/?migutoken=fad394cd1cc1f45fa539f0de452cf6ab&id=hn_jjpd&type=sz
 #EXTINF:-1 tvg-name="海南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南新闻.png" group-title="海南",海南新闻
 https://migu.188766.xyz/?migutoken=410e218b52bfcc506bef1f814d8d3b5f&id=hn_xwpd&type=sz
 #EXTINF:-1 tvg-name="海南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南新闻.png" group-title="海南",海南新闻
@@ -9493,6 +9609,8 @@ http://[2409:8087:5e00:24::1e]:6060/000000001000/4600001000000000111/1.m3u8
 https://migu.188766.xyz/?migutoken=cbcc6f4915a3d5fd72f99084e5b3efd9&id=hn_xwpd&type=sz
 #EXTINF:-1 tvg-name="海南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南新闻.png" group-title="海南",海南新闻
 https://migu.188766.xyz/?migutoken=78255682d95d00334ac9bc7fca92598a&id=hn_xwpd&type=sz
+#EXTINF:-1 tvg-name="海南新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/海南新闻.png" group-title="海南",海南新闻
+https://migu.188766.xyz/?migutoken=3052c834ed65952e4b182cde23f315eb&id=hn_xwpd&type=sz
 #EXTINF:-1 tvg-name="四川文化旅游" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/四川文化旅游.png" group-title="四川",四川文化旅游
 http://wouu.net:9977/udp/239.93.1.102:5140
 #EXTINF:-1 tvg-name="四川经济" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/四川经济.png" group-title="四川",四川经济
@@ -10007,6 +10125,8 @@ https://tv.iill.top/litv/litv-xinchuang14&token=5bff6a3365ed694a693fc78c1d3aa05f
 https://t.freetv.fun/live/huan-yu-xin-wen-1-1.php
 #EXTINF:-1 tvg-name="寰宇新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻.png" group-title="世界",寰宇新闻
 https://tv.iill.top/litv/litv-xinchuang14&token=c64ff03f373cb016eeebc1c3564c14243b887a6398f1467d878b2ff084b447ca
+#EXTINF:-1 tvg-name="寰宇新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻.png" group-title="世界",寰宇新闻
+https://tv.iill.top/litv/litv-xinchuang14&token=d55321c7e1d8c84684d6d133e8fb7be853963ef893eb2a44fb9e22b44fa8b0b1
 #EXTINF:-1 tvg-name="寰宇新闻台湾" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻台湾.png" group-title="世界",寰宇新闻台湾
 https://mao.ffmking888.dpdns.org/?id=5aaw5a6H5paw6IGe5Yaw54Gj5Yaw&auth=30234cedf871581989d3c91a3daec1e9f50e024aafcfa2247e7d44d91bb8d02fbc3f571b2d67f9d82642cc1d0f133d89
 #EXTINF:-1 tvg-name="寰宇新闻台湾" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻台湾.png" group-title="世界",寰宇新闻台湾
@@ -10023,6 +10143,8 @@ https://tmxk.pp.ua/litv.php?token=tmxk&id=4gtv-4gtv156
 https://edgeone.passwdword.xyz/ofiii.php?token=passwd&id=4gtv-4gtv156
 #EXTINF:-1 tvg-name="寰宇新闻台湾" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻台湾.png" group-title="世界",寰宇新闻台湾
 https://hls-gateway.vpstv.net/streams/708931.m3u8
+#EXTINF:-1 tvg-name="寰宇新闻台湾" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻台湾.png" group-title="世界",寰宇新闻台湾
+https://live.lalifeier.eu.org/youtube/w87VGpgd90U.m3u8?t=1769470194&key=0a51b10129279e24e127918cb1a75972
 #EXTINF:-1 tvg-name="寰宇财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇财经.png" group-title="世界",寰宇财经
 https://edgeone.passwdword.xyz/ofiii.php?token=passwd&id=4gtv-4gtv158
 #EXTINF:-1 tvg-name="寰宇财经" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇财经.png" group-title="世界",寰宇财经
@@ -10047,6 +10169,8 @@ https://hls-gateway.vpstv.net/streams/476274.m3u8
 https://t.freetv.fun/live/ya-zhou-lu-you-15.m3u8
 #EXTINF:-1 tvg-name="亚洲旅游" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/亚洲旅游.png" group-title="世界",亚洲旅游
 https://t.freetv.fun/live/ya-zhou-lu-you-20.m3u8
+#EXTINF:-1 tvg-name="亚洲旅游" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/亚洲旅游.png" group-title="世界",亚洲旅游
+https://t.freetv.fun/live/ya-zhou-lu-you-21.m3u8
 #EXTINF:-1 tvg-name="美食星球" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/美食星球.png" group-title="世界",美食星球
 https://hls-gateway.vpstv.net/streams/709110.m3u8
 #EXTINF:-1 tvg-name="美食星球" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/美食星球.png" group-title="世界",美食星球
