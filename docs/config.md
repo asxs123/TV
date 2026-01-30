@@ -21,6 +21,7 @@
 | public_scheme          | 公网协议；可选值: http、https                                                                                                 | http              |
 | public_domain          | 公网 Host 地址，用于生成结果中的访问地址，默认使用本机 IP                                                                                    | 127.0.0.1         |
 | cdn_url                | CDN 代理加速地址，用于订阅源、频道图标等资源的加速访问                                                                                        |                   |
+| http_proxy             | HTTP 代理地址，用于获取订阅源等网络请求                                                                                               |                   |
 | open_local             | 开启本地源功能，将使用模板文件与本地源文件（local.txt）中的数据                                                                                 | True              |
 | open_subscribe         | 开启订阅源功能                                                                                                              | True              |
 | open_history           | 开启使用历史更新结果（包含模板与结果文件的接口），合并至本次更新中                                                                                    | True              |
@@ -42,7 +43,6 @@
 | location               | 接口归属地，用于控制结果只包含填写的归属地类型，支持关键字过滤，英文逗号分隔，不填写表示不指定归属地，建议使用靠近使用者的归属地，能提升播放体验                                             |                   |
 | isp                    | 接口运营商，用于控制结果中只包含填写的运营商类型，支持关键字过滤，英文逗号分隔，不填写表示不指定运营商                                                                  |                   |
 | origin_type_prefer     | 结果偏好的接口来源，结果优先按该顺序进行排序，逗号分隔，例如: local,subscribe；不填写则表示不指定来源，按照接口速率排序                                                 |                   |
-| local_file             | 本地源文件路径                                                                                                              | config/local.txt  |
 | local_num              | 结果中偏好的本地源接口数量                                                                                                        | 10                |
 | subscribe_num          | 结果中偏好的订阅源接口数量                                                                                                        | 10                |
 | logo_url               | 频道台标库地址                                                                                                              |                   |
