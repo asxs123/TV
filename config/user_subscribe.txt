@@ -32,29 +32,36 @@ https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/bbxx.txt
 https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/bbxx_lite.txt
 
 https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv6.txt
-https://raw.githubusercontent.com/YueChan/Live/main/Global.m3u
 https://raw.githubusercontent.com/TianmuTNT/iptv/main/iptv.txt
-https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt
+
 
 #這個檔案是由https://freetv.fun自動生成的,僅僅只是用於測試epg的準確性.
 https://t.freetv.fun/m3u/playlist_original.txt
 https://t.freetv.fun/m3u/playlist_all_original.txt
 
 # lastweek
+https://raw.githubusercontent.com/YueChan/Live/main/Global.m3u
+https://raw.githubusercontent.com/YueChan/Live/main/GNTV.m3u
+# https://raw.githubusercontent.com/YueChan/Live/main/GATV.m3u
+https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt
+
+# 1月
 https://raw.githubusercontent.com/YueChan/Live/main/IPTV.m3u
-https://raw.githubusercontent.com/YueChan/Live/main/GATV.m3u
 # 3月
 # 5月
 
 # 6月
-https://raw.githubusercontent.com/big-mouth-cn/tv/main/iptv-ok.m3u
 
 # 8月
-https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
+https://raw.githubusercontent.com/big-mouth-cn/tv/main/iptv-ok.m3u
 # 9月
-https://raw.githubusercontent.com/YueChan/Live/main/Hunan.txt
-https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
+
+# 10月
+https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u
+
 # 11月
+https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
+https://raw.githubusercontent.com/YueChan/Live/main/Hunan.txt
 
 # https://raw.githubusercontent.com/Guovin/iptv-database/master/result.txt
 
