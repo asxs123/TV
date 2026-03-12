@@ -31,7 +31,7 @@ https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv4.txt
 https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/bbxx.txt
 https://raw.githubusercontent.com/kimwang1978/collect-tv-txt/main/bbxx_lite.txt
 
-https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv6.txt
+# https://raw.githubusercontent.com/vbskycn/iptv/master/tv/iptv6.txt
 https://raw.githubusercontent.com/TianmuTNT/iptv/main/iptv.txt
 
 
