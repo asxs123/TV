@@ -875,3 +875,18 @@ CGTN,http://112.46.105.20:8009/hls/16/index.m3u8
 陕西都市青春,http://112.46.105.20:8009/hls/19/index.m3u8
 陕西银龄,http://112.46.105.20:8009/hls/20/index.m3u8
 陕西秦腔,http://112.46.105.20:8009/hls/22/index.m3u8
+
+
+# 分界线--------------------------------------------------------------------------------------------------------------------------
+#qq群
+翡翠台,http://api.kkhk.itv888.vip:8080/streams/91wc8xdtj8/index.m3u8
+凤凰香港,http://api.kkhk.itv888.vip:8080/streams/mty4v56ud39/index.m3u8
+凤凰卫视,http://api.kkhk.itv888.vip:8080/streams/vny1wblsnch/index.m3u8
+凤凰资讯,http://api.kkhk.itv888.vip:8080/streams/wzt3qbit80m/index.m3u8
+四川峨眉电影4K,http://api.kkhk.itv888.vip:8080/streams/0558bdb0324/index.m3u8
+北京淘电影,http://api.kkhk.itv888.vip:8080/streams/6403327f992/index.m3u8
+北京重温经典,http://api.kkhk.itv888.vip:8080/streams/50f74c763e0/index.m3u8
+重温经典,http://api.kkhk.itv888.vip:8080/streams/214856d804c/index.m3u8
+CHC家庭影院,http://api.kkhk.itv888.vip:8080/streams/qja633ty8n/index.m3u8
+CHC动作电影,http://api.kkhk.itv888.vip:8080/streams/tbqrnwqrilg/index.m3u8
+CHC影迷电影,http://api.kkhk.itv888.vip:8080/streams/narc71xn3d/index.m3u8
