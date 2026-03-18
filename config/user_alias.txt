@@ -139,7 +139,7 @@ NewTV东北热剧,东北热剧,NewTV 东北热剧
 湖南卫视,湖南卫视4K,湖南卫视4K25,湖南卫视4K50
 
 安顺新闻综合,安顺新闻,Anshun Comprehensive News Channel
-北京卫视,北京卫视4K,北京卫视4K超高清
+北京卫视,北京卫视4K,北京卫视4K超高清,北京卫视4K超
 亳州综合,亳州新闻
 大通新闻综合,大通电视台
 郸城综合,郸城新闻综合
@@ -306,8 +306,14 @@ TV BRICS Chinese,TV BRICS Chinese (1080p)
 长春综合,长春综合 [Geo-blocked]
 集安综合,集安综合 [Geo-blocked]
 白城新闻综合,白城新闻综合 [Geo-blocked]
+赤峰新闻综合,Chifeng Comprehensive News Chanel
+CGTN全球财经,CGTN Global Biz
+江苏卫视,江苏卫视4K
+镇江教育民生,镇江社会民生,镇江二套社会民生
+China Travel,China Travel (1080p)
 
 iPanda,熊猫直播
+面包台,Bread TV面包台 (720p),Bread TV面包台 
 
 Angel TV Chinese,Angel TV Chinese (720p)
 人间卫视,Beautiful Life TV

@@ -70,6 +70,8 @@ CGTN纪录
 CGTN法语
 CGTN阿语
 CGTN俄语
+CGTN全球财经
+China Travel
 
 卫视,#genre#
 广东卫视
@@ -913,7 +915,7 @@ CGTN俄语
 镇江新闻综合
 镇江教育
 镇江公共
-镇江社会民生
+镇江教育民生
 徐州新闻综合
 徐州经济生活
 徐州文艺影视
@@ -3531,6 +3533,8 @@ Angel TV RUSSIAN
 Angel TV SPANISH
 PowerNation
 Mytime Movie
+CGN中文台
+8TV
 
 电影轮播,#genre#
 星光邵氏台,星光影视
