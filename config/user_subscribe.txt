@@ -80,6 +80,8 @@ https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv6.tx
 https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv4.txt
 # https://live.hacks.tools/tv/ipv4/categories/央视频道.m3u
 # https://live.hacks.tools/tv/ipv4/categories/卫视频道.m3u
+https://live.hacks.tools/tv/ipv4/categories/央视频道.txt
+https://live.hacks.tools/tv/ipv4/categories/卫视频道.txt
 https://gitee.com/yu_shan_fei/vvvzhy/raw/yu/yu/yqk3.m3u
 https://gitee.com/myvisual/newzubo/raw/main/IPTV.txt
 https://gitee.com/lwr851/live/raw/master/iptv.m3u
