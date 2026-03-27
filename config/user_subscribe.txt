@@ -36,8 +36,8 @@ https://raw.githubusercontent.com/TianmuTNT/iptv/main/iptv.txt
 
 
 #這個檔案是由https://freetv.fun自動生成的,僅僅只是用於測試epg的準確性.
-https://t.freetv.fun/m3u/playlist_original.txt
-https://t.freetv.fun/m3u/playlist_all_original.txt
+# https://t.freetv.fun/m3u/playlist_original.txt
+# https://t.freetv.fun/m3u/playlist_all_original.txt
 
 # lastweek
 https://raw.githubusercontent.com/YueChan/Live/main/Global.m3u
