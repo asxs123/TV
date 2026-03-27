@@ -1,5 +1,5 @@
 🕘️更新时间,#genre#
-2026-03-21 22:00:13,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
+2026-03-27 22:06:48,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
 
 中央,#genre#
 CCTV-1,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
@@ -477,9 +477,11 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 北京文艺,http://[2409:8087:1:20:20::29]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226440/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7EWrJcgMpdGPvZavpf4dmmrQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNNhmwDsUZnvQgU5E5wiGA2g%2CEND
 北京体育休闲,http://[2409:8087:1:20:20::29]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226438/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7EeVAybrHg955d_IRT9e_uHQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNMLCKqkSfuGOusJwBMwlCbz%2CEND
 北京体育休闲,http://rrs03.hw.gmcc.net:8088/PLTV/651/224/3221226730/1.m3u8
+北京体育休闲,http://www.ljun.cc:4022/rtp/239.3.1.243:8000
 北京影视,http://iptv.huuc.edu.cn/hls/btv4hd.m3u8
 北京影视,http://iptv.huuc.edu.cn/hls/btv4.m3u8
 北京影视,http://[2409:8087:1:20:20::2a]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226433/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7EygquRbh9L0wUPRY53fsZWw%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNO62IynDcU1yYDL1b4Xte8T%2CEND
+北京影视,http://www.ljun.cc:4022/rtp/239.3.1.158:8000
 北京财经,http://iptv.huuc.edu.cn/hls/btv5.m3u8
 北京财经,http://[2409:8087:1:20:20::2a]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226516/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7Eh9_SEkmWeMdS1TMnIILZgg%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNPIiicEW7OIvk1s-X-PXHqO%2CEND
 北京生活,http://iptv.huuc.edu.cn/hls/btv7.m3u8
@@ -488,6 +490,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 北京新闻,http://iptv.huuc.edu.cn/hls/btv9.m3u8
 北京新闻,https://ls.qingting.fm/live/339/64k.m3u8
 北京新闻,http://[2409:8087:1:20:20::2a]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226437/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7EncK5uEAdYwWMsf8WJWI1mQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNO_LSIQh_h2P54Cz-MqgJqC%2CEND
+北京新闻,http://dsk.cc/bjtv/btime.php?id=bjxw
 卡酷少儿,http://iptv.huuc.edu.cn/hls/btv10.m3u8
 卡酷少儿,http://[2409:8087:1a15:10d1::33]/ottrrs.hl.chinamobile.com/PLTV/88888888/224/3221225654/index.m3u8
 卡酷少儿,http://[2409:8087:5e08:25::16]:6610/200000001898/460000089800010081/1.m3u8
@@ -1057,6 +1060,9 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 荆门新闻综合,https://t.freetv.fun/live/jing-men-xin-wen-zong-he-1.m3u8
 荆门新闻综合,https://t.freetv.fun/live/jing-men-xin-wen-zong-he.m3u8
 荆门科教文旅,http://stream.jmtv.com.cn/ggsh/sd/live.m3u8
+襄阳综合,http://dsk.cc/hubtv/cjy.php?id=xyzh
+襄阳经济生活,http://dsk.cc/hubtv/cjy.php?id=xysh
+襄阳公共,http://dsk.cc/hubtv/cjy.php?id=xygg
 
 湖南,#genre#
 湖南经视,https://t.freetv.fun/live/hu-nan-jing-shi-1.php
@@ -1158,6 +1164,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 深圳都市,https://hls-gateway.vpstv.net/streams/708846.m3u8
 深圳都市,https://t.freetv.fun/live/shen-zhen-du-shi-1.m3u8
 深圳都市,https://t.freetv.fun/live/shen-zhen-du-shi.m3u8
+深圳都市,https://t.freetv.fun/live/shen-zhen-du-shi-2.m3u8
 汕头综合,https://hls-gateway.vpstv.net/streams/708829.m3u8
 汕头综合,https://gd.luzong.cc.cd/stzh
 汕头经济生活,https://gd.luzong.cc.cd/stjj
@@ -1530,11 +1537,13 @@ NewTV动作电影,http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/32212
 靖天戏剧,http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=4gtv-4gtv058
 靖天戏剧,https://mao.ffmking888.dpdns.org/?id=6Z2W5aSp5oiy5YqH5Yaw&auth=30234cedf871581989d3c91a3daec1e9f50e024aafcfa2247e7d44d91bb8d02fbc3f571b2d67f9d82642cc1d0f133d89
 靖天戏剧,https://tmxk.pp.ua/litv.php?token=tmxk&id=4gtv-4gtv058
+靖天戏剧,https://cdn12.178.indevs.in/163189/177d541552f78003
 经典电影,https://yylunbo.ottiptv.cc/yy/1414812324
 经典电影,https://tv.iill.top/4gtv/201
 经典电影,http://wouu.net:9977/udp/239.93.0.57:9024
 经典电影,https://down-hls.qxiu.com/live/453135/index.m3u8
 经典电影,https://lunbo.v1.mk/yy/1355142167
+IPTV经典电影,http://www.ljun.cc:4022/rtp/239.3.1.195:9024
 天映经典,https://o11.163189.xyz/stream/live/ccm/
 天映经典,http://php.jdshipin.com:8880/smt.php?id=Celestial2
 天映经典,http://php.jdshipin.com/smt.php?id=Celestial2
@@ -1551,6 +1560,7 @@ NewTV动作电影,http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/32212
 东森洋片,https://hls-gateway.vpstv.net/streams/476997.m3u8
 东森洋片,https://smt.858.qzz.io/Smart.php?id=ettvwestern
 东森洋片,http://php.666230.xyz/smt.php?id=ettvwestern
+东森洋片,https://smt.1678520.xyz/163189/c0e7a31a1ec220fd
 MovieSphere,https://i.mjh.nz/SamsungTVPlus/USBD17000117B.m3u8
 
 🏀体育频道,#genre#
@@ -1564,6 +1574,7 @@ MovieSphere,https://i.mjh.nz/SamsungTVPlus/USBD17000117B.m3u8
 爱体育,http://[2409:8087:5e08:24::12]:6610/000000001000/2000000004000000000/index.m3u8
 爱体育,http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230103/index.m3u8
 辽宁体育,https://mgcn.chinacert.cftest5.cn/962067526
+辽宁体育,https://t.freetv.fun/live/liao-zhu-ti-yu.m3u8
 魅力足球,https://hls-gateway.vpstv.net/streams/708839.m3u8
 快乐垂钓,https://hls-gateway.vpstv.net/streams/708835.m3u8
 快乐垂钓,http://wouu.net:9977/udp/239.93.1.151:5140
