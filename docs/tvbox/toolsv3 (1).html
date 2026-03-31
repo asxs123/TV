@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vod配置可视化编辑器</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --success: #059669;
+            --success-hover: #047857;
+            --danger: #dc2626;
+            --danger-hover: #b91c1c;
+            --warning: #d97706;
+            --warning-hover: #b45309;
+            --info: #0891b2;
+            --info-hover: #0e7490;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --radius: 8px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+            --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+            --transition: all .15s ease;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container-main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* ========== Toolbar ========== */
+        .toolbar {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .toolbar .divider {
+            width: 1px;
+            height: 28px;
+            background: var(--border);
+            margin: 0 4px;
+        }
+
+        .btn-tool {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: .85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+        .btn-tool:active { transform: scale(.97); }
+
+        .btn-primary-tool { background: var(--primary); color: #fff; }
+        .btn-primary-tool:hover { background: var(--primary-hover); color: #fff; }
+        .btn-secondary-tool { background: #e2e8f0; color: var(--text); }
+        .btn-secondary-tool:hover { background: #cbd5e1; color: var(--text); }
+        .btn-success-tool { background: var(--success); color: #fff; }
+        .btn-success-tool:hover { background: var(--success-hover); color: #fff; }
+        .btn-info-tool { background: var(--info); color: #fff; }
+        .btn-info-tool:hover { background: var(--info-hover); color: #fff; }
+        .btn-excel-tool { background: var(--warning); color: #fff; }
+        .btn-excel-tool:hover { background: var(--warning-hover); color: #fff; }
+
+        .btn-tool.active-mode {
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        #errorMsg {
+            color: var(--danger);
+            font-size: .85rem;
+            margin-left: auto;
+            font-weight: 500;
+        }
+
+        /* ========== Tabs ========== */
+        .nav-tabs {
+            border-bottom: 2px solid var(--border);
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: .85rem;
+            padding: 10px 16px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-tabs .nav-link:hover {
+            color: var(--text);
+            background: var(--surface);
+        }
+        .nav-tabs .nav-link.active {
+            color: var(--primary);
+            background: #fff;
+            font-weight: 600;
+        }
+        .nav-tabs .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            background: #fff;
+            margin-top: 0;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+            min-height: 300px;
+        }
+
+        /* ========== Sub-item Tabs ========== */
+        .sub-item-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 10px 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            cursor: grab;
+        }
+        .sub-item-tabs:active { cursor: grabbing; }
+
+        .sub-item-tab {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            position: relative;
+            top: 1px;
+            white-space: nowrap;
+            user-select: none;
+            font-size: .82rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sub-item-tab:hover {
+            background: #e0e7ff;
+            color: var(--primary);
+            border-color: #c7d2fe;
+        }
+        .sub-item-tab.active {
+            background: #fff;
+            color: var(--primary);
+            font-weight: 600;
+            border-color: var(--border);
+            border-bottom-color: #fff;
+        }
+        .sub-item-tab.sortable-ghost {
+            opacity: .4;
+        }
+        .sub-item-tab.sortable-chosen {
+            background: #dbeafe;
+            border-color: #93c5fd;
+        }
+
+        .sub-item-content {
+            display: none;
+            animation: fadeIn .2s ease;
+        }
+        .sub-item-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== Action buttons in sections ========== */
+        .section-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .btn-sm-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 5px 14px;
+            border: none;
+            border-radius: 5px;
+            font-size: .8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .btn-sm-add { background: #dcfce7; color: #166534; }
+        .btn-sm-add:hover { background: #bbf7d0; color: #166534; }
+        .btn-sm-del { background: #fee2e2; color: #991b1b; }
+        .btn-sm-del:hover { background: #fecaca; color: #991b1b; }
+
+        /* ========== Form fields ========== */
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 5px;
+            display: block;
+        }
+        .form-group label .text-muted {
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .form-control, .form-select {
+            font-size: .85rem;
+            border-color: var(--border);
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+        }
+
+        /* Input/select with value gets a light background to distinguish from placeholder */
+        .form-control.user-has-value,
+        .form-select.user-has-value {
+            background-color: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        textarea.form-control {
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+            font-size: .8rem;
+            line-height: 1.5;
+        }
+
+        .field-group {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .field-group:last-child { border-bottom: none; margin-bottom: 0; }
+        .field-group-title {
+            font-weight: 700;
+            font-size: .88rem;
+            margin-bottom: 14px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .field-group-title::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* ========== Array items (flags/ads) ========== */
+        .array-item-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            min-height: 56px;
+            cursor: grab;
+        }
+        .array-item-list:active { cursor: grabbing; }
+        .array-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2px;
+            transition: var(--transition);
+        }
+        .array-item:hover { border-color: var(--primary); }
+        .array-item input {
+            border: none;
+            outline: none;
+            font-size: .82rem;
+            padding: 5px 8px;
+            width: 180px;
+            background: transparent;
+        }
+        .array-item-btn {
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: #fee2e2;
+            color: var(--danger);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: .9rem;
+            font-weight: 700;
+            transition: var(--transition);
+            padding: 0;
+            flex-shrink: 0;
+        }
+        .array-item-btn:hover { background: #fecaca; }
+
+        /* ========== Code editor ========== */
+        #codeEditor {
+            width: 100%;
+            min-height: 600px;
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+            font-size: .82rem;
+            line-height: 1.6;
+            resize: vertical;
+            border-color: var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+        }
+        #codeEditor:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+        }
+
+        /* ========== Toast notification ========== */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .toast-msg {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: .85rem;
+            font-weight: 500;
+            color: #fff;
+            box-shadow: var(--shadow-md);
+            animation: slideIn .25s ease, fadeOut .3s ease 2.7s forwards;
+            max-width: 360px;
+        }
+        .toast-success { background: var(--success); }
+        .toast-error { background: var(--danger); }
+        .toast-info { background: var(--info); }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeOut {
+            to { opacity: 0; transform: translateY(-10px); }
+        }
+
+        /* ========== Delete confirm modal ========== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,.4);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInBg .15s ease;
+        }
+        @keyframes fadeInBg {
+            from { opacity: 0; }
+        }
+        .modal-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,.2);
+            animation: popIn .2s ease;
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-card h5 { font-weight: 700; margin-bottom: 8px; }
+        .modal-card p { color: var(--text-muted); font-size: .9rem; margin-bottom: 20px; }
+        .modal-card .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        /* ========== Basic config inline layout ========== */
+        #basic .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 12px;
+            margin-bottom: 16px;
+        }
+        #basic .form-group label {
+            width: 100%;
+            margin-bottom: 0;
+            font-weight: 600;
+            font-size: .85rem;
+            color: var(--text);
+        }
+        #basic .form-group .field-key {
+            min-width: 80px;
+            font-size: .82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        #basic .form-group .form-control,
+        #basic .form-group textarea.form-control {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 768px) {
+            .toolbar { gap: 6px; padding: 10px 12px; }
+            .btn-tool { padding: 6px 10px; font-size: .78rem; }
+            .toolbar .divider { display: none; }
+            .tab-content { padding: 16px; }
+            .nav-tabs .nav-link { padding: 8px 10px; font-size: .78rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-main">
+        <h2 class="mb-4">Vod配置可视化编辑器</h2>
+
+        <div class="toolbar">
+            <button type="button" class="btn-tool btn-primary-tool active-mode" id="visualModeBtn">📊 可视化编辑</button>
+            <button type="button" class="btn-tool btn-secondary-tool" id="codeModeBtn">{ } 代码编辑</button>
+            <div class="divider"></div>
+            <button type="button" class="btn-tool" style="background:#ef4444;color:#fff" id="clearAllBtn">🗑 清空配置</button>
+            <button type="button" class="btn-tool btn-info-tool" id="downloadBtn">⬇ 下载JSON</button>
+            <div class="divider"></div>
+            <button type="button" class="btn-tool btn-excel-tool" id="exportExcelBtn">📤 导出Excel</button>
+            <input type="file" id="importExcelInput" accept=".xlsx,.xls" style="display:none">
+            <button type="button" class="btn-tool btn-excel-tool" id="importExcelBtn">📥 导入Excel</button>
+            <span id="errorMsg"></span>
+        </div>
+
+        <ul class="nav nav-tabs" id="vodTabs" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">基础配置</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab">点播源</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="parses-tab" data-bs-toggle="tab" data-bs-target="#parses" type="button" role="tab">解析规则</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="lives-tab" data-bs-toggle="tab" data-bs-target="#lives" type="button" role="tab">直播源</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="doh-tab" data-bs-toggle="tab" data-bs-target="#doh" type="button" role="tab">Doh配置</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="proxy-tab" data-bs-toggle="tab" data-bs-target="#proxy" type="button" role="tab">代理配置</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules" type="button" role="tab">拦截规则</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="headers-tab" data-bs-toggle="tab" data-bs-target="#headers" type="button" role="tab">注入响应头</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="hosts-tab" data-bs-toggle="tab" data-bs-target="#hosts" type="button" role="tab">DNS覆盖</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="flags-tab" data-bs-toggle="tab" data-bs-target="#flags" type="button" role="tab">VIP解析标识</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="ads-tab" data-bs-toggle="tab" data-bs-target="#ads" type="button" role="tab">广告过滤</button></li>
+        </ul>
+
+        <div class="tab-content" id="vodTabContent">
+            <div class="tab-pane fade show active" id="basic" role="tabpanel">
+                <div class="form-group"><label for="spider">全局 Spider JAR 路径或 URL，提供给所有 sites 作为默认爬虫。支持相对路径（./、../）。</label><span class="field-key">spider</span><input type="text" class="form-control" id="spider" placeholder="例：./custom_spider.jar 或 ./custom_spider.jar;md5;md5_value 或 https://xxx.jar"></div>
+                <div class="form-group"><label for="wallpaper">壁纸图片或视频的路径/URL。支持静态图、GIF、视频格式。</label><span class="field-key">wallpaper</span><input type="text" class="form-control" id="wallpaper" placeholder="例：./wallpaper.jpg 或 https://xxx.jpg"></div>
+                <div class="form-group"><label for="logo">应用程序 Logo 图片路径/URL。</label><span class="field-key">logo</span><input type="text" class="form-control" id="logo" placeholder="例：./logo.png 或 https://xxx.png"></div>
+                <div class="form-group"><label for="notice">启动公告文字，将显示给用户。</label><span class="field-key">notice</span><input type="text" class="form-control" id="notice" placeholder="例：欢迎使用本配置！"></div>
+            </div>
+            <div class="tab-pane fade" id="sites" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">点播源对象数组，每个对象代表一个点播来源。Key、Name、Type、Api 四个参数同时存在且不为空才可导出。</div>
+                <div class="sub-item-tabs" id="sitesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="sites">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="sites">✕ 删除</button></div>
+                <div id="sitesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="parses" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">解析规则对象数组，定义视频 URL 的解析处理规则。Name、Type、url 三个参数同时存在且不为空才可导出。</div>
+                <div class="sub-item-tabs" id="parsesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="parses">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="parses">✕ 删除</button></div>
+                <div id="parsesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="lives" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">直播源对象数组，每个对象代表一个直播来源。name、url 两个参数同时存在且不为空才可导出。</div>
+                <div class="sub-item-tabs" id="livesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="lives">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="lives">✕ 删除</button></div>
+                <div id="livesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="doh" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">设置加密 DNS 解析服务器，保护 DNS 查询隐私并防止污染。name、url 两个参数同时存在且不为空才可导出。</div>
+                <div class="sub-item-tabs" id="dohTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="doh">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="doh">✕ 删除</button></div>
+                <div id="dohContent"></div>
+            </div>
+            <div class="tab-pane fade" id="proxy" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">设置特定域名流量的代理规则。支持 HTTP、HTTPS、SOCKS4、SOCKS5 代理。</div>
+                <div class="sub-item-tabs" id="proxyTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="proxy">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="proxy">✕ 删除</button></div>
+                <div id="proxyContent"></div>
+            </div>
+            <div class="tab-pane fade" id="rules" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">设置 WebView 或播放器的网络请求拦截与处理规则。name、hosts、regex(或script) 三组参数同时存在且不为空才可导出。</div>
+                <div class="sub-item-tabs" id="rulesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="rules">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="rules">✕ 删除</button></div>
+                <div id="rulesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="headers" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">针对特定主机，在 HTTP 响应中注入自定义头（通常用于解除 CORS 限制）。</div>
+                <div class="sub-item-tabs" id="headersTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="headers">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="headers">✕ 删除</button></div>
+                <div id="headersContent"></div>
+            </div>
+            <div class="tab-pane fade" id="hosts" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">覆盖特定主机名的 DNS 解析结果，可用于 CDN 调度或绕过封锁。支持通配符 *。</div>
+                <div class="array-item-list" id="hostsList"></div>
+                <button class="btn-sm-action btn-sm-add" data-action="add-arr" data-type="hosts">＋ 添加DNS规则</button>
+            </div>
+            <div class="tab-pane fade" id="flags" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">VIP平台标识，用于标记VIP平台处理（如 "qq"）。</div>
+                <div class="array-item-list" id="flagsList"></div>
+                <button class="btn-sm-action btn-sm-add" data-action="add-arr" data-type="flags">＋ 添加平台标识</button>
+            </div>
+            <div class="tab-pane fade" id="ads" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">广告域名黑名单，符合的 HTTP 请求将被直接拦截拒绝。</div>
+                <div class="array-item-list" id="adsList"></div>
+                <button class="btn-sm-action btn-sm-add" data-action="add-arr" data-type="ads">＋ 添加广告域名</button>
+            </div>
+        </div>
+
+        <div id="codeEditorArea" class="d-none mt-4">
+            <label for="codeEditor" class="mb-2 fw-semibold">JSON代码编辑</label>
+            <textarea class="form-control" id="codeEditor"></textarea>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        // ========== Utility Functions ==========
+
+        function esc(str) {
+            if (str == null) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+
+        function toast(message, type = 'info') {
+            const el = document.createElement('div');
+            el.className = 'toast-msg toast-' + type;
+            el.textContent = message;
+            document.getElementById('toastContainer').appendChild(el);
+            setTimeout(() => el.remove(), 3000);
+        }
+
+        function confirmDialog(title, message) {
+            return new Promise(resolve => {
+                const overlay = document.createElement('div');
+                overlay.className = 'modal-overlay';
+                overlay.innerHTML = `
+                    <div class="modal-card">
+                        <h5>${esc(title)}</h5>
+                        <p>${esc(message)}</p>
+                        <div class="modal-actions">
+                            <button class="btn-tool btn-secondary-tool" data-action="cancel">取消</button>
+                            <button class="btn-tool" style="background:var(--danger);color:#fff" data-action="confirm">确认删除</button>
+                        </div>
+                    </div>`;
+                document.body.appendChild(overlay);
+                overlay.addEventListener('click', e => {
+                    const action = e.target.dataset.action;
+                    if (action === 'confirm') { overlay.remove(); resolve(true); }
+                    else if (action === 'cancel' || e.target === overlay) { overlay.remove(); resolve(false); }
+                });
+            });
+        }
+
+        function parseJsonOrEmpty(str) {
+            if (!str || typeof str !== 'string') return {};
+            try { return JSON.parse(str); }
+            catch (e) { return {}; }
+        }
+
+        function deepCleanObj(data) {
+            if (Array.isArray(data)) {
+                const cleaned = data.map(item => deepCleanObj(item)).filter(item => {
+                    if (item === null || item === undefined || item === '') return false;
+                    if (Array.isArray(item) && item.length === 0) return false;
+                    if (typeof item === 'object' && !Array.isArray(item) && Object.keys(item).length === 0) return false;
+                    return true;
+                });
+                return cleaned;
+            }
+            if (data !== null && typeof data === 'object') {
+                const result = {};
+                for (const key of Object.keys(data)) {
+                    const val = deepCleanObj(data[key]);
+                    if (val === null || val === undefined || val === '') continue;
+                    if (Array.isArray(val) && val.length === 0) continue;
+                    if (typeof val === 'object' && !Array.isArray(val) && Object.keys(val).length === 0) continue;
+                    result[key] = val;
+                }
+                return result;
+            }
+            return data;
+        }
+
+        function generateUniqueId(type) {
+            return `${type}_${Date.now()}_${Math.floor(Math.random() * 1e5)}`;
+        }
+
+        // ========== State ==========
+        let vodConfig = {
+            spider: '', wallpaper: '', logo: '', notice: '',
+            sites: [], parses: [], lives: [], doh: [], proxy: [],
+            rules: [], headers: [], hosts: [], flags: [], ads: []
+        };
+
+        let subItemCounter = { sites: 1, parses: 1, lives: 1, doh: 1, proxy: 1, rules: 1, headers: 1 };
+        let sortableInstances = [];
+
+        const TAB_TYPES = ['sites', 'parses', 'lives', 'doh', 'proxy', 'rules', 'headers'];
+
+        // ========== Sortable ==========
+        function initSortableTabs() {
+            sortableInstances.forEach(s => s.destroy());
+            sortableInstances = [];
+
+            TAB_TYPES.forEach(type => {
+                const container = document.getElementById(`${type}Tabs`);
+                if (container) {
+                    sortableInstances.push(new Sortable(container, {
+                        animation: 150,
+                        ghostClass: 'sortable-ghost',
+                        chosenClass: 'sortable-chosen',
+                        handle: '.sub-item-tab',
+                        onEnd: () => syncTabOrderToConfig(type)
+                    }));
+                }
+            });
+
+            // Sortable for array item lists (flags, ads, hosts)
+            ['flags', 'ads', 'hosts'].forEach(type => {
+                const container = document.getElementById(`${type}List`);
+                if (container) {
+                    sortableInstances.push(new Sortable(container, {
+                        animation: 150,
+                        ghostClass: 'sortable-ghost',
+                        chosenClass: 'sortable-chosen',
+                        handle: '.array-item'
+                    }));
+                }
+            });
+        }
+
+        // ========== Data Extraction ==========
+        function extractSitesData(el) {
+            const $el = $(el);
+            const item = {};
+            const key = $el.find('.key').val()?.trim(); if (key) item.key = key;
+            const name = $el.find('.name').val()?.trim(); if (name) item.name = name;
+            const typeVal = $el.find('.type').val();
+            if (typeVal !== null && typeVal !== '' && typeVal !== undefined) item.type = parseInt(typeVal, 10);
+            const api = $el.find('.api').val()?.trim(); if (api) item.api = api;
+            const ext = $el.find('.ext').val()?.trim(); if (ext) item.ext = ext;
+            const jar = $el.find('.jar').val()?.trim(); if (jar) item.jar = jar;
+            const click = $el.find('.click').val()?.trim(); if (click) item.click = click;
+            const playUrl = $el.find('.playUrl').val()?.trim(); if (playUrl) item.playUrl = playUrl;
+            // hide: only include when 1
+            const hideVal = $el.find('.hide').val();
+            if (hideVal !== '' && hideVal !== null && hideVal !== undefined) {
+                const hv = parseInt(hideVal, 10);
+                if (hv === 1) item.hide = 1;
+            }
+            // timeout: only include when > 0
+            const timeoutVal = parseInt($el.find('.timeout').val(), 10);
+            if (timeoutVal > 0) item.timeout = timeoutVal;
+            // searchable: 1 is default (omit), 0 must be explicit
+            const searchableVal = $el.find('.searchable').val();
+            if (searchableVal !== '' && searchableVal !== null && searchableVal !== undefined) {
+                const sv = parseInt(searchableVal, 10);
+                if (sv === 0) item.searchable = 0;
+                // sv===1 is default, omit
+            }
+            // changeable: 1 is default (omit), 0 must be explicit
+            const changeableVal = $el.find('.changeable').val();
+            if (changeableVal !== '' && changeableVal !== null && changeableVal !== undefined) {
+                const cv = parseInt(changeableVal, 10);
+                if (cv === 0) item.changeable = 0;
+                // cv===1 is default, omit
+            }
+            // quickSearch: only include when explicitly set
+            const quickSearchVal = $el.find('.quickSearch').val();
+            if (quickSearchVal !== '' && quickSearchVal !== null && quickSearchVal !== undefined) {
+                const qv = parseInt(quickSearchVal, 10);
+                if (qv === 1) item.quickSearch = 1;
+            }
+            // indexs: only include when explicitly set
+            const indexsVal = $el.find('.indexs').val();
+            if (indexsVal !== '' && indexsVal !== null && indexsVal !== undefined) {
+                const iv = parseInt(indexsVal, 10);
+                if (iv === 1) item.indexs = 1;
+            }
+            const categories = $el.find('.categories').val()?.trim().split(',').filter(v => v);
+            if (categories && categories.length > 0) item.categories = categories;
+            // header: no default {}, only include when user provides valid JSON
+            const headerStr = $el.find('.header').val()?.trim();
+            if (headerStr) {
+                const header = parseJsonOrEmpty(headerStr);
+                if (Object.keys(header).length > 0) item.header = header;
+            }
+            // style: no default {}, only include when user provides valid JSON
+            const styleStr = $el.find('.style').val()?.trim();
+            if (styleStr) {
+                const style = parseJsonOrEmpty(styleStr);
+                if (Object.keys(style).length > 0) item.style = style;
+            }
+            return item;
+        }
+
+        function extractParsesData(el) {
+            const $el = $(el);
+            const item = {};
+            const name = $el.find('.name').val()?.trim(); if (name) item.name = name;
+            const typeVal = $el.find('.type').val();
+            if (typeVal !== '' && typeVal !== null && typeVal !== undefined) item.type = parseInt(typeVal, 10);
+            const url = $el.find('.url').val()?.trim(); if (url) item.url = url;
+            const ext = {};
+            const flag = $el.find('.ext-flag').val()?.trim().split(',').filter(v => v);
+            if (flag && flag.length > 0) ext.flag = flag;
+            const headerStr = $el.find('.ext-header').val()?.trim();
+            if (headerStr) {
+                const header = parseJsonOrEmpty(headerStr);
+                if (Object.keys(header).length > 0) ext.header = header;
+            }
+            if (Object.keys(ext).length > 0) item.ext = ext;
+            return item;
+        }
+
+        function extractLivesData(el) {
+            const $el = $(el);
+            const item = {};
+            const name = $el.find('.name').val()?.trim(); if (name) item.name = name;
+            const url = $el.find('.url').val()?.trim(); if (url) item.url = url;
+            const api = $el.find('.api').val()?.trim(); if (api) item.api = api;
+            const ext = $el.find('.ext').val()?.trim(); if (ext) item.ext = ext;
+            const jar = $el.find('.jar').val()?.trim(); if (jar) item.jar = jar;
+            const click = $el.find('.click').val()?.trim(); if (click) item.click = click;
+            const logo = $el.find('.logo').val()?.trim(); if (logo) item.logo = logo;
+            const epg = $el.find('.epg').val()?.trim(); if (epg) item.epg = epg;
+            const ua = $el.find('.ua').val()?.trim(); if (ua) item.ua = ua;
+            const origin = $el.find('.origin').val()?.trim(); if (origin) item.origin = origin;
+            const referer = $el.find('.referer').val()?.trim(); if (referer) item.referer = referer;
+            const timeZone = $el.find('.timeZone').val()?.trim(); if (timeZone) item.timeZone = timeZone;
+            const timeoutVal = parseInt($el.find('.timeout').val(), 10);
+            if (timeoutVal > 0) item.timeout = timeoutVal;
+            // header: no default {}, only when user provides
+            const headerStr = $el.find('.header').val()?.trim();
+            if (headerStr) {
+                const header = parseJsonOrEmpty(headerStr);
+                if (Object.keys(header).length > 0) item.header = header;
+            }
+            // catchup: no default {}, only when user provides
+            const catchupStr = $el.find('.catchup').val()?.trim();
+            if (catchupStr) {
+                const catchup = parseJsonOrEmpty(catchupStr);
+                if (Object.keys(catchup).length > 0) item.catchup = catchup;
+            }
+            const groups = parseJsonOrEmpty($el.find('.groups').val()?.trim());
+            if (Array.isArray(groups) ? groups.length > 0 : Object.keys(groups).length > 0) item.groups = groups;
+            if ($el.find('.boot').val() === 'true') item.boot = true;
+            if ($el.find('.pass').val() === 'true') item.pass = true;
+            return item;
+        }
+
+        function extractDohData(el) {
+            const $el = $(el);
+            const item = {};
+            const name = $el.find('.name').val()?.trim(); if (name) item.name = name;
+            const url = $el.find('.url').val()?.trim(); if (url) item.url = url;
+            const ips = $el.find('.ips').val()?.trim().split(',').filter(v => v);
+            if (ips && ips.length > 0) item.ips = ips;
+            return item;
+        }
+
+        function extractProxyData(el) {
+            const $el = $(el);
+            const item = {};
+            const name = $el.find('.name').val()?.trim(); if (name) item.name = name;
+            const hosts = $el.find('.hosts').val()?.trim().split(',').filter(v => v);
+            if (hosts && hosts.length > 0) item.hosts = hosts;
+            const urls = $el.find('.urls').val()?.trim().split(',').filter(v => v);
+            if (urls && urls.length > 0) item.urls = urls;
+            return item;
+        }
+
+        function extractRulesData(el) {
+            const $el = $(el);
+            const item = {};
+            const name = $el.find('.name').val()?.trim(); if (name) item.name = name;
+            const hosts = $el.find('.hosts').val()?.trim().split(',').filter(v => v);
+            if (hosts && hosts.length > 0) item.hosts = hosts;
+            const regex = $el.find('.regex').val()?.trim().split(',').filter(v => v);
+            if (regex && regex.length > 0) item.regex = regex;
+            const script = $el.find('.script').val()?.trim().split(',').filter(v => v);
+            if (script && script.length > 0) item.script = script;
+            const exclude = $el.find('.exclude').val()?.trim().split(',').filter(v => v);
+            if (exclude && exclude.length > 0) item.exclude = exclude;
+            return item;
+        }
+
+        function extractHeadersData(el) {
+            const $el = $(el);
+            const item = {};
+            const host = $el.find('.host').val()?.trim(); if (host) item.host = host;
+            // header: no default {}, only when user provides
+            const headerStr = $el.find('.header').val()?.trim();
+            if (headerStr) {
+                const header = parseJsonOrEmpty(headerStr);
+                if (Object.keys(header).length > 0) item.header = header;
+            }
+            return item;
+        }
+
+        const EXTRACTORS = {
+            sites: extractSitesData, parses: extractParsesData, lives: extractLivesData,
+            doh: extractDohData, proxy: extractProxyData, rules: extractRulesData,
+            headers: extractHeadersData
+        };
+
+        // ========== Validation ==========
+        function isValidSite(item) {
+            return item.key && item.name && item.type !== undefined && item.type !== null && item.api;
+        }
+        function isValidParse(item) {
+            return item.name && item.type !== undefined && item.type !== null && item.url;
+        }
+        function isValidLive(item) {
+            return item.name && item.url;
+        }
+        function isValidDoh(item) {
+            return item.name && item.url;
+        }
+        function isValidRule(item) {
+            return item.name && item.hosts && item.hosts.length > 0 && ((item.regex && item.regex.length > 0) || (item.script && item.script.length > 0));
+        }
+        function isValidHeader(item) {
+            return item.host && item.header && Object.keys(item.header).length > 0;
+        }
+        function isValidProxy(item) {
+            return item.name && item.hosts && item.hosts.length > 0 && item.urls && item.urls.length > 0;
+        }
+
+        function syncTabOrderToConfig(type) {
+            const tabContainer = $(`#${type}Tabs`);
+            const newOrder = [];
+            tabContainer.find('.sub-item-tab').each((_, el) => {
+                const itemId = $(el).data('item-id');
+                const contentEl = document.getElementById(itemId);
+                if (contentEl) {
+                    newOrder.push(EXTRACTORS[type](contentEl));
+                }
+            });
+            vodConfig[type] = newOrder;
+        }
+
+        // ========== Visual ↔ Config Sync ==========
+        function syncVisualToConfig() {
+            vodConfig.spider = $('#spider').val()?.trim() || '';
+            vodConfig.wallpaper = $('#wallpaper').val()?.trim() || '';
+            vodConfig.logo = $('#logo').val()?.trim() || '';
+            vodConfig.notice = $('#notice').val()?.trim() || '';
+
+            TAB_TYPES.forEach(type => syncTabOrderToConfig(type));
+
+            vodConfig.flags = [];
+            $('#flagsList .array-item input').each((_, el) => {
+                const val = $(el).val()?.trim();
+                if (val) vodConfig.flags.push(val);
+            });
+
+            vodConfig.ads = [];
+            $('#adsList .array-item input').each((_, el) => {
+                const val = $(el).val()?.trim();
+                if (val) vodConfig.ads.push(val);
+            });
+
+            vodConfig.hosts = [];
+            $('#hostsList .array-item input').each((_, el) => {
+                const val = $(el).val()?.trim();
+                if (val) vodConfig.hosts.push(val);
+            });
+        }
+
+        function syncConfigToCode() {
+            try {
+                // Filter out invalid items before generating code
+                const filteredConfig = Object.assign({}, vodConfig);
+                filteredConfig.sites = vodConfig.sites.filter(isValidSite);
+                filteredConfig.parses = vodConfig.parses.filter(isValidParse);
+                filteredConfig.lives = vodConfig.lives.filter(isValidLive);
+                filteredConfig.doh = vodConfig.doh.filter(isValidDoh);
+                filteredConfig.rules = vodConfig.rules.filter(isValidRule);
+                filteredConfig.headers = vodConfig.headers.filter(isValidHeader);
+                filteredConfig.proxy = vodConfig.proxy.filter(isValidProxy);
+
+                const cleaned = deepCleanObj(filteredConfig);
+                const result = {};
+                Object.keys(cleaned).forEach(key => {
+                    const val = cleaned[key];
+                    if (val !== '' && !(Array.isArray(val) && val.length === 0)) {
+                        result[key] = val;
+                    }
+                });
+                $('#codeEditor').val(JSON.stringify(result, null, 2));
+                $('#errorMsg').text('');
+            } catch (e) {
+                $('#errorMsg').text('JSON格式化失败：' + e.message);
+            }
+        }
+
+        function syncCodeToConfig() {
+            const code = $('#codeEditor').val()?.trim();
+            if (!code) return;
+            try {
+                const parsed = JSON.parse(code);
+                vodConfig = {
+                    spider: parsed.spider || '',
+                    wallpaper: parsed.wallpaper || '',
+                    logo: parsed.logo || '',
+                    notice: parsed.notice || '',
+                    sites: Array.isArray(parsed.sites) ? parsed.sites : [],
+                    parses: Array.isArray(parsed.parses) ? parsed.parses : [],
+                    lives: Array.isArray(parsed.lives) ? parsed.lives : [],
+                    doh: Array.isArray(parsed.doh) ? parsed.doh : [],
+                    proxy: Array.isArray(parsed.proxy) ? parsed.proxy : [],
+                    rules: Array.isArray(parsed.rules) ? parsed.rules : [],
+                    headers: Array.isArray(parsed.headers) ? parsed.headers : [],
+                    hosts: Array.isArray(parsed.hosts) ? parsed.hosts : [],
+                    flags: Array.isArray(parsed.flags) ? parsed.flags : [],
+                    ads: Array.isArray(parsed.ads) ? parsed.ads : []
+                };
+                renderConfigToVisual();
+                $('#errorMsg').text('');
+                toast('JSON解析成功', 'success');
+            } catch (e) {
+                $('#errorMsg').text('JSON解析错误：' + e.message);
+                toast('JSON解析错误', 'error');
+            }
+        }
+
+        // ========== Input Visual Feedback ==========
+        function updateInputVisualState(el) {
+            if (el.tagName === 'SELECT') {
+                // Select: has value if a non-empty option is selected
+                if (el.value && el.value !== '') {
+                    el.classList.add('user-has-value');
+                } else {
+                    el.classList.remove('user-has-value');
+                }
+            } else {
+                const val = el.value?.trim();
+                if (val && val !== '0' && val !== '{}') {
+                    el.classList.add('user-has-value');
+                } else {
+                    el.classList.remove('user-has-value');
+                }
+            }
+        }
+
+        function bindInputVisualFeedback(container) {
+            const containerEl = container ? document.querySelector(`#${container}`) : document;
+            if (!containerEl) return;
+            containerEl.querySelectorAll('input[type="text"], input[type="number"], textarea, select').forEach(el => {
+                if (el.id === 'codeEditor') return; // skip code editor
+                updateInputVisualState(el);
+                if (el.tagName === 'SELECT') {
+                    el.addEventListener('change', function() { updateInputVisualState(this); });
+                } else {
+                    el.addEventListener('input', function() { updateInputVisualState(this); });
+                }
+            });
+        }
+
+        // ========== Rendering ==========
+        function renderConfigToVisual() {
+            $('#spider').val(vodConfig.spider);
+            $('#wallpaper').val(vodConfig.wallpaper);
+            $('#logo').val(vodConfig.logo);
+            $('#notice').val(vodConfig.notice);
+
+            TAB_TYPES.forEach(type => {
+                $(`#${type}Tabs`).empty();
+                $(`#${type}Content`).empty();
+                subItemCounter[type] = 1;
+            });
+
+            vodConfig.sites.forEach((item, i) => addSubItem('sites', item, item.name || `item ${i + 1}`));
+            vodConfig.parses.forEach((item, i) => addSubItem('parses', item, item.name || `item ${i + 1}`));
+            vodConfig.lives.forEach((item, i) => addSubItem('lives', item, item.name || `item ${i + 1}`));
+            vodConfig.doh.forEach((item, i) => addSubItem('doh', item, item.name || `item ${i + 1}`));
+            vodConfig.proxy.forEach((item, i) => addSubItem('proxy', item, item.name || `item ${i + 1}`));
+            vodConfig.rules.forEach((item, i) => addSubItem('rules', item, item.name || `item ${i + 1}`));
+            vodConfig.headers.forEach((item, i) => addSubItem('headers', item, item.host || `item ${i + 1}`));
+
+            // Flags
+            $('#flagsList').empty();
+            if (vodConfig.flags.length === 0) addArrayItem('flags');
+            else vodConfig.flags.forEach(val => addArrayItem('flags', val));
+
+            // Ads
+            $('#adsList').empty();
+            if (vodConfig.ads.length === 0) addArrayItem('ads');
+            else vodConfig.ads.forEach(val => addArrayItem('ads', val));
+
+            // Hosts (DNS coverage - array style like flags/ads)
+            $('#hostsList').empty();
+            if (vodConfig.hosts.length === 0) addArrayItem('hosts');
+            else vodConfig.hosts.forEach(val => addArrayItem('hosts', val));
+
+            // Activate first tab in each section
+            TAB_TYPES.forEach(type => {
+                const firstTab = $(`#${type}Tabs .sub-item-tab`).first();
+                if (firstTab.length) switchSubItem(type, firstTab.data('item-id'));
+            });
+
+            initSortableTabs();
+
+            // Bind visual feedback for all inputs
+            bindInputVisualFeedback(null);
+        }
+
+        // ========== Sub-item Management ==========
+        function addSubItem(type, prefillData = {}, tabName = '') {
+            const tabContainer = $(`#${type}Tabs`);
+            const contentContainer = $(`#${type}Content`);
+            const itemId = generateUniqueId(type);
+
+            if (!tabName) {
+                if (prefillData.name) tabName = prefillData.name;
+                else if (type === 'headers' && prefillData.host) tabName = prefillData.host;
+                else if (subItemCounter[type] === 1) tabName = type === 'sites' ? '点播源' : type;
+                else tabName = `item ${subItemCounter[type] - 1}`;
+            }
+
+            tabContainer.find('.sub-item-tab').removeClass('active');
+            contentContainer.find('.sub-item-content').removeClass('active');
+
+            tabContainer.append(
+                `<div class="sub-item-tab active" data-item-id="${itemId}" data-type="${type}">${esc(tabName)}</div>`
+            );
+
+            const contentHtml = buildSubItemContent(type, itemId, prefillData);
+            contentContainer.append(contentHtml);
+
+            tabContainer.off('click', '.sub-item-tab').on('click', '.sub-item-tab', function(e) {
+                const tid = $(this).data('type');
+                const iid = $(this).data('item-id');
+                switchSubItem(tid, iid);
+            });
+
+            // Bind visual feedback for the new content
+            setTimeout(() => {
+                bindInputVisualFeedback(itemId);
+                $(`#${itemId} input:first`).focus();
+            }, 100);
+        }
+
+        function switchSubItem(type, itemId) {
+            $(`#${type}Tabs .sub-item-tab`).removeClass('active');
+            $(`#${type}Content .sub-item-content`).removeClass('active');
+            $(`#${type}Tabs .sub-item-tab[data-item-id="${itemId}"]`).addClass('active');
+            $(`#${itemId}`).addClass('active');
+        }
+
+        function syncTabName(type, itemId, value) {
+            if (!value) return;
+            $(`#${type}Tabs .sub-item-tab[data-item-id="${itemId}"]`).text(value);
+        }
+
+        function deleteActiveSubItem(type) {
+            const activeTab = $(`#${type}Tabs .sub-item-tab.active`);
+            if (!activeTab.length) { toast('请先选择要删除的子项', 'error'); return; }
+
+            const tabName = activeTab.text();
+            confirmDialog('确认删除', `确定要删除「${tabName}」吗？此操作不可撤销。`).then(confirmed => {
+                if (!confirmed) return;
+                const itemId = activeTab.data('item-id');
+                activeTab.remove();
+                $(`#${itemId}`).remove();
+                const firstTab = $(`#${type}Tabs .sub-item-tab`).first();
+                if (firstTab.length) switchSubItem(type, firstTab.data('item-id'));
+                subItemCounter[type] = Math.max(1, $(`#${type}Tabs .sub-item-tab`).length + 1);
+                toast(`已删除「${tabName}」`, 'success');
+            });
+        }
+
+        function addArrayItem(type, prefillValue = '') {
+            const listContainer = $(`#${type}List`);
+            const itemId = `${type}_arr_${Date.now()}_${Math.floor(Math.random() * 1e5)}`;
+            let placeholder = '';
+            if (type === 'flags') placeholder = '平台标识（如qq）';
+            else if (type === 'ads') placeholder = '广告域名（如ads.example.com）';
+            else if (type === 'hosts') placeholder = '原始主机名=目标IP/主机名';
+
+            listContainer.append(
+                `<div class="array-item" id="${itemId}">
+                    <input type="text" class="form-control" value="${esc(prefillValue)}" placeholder="${placeholder}">
+                    <button class="array-item-btn" data-action="del-arr" data-target="${itemId}">✕</button>
+                </div>`
+            );
+            // Bind visual feedback for new array input
+            const newInput = document.querySelector(`#${itemId} input`);
+            if (newInput) {
+                updateInputVisualState(newInput);
+                newInput.addEventListener('input', function() { updateInputVisualState(this); });
+            }
+            setTimeout(() => $(`#${itemId} input`).focus(), 100);
+        }
+
+        // ========== Dynamic API placeholder based on Type ==========
+        function updateApiPlaceholder(contentEl) {
+            const typeVal = $(contentEl).find('.type').val();
+            const apiInput = $(contentEl).find('.api');
+            if (typeVal === '3') {
+                apiInput.attr('placeholder', '例：csp_ClassName 或 xxx.js 或 xxx.py');
+            } else if (typeVal === '0' || typeVal === '1' || typeVal === '4') {
+                apiInput.attr('placeholder', '例：https://example.com/api.php/provide/vod/');
+            } else {
+                apiInput.attr('placeholder', '数据源Api地址');
+            }
+        }
+
+        // ========== HTML Template Builder (XSS-safe) ==========
+        function buildSubItemContent(type, itemId, d) {
+            switch (type) {
+                case 'sites': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>Key <span class="text-muted">（唯一标识，不可重复）</span></label><input type="text" class="form-control key" value="${esc(d.key)}" placeholder="请输入数据源唯一标识" oninput="window.__syncTabName('sites','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>Name <span class="text-muted">（数据源名称）</span></label><input type="text" class="form-control name" value="${esc(d.name)}" placeholder="请输入数据源名称，显示给用户的名称" oninput="window.__syncTabName('sites','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>Type <span class="text-muted">（API格式）</span></label>
+                                <select class="form-control type" onchange="window.__updateApiPlaceholder('${itemId}')">
+                                    <option value="" ${d.type==='' || d.type === undefined || d.type === null ?'selected':''}>请选择来源类型</option>
+                                    <option value="0" ${d.type===0?'selected':''}>0 - XML格式API</option>
+                                    <option value="1" ${d.type===1?'selected':''}>1 - JSON格式API（Filter筛选  f=）</option>
+                                    <option value="3" ${d.type===3?'selected':''}>3 - 爬虫直接调用</option>
+                                    <option value="4" ${d.type===4?'selected':''}>4 - JSON API（Base64扩展  ext=）</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>Api <span class="text-muted">（数据源地址）</span></label><input type="text" class="form-control api" value="${esc(d.api)}" placeholder="数据源Api地址"></div>
+                            <div class="form-group"><label>ext <span class="text-muted">（额外扩展数据，传入爬虫 init() 使用。）</span></label><input type="text" class="form-control ext" value="${esc(d.ext)}" placeholder="./ext.json 或 JSON字符串"></div>
+                            <div class="form-group"><label>jar <span class="text-muted">（专属Spider JAR）</span></label><input type="text" class="form-control jar" value="${esc(d.jar)}" placeholder="覆盖全局spider"></div>
+                            <div class="form-group"><label>click <span class="text-muted">（点击拦截）</span></label><input type="text" class="form-control click" value="${esc(d.click)}" placeholder="点击拦截处理 URL 或规则"></div>
+                            <div class="form-group"><label>PlayUrl <span class="text-muted">（播放地址前缀）</span></label><input type="text" class="form-control playUrl" value="${esc(d.playUrl)}" placeholder="播放 URL 前缀或转换规则"></div>
+                            <div class="form-group"><label>hide <span class="text-muted">（是否在来源列表中隐藏）</span></label>
+                                <select class="form-control hide">
+                                    <option value="" ${d.hide==='' || d.hide === undefined || d.hide === null ?'selected':''}>请选择</option>
+                                    <option value="0" ${d.hide===0?'selected':''}>0 - 显示</option>
+                                    <option value="1" ${d.hide===1?'selected':''}>1 - 隐藏</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>timeout <span class="text-muted">（请求超时秒数，覆盖默认值。）</span></label><input type="number" class="form-control timeout" value="${d.timeout || ''}" min="0" placeholder="请输入超时秒数，留空使用默认值"></div>
+                            <div class="form-group"><label>searchable <span class="text-muted">（搜索开关）</span></label>
+                                <select class="form-control searchable">
+                                    <option value="0" ${d.searchable===0?'selected':''}>0 - 禁用</option>
+                                    <option value="1" ${(d.searchable===0 ? false : true)?'selected':''}>1 - 启用（默认）</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>changeable <span class="text-muted">（线路切换开关）</span></label>
+                                <select class="form-control changeable">
+                                    <option value="0" ${d.changeable===0?'selected':''}>0 - 禁用</option>
+                                    <option value="1" ${(d.changeable===0 ? false : true)?'selected':''}>1 - 启用（默认）</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>quickSearch <span class="text-muted">（快速搜索开关）</span></label>
+                                <select class="form-control quickSearch">
+                                    <option value="" ${d.quickSearch==='' || d.quickSearch === undefined || d.quickSearch === null ?'selected':''}>请选择</option>
+                                    <option value="0" ${d.quickSearch===0?'selected':''}>0 - 禁用</option>
+                                    <option value="1" ${d.quickSearch===1?'selected':''}>1 - 启用</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>indexs <span class="text-muted">（索引模式）</span></label>
+                                <select class="form-control indexs">
+                                    <option value="" ${d.indexs==='' || d.indexs === undefined || d.indexs === null ?'selected':''}>请选择</option>
+                                    <option value="0" ${d.indexs===0?'selected':''}>0 - 否</option>
+                                    <option value="1" ${d.indexs===1?'selected':''}>1 - 是</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>categories <span class="text-muted">（分类名称白名单，仅显示列表中的分类）</span></label><input type="text" class="form-control categories" value="${esc((d.categories||[]).join(','))}" placeholder="电影,电视剧,综艺"></div>
+                            <div class="form-group"><label>header <span class="text-muted">（HTTP请求头，格式为键值对JSON）</span></label><textarea class="form-control header" rows="3" placeholder='{"Referer": "https://www.example.com/", "User-Agent": "Mozilla/5.0"}'>${esc(d.header ? JSON.stringify(d.header, null, 2) : '')}</textarea></div>
+                            <div class="form-group"><label>style <span class="text-muted">（卡片显示样式，格式为键值对JSON）</span></label><textarea class="form-control style" rows="3" placeholder='{"color": "#ff0000", "label": "VIP"}'>${esc(d.style ? JSON.stringify(d.style, null, 2) : '')}</textarea></div>
+                        </div>
+                    </div>`;
+
+                case 'parses': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>name <span class="text-muted">(解析器名称)</span></label><input type="text" class="form-control name" value="${esc(d.name)}" placeholder="请输入解析器名称" oninput="window.__syncTabName('parses','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>type <span class="text-muted">(解析器类型)</span></label>
+                                <select class="form-control type">
+                                    <option value="" ${d.type==='' || d.type === undefined || d.type === null ?'selected':''}>请选择解析器类型</option>
+                                    <option value="0" ${d.type===0?'selected':''}>0 - 嗅探  (WebView 拦截媒体 URL)</option>
+                                    <option value="1" ${d.type===1?'selected':''}>1 - JSON API  (GET 请求，取响应的 url 字段)</option>
+                                    <option value="2" ${d.type===2?'selected':''}>2 - JSON扩展  (将所有 type=1 的解析器合并后送入 JAR 处理)</option>
+                                    <option value="3" ${d.type===3?'selected':''}>3 - JSON聚合  (将所有解析器信息合并后送入 JAR 处理)</option>
+                                    <option value="4" ${d.type===4?'selected':''}>4 - 超级解析  (自动并行尝试所有 type=0/1 的解析器)</option>
+                                </select>
+                            </div>
+                            <div class="form-group"><label>url <span class="text-muted">(解析API地址)</span></label><input type="text" class="form-control url" value="${esc(d.url)}" placeholder="https://xxx/parse?url="></div>
+                            <div class="form-group"><label>ext.flag <span class="text-muted">(适用VIP标识，逗号分隔)</span></label><input type="text" class="form-control ext-flag" value="${esc((d.ext?.flag||[]).join(','))}" placeholder="qq,iqiyi,youku"></div>
+                            <div class="form-group"><label>ext.header <span class="text-muted">(解析请求头，格式为键值对JSON)</span></label><textarea class="form-control ext-header" rows="3" placeholder='{"Referer": "https://www.example.com/"}'>${esc(d.ext?.header ? JSON.stringify(d.ext.header, null, 2) : '')}</textarea></div>
+                        </div>
+                    </div>`;
+
+                case 'lives': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>name <span class="text-muted">(直播源名称)</span></label><input type="text" class="form-control name" value="${esc(d.name)}" placeholder="请输入直播源名称，作为主键使用，不可重复" oninput="window.__syncTabName('lives','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>url <span class="text-muted">(外部直播列表URL)</span></label><input type="text" class="form-control url" value="${esc(d.url)}" placeholder="支持M3U、TXT 或 JSON 格式，例： ./live.m3u"></div>
+                            <div class="form-group"><label>api <span class="text-muted">(直播API/爬虫类名)</span></label><input type="text" class="form-control api" value="${esc(d.api)}" placeholder="例： csp_ClassName"></div>
+                            <div class="form-group"><label>ext <span class="text-muted">(传入直播爬虫的额外扩展数据)</span></label><input type="text" class="form-control ext" value="${esc(d.ext)}" placeholder="./ext.json 或 JSON字符串"></div>
+                            <div class="form-group"><label>jar <span class="text-muted">(专属Spider JAR)</span></label><input type="text" class="form-control jar" value="${esc(d.jar)}" placeholder="覆盖全局spider"></div>
+                            <div class="form-group"><label>click <span class="text-muted">(点击拦截)</span></label><input type="text" class="form-control click" value="${esc(d.click)}" placeholder="点击拦截处理 URL 或规则"></div>
+                            <div class="form-group"><label>logo <span class="text-muted">(频道默认Logo URL)</span></label><input type="text" class="form-control logo" value="${esc(d.logo)}" placeholder="支持{id}、{name}、{logo} 变量"></div>
+                            <div class="form-group"><label>epg <span class="text-muted">(EPG节目表URL)</span></label><input type="text" class="form-control epg" value="${esc(d.epg)}" placeholder="EPG 节目表 URL，多个以逗号分隔。支持 {id}、{name}、{epg} 变量替换"></div>
+                            <div class="form-group"><label>ua <span class="text-muted">(默认User-Agent 字符串)</span></label><input type="text" class="form-control ua" value="${esc(d.ua)}" placeholder="Mozilla/5.0"></div>
+                            <div class="form-group"><label>origin <span class="text-muted">(Origin头)</span></label><input type="text" class="form-control origin" value="${esc(d.origin)}" placeholder="<scheme>://<hostname>:<port>"></div>
+                            <div class="form-group"><label>referer <span class="text-muted">(Referer头)</span></label><input type="text" class="form-control referer" value="${esc(d.referer)}" placeholder="<scheme>://<hostname>"></div>
+                            <div class="form-group"><label>timeZone <span class="text-muted">(EPG时区)</span></label><input type="text" class="form-control timeZone" value="${esc(d.timeZone)}" placeholder="Asia/Taipei"></div>
+                            <div class="form-group"><label>timeout <span class="text-muted">(请求超时秒数)</span></label><input type="number" class="form-control timeout" value="${d.timeout || ''}" min="0" placeholder="请输入超时秒数，留空使用默认值"></div>
+                            <div class="form-group"><label>header <span class="text-muted">(HTTP请求头，格式为键值对JSON)</span></label><textarea class="form-control header" rows="2" placeholder='{"User-Agent": "Mozilla/5.0", "Referer": "https://example.com/"}'>${esc(d.header ? JSON.stringify(d.header, null, 2) : '')}</textarea></div>
+                            <div class="form-group"><label>catchup <span class="text-muted">(追看/时移设置，格式为键值对JSON)</span></label><textarea class="form-control catchup" rows="2" placeholder='{"type": "append", "regex": "\\$"}'>${esc(d.catchup ? JSON.stringify(d.catchup, null, 2) : '')}</textarea></div>
+                            <div class="form-group"><label>boot <span class="text-muted">(启动自动选中)</span></label>
+                                <select class="form-control boot">
+                                    <option value="false" ${d.boot!==true?'selected':''}>false</option>
+                                    <option value="true" ${d.boot===true?'selected':''}>true</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>`;
+
+                case 'doh': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>name <span class="text-muted">(服务器名称)</span></label><input type="text" class="form-control name" value="${esc(d.name)}" placeholder="请输入服务器名称，如 Google DoH" oninput="window.__syncTabName('doh','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>url <span class="text-muted">(DoH查询URL)</span></label><input type="text" class="form-control url" value="${esc(d.url)}" placeholder="https://dns.google/dns-query"></div>
+                            <div class="form-group"><label>ips <span class="text-muted">(服务器本身IP列表，用于 Bootstrap 解析，逗号分隔)</span></label><input type="text" class="form-control ips" value="${esc((d.ips||[]).join(','))}" placeholder="8.8.8.8,8.8.4.4"></div>
+                        </div>
+                    </div>`;
+
+                case 'proxy': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>name <span class="text-muted">(代理规则名称)</span></label><input type="text" class="form-control name" value="${esc(d.name)}" placeholder="请输入代理规则名称" oninput="window.__syncTabName('proxy','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>hosts <span class="text-muted">(适用此代理的主机名称列表，逗号分隔，支持正则，靠前的规则优先匹配)</span></label><input type="text" class="form-control hosts" value="${esc((d.hosts||[]).join(','))}" placeholder="googlevideo.com,raw.githubusercontent.com"></div>
+                            <div class="form-group"><label>urls <span class="text-muted">(代理服务器URL列表,逗号分隔)</span></label><input type="text" class="form-control urls" value="${esc((d.urls||[]).join(','))}" placeholder="http://127.0.0.1:7890"></div>
+                        </div>
+                    </div>`;
+
+                case 'rules': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>name <span class="text-muted">(规则名称)</span></label><input type="text" class="form-control name" value="${esc(d.name)}" placeholder="请输入规则名称" oninput="window.__syncTabName('rules','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>hosts <span class="text-muted">(目标主机列表,逗号分隔)</span></label><input type="text" class="form-control hosts" value="${esc((d.hosts||[]).join(','))}" placeholder="video.example.com"></div>
+                            <div class="form-group"><label>regex <span class="text-muted">(用于提取播放 URL 的正则表达式列表，符合者视为有效的媒体 URL，逗号分隔)</span></label><input type="text" class="form-control regex" value="${esc((d.regex||[]).join(','))}" placeholder="m3u8?token="></div>
+                            <div class="form-group"><label>script <span class="text-muted">(执行脚本,用于自动点击、关闭广告等操作,逗号分隔JS代码)</span></label><input type="text" class="form-control script" value="${esc((d.script||[]).join(','))}" placeholder="document.querySelector('.close-btn').click()"></div>
+                            <div class="form-group"><label>exclude <span class="text-muted">(排除列表，符合此列表的 URL 不触发 regex 提取,逗号分隔)</span></label><input type="text" class="form-control exclude" value="${esc((d.exclude||[]).join(','))}" placeholder="preview.json"></div>
+                        </div>
+                    </div>`;
+
+                case 'headers': return `
+                    <div class="sub-item-content active" id="${itemId}">
+                        <div class="field-group">
+                            <div class="form-group"><label>host <span class="text-muted">(目标主机)</span></label><input type="text" class="form-control host" value="${esc(d.host)}" placeholder="不含协议，如 stream.example.com" oninput="window.__syncTabName('headers','${itemId}',this.value)"></div>
+                            <div class="form-group"><label>header <span class="text-muted">(要注入的 HTTP 头对象，格式为键值对JSON)</span></label><textarea class="form-control header" rows="3" placeholder='{"Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET,POST,OPTIONS"}'>${esc(d.header ? JSON.stringify(d.header, null, 2) : '')}</textarea></div>
+                        </div>
+                    </div>`;
+            }
+            return '';
+        }
+
+        // ========== Excel Export ==========
+        function getSitesFields() { return ['key','name','type','api','playUrl','searchable','quickSearch','changeable','hide','timeout','ext','jar','click','indexs','categories','header','style']; }
+        function getParsesFields() { return ['name','type','url','ext.flag','ext.header']; }
+        function getLivesFields() { return ['name','url','api','logo','epg','ua','origin','referer','timeZone','timeout','ext','jar','click','header','catchup','groups','boot','pass']; }
+        function getDohFields() { return ['name','url','ips']; }
+        function getProxyFields() { return ['name','hosts','urls']; }
+        function getRulesFields() { return ['name','hosts','regex','script','exclude']; }
+        function getHeadersFields() { return ['host','header']; }
+
+        function getSitesFieldValue(item, field) {
+            switch (field) {
+                case 'categories': return Array.isArray(item[field]) ? item[field].join(',') : '';
+                case 'header': case 'style': return JSON.stringify(item[field] || {}, null, 2);
+                default: return item[field] !== undefined ? item[field] : '';
+            }
+        }
+        function getParsesFieldValue(item, field) {
+            if (field === 'ext.flag') return Array.isArray(item.ext?.flag) ? item.ext.flag.join(',') : '';
+            if (field === 'ext.header') return JSON.stringify(item.ext?.header || {}, null, 2);
+            return item[field] !== undefined ? item[field] : '';
+        }
+        function getLivesFieldValue(item, field) {
+            switch (field) {
+                case 'header': case 'catchup': case 'groups': return JSON.stringify(item[field] || {}, null, 2);
+                case 'boot': case 'pass': return item[field] ? 'true' : 'false';
+                default: return item[field] !== undefined ? item[field] : '';
+            }
+        }
+
+        const FIELD_GETTERS = {
+            '点播源': getSitesFieldValue, '解析规则': getParsesFieldValue, '直播源': getLivesFieldValue
+        };
+
+        function exportComplexSheet(workbook, sheetName, data, fields) {
+            if (!data || data.length === 0) {
+                XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet([fields]), sheetName);
+                return;
+            }
+            const aoaData = [fields];
+            data.forEach(item => {
+                const row = fields.map(field => {
+                    const getter = FIELD_GETTERS[sheetName];
+                    if (getter) return getter(item, field);
+                    if (Array.isArray(item[field])) return item[field].join(',');
+                    if (field === 'header') return JSON.stringify(item[field] || {}, null, 2);
+                    return item[field] !== undefined ? item[field] : '';
+                });
+                aoaData.push(row);
+            });
+            XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(aoaData), sheetName);
+        }
+
+        function exportToExcel() {
+            syncVisualToConfig();
+            const workbook = XLSX.utils.book_new();
+
+            // Basic config
+            const basicData = [['字段名','值'],['spider',vodConfig.spider||''],['wallpaper',vodConfig.wallpaper||''],['logo',vodConfig.logo||''],['notice',vodConfig.notice||'']];
+            XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(basicData), '基础配置');
+
+            // Flags & Ads
+            const flagsData = [['平台标识']];
+            vodConfig.flags.forEach(v => flagsData.push([v]));
+            XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(flagsData), 'VIP解析标识');
+
+            const adsData = [['广告域名']];
+            vodConfig.ads.forEach(v => adsData.push([v]));
+            XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(adsData), '广告过滤');
+
+            // Complex sheets
+            exportComplexSheet(workbook, '点播源', vodConfig.sites, getSitesFields());
+            exportComplexSheet(workbook, '解析规则', vodConfig.parses, getParsesFields());
+            exportComplexSheet(workbook, '直播源', vodConfig.lives, getLivesFields());
+            exportComplexSheet(workbook, 'Doh配置', vodConfig.doh, getDohFields());
+            exportComplexSheet(workbook, '代理配置', vodConfig.proxy, getProxyFields());
+            exportComplexSheet(workbook, '拦截规则', vodConfig.rules, getRulesFields());
+            exportComplexSheet(workbook, '注入响应头', vodConfig.headers, getHeadersFields());
+            exportComplexSheet(workbook, 'DNS覆盖', vodConfig.hosts, ['规则']);
+
+            XLSX.writeFile(workbook, 'Vod配置_' + new Date().toISOString().slice(0,19).replace(/[T:]/g,'-') + '.xlsx');
+            toast('Excel导出成功', 'success');
+        }
+
+        // ========== Excel Import ==========
+        function setSitesFieldValue(item, field, value) {
+            switch (field) {
+                case 'type': case 'searchable': case 'quickSearch': case 'changeable': case 'hide': case 'timeout': case 'indexs':
+                    item[field] = parseInt(value, 10); break;
+                case 'categories': item[field] = value.split(',').filter(v => v); break;
+                case 'header': case 'style': item[field] = parseJsonOrEmpty(value); break;
+                default: item[field] = value;
+            }
+        }
+        function setParsesFieldValue(item, field, value) {
+            if (!item.ext) item.ext = {};
+            if (field === 'type') item[field] = parseInt(value, 10);
+            else if (field === 'ext.flag') item.ext.flag = value.split(',').filter(v => v);
+            else if (field === 'ext.header') item.ext.header = parseJsonOrEmpty(value);
+            else item[field] = value;
+        }
+        function setLivesFieldValue(item, field, value) {
+            switch (field) {
+                case 'timeout': item[field] = parseInt(value, 10); break;
+                case 'boot': case 'pass': item[field] = value === 'true'; break;
+                case 'header': case 'catchup': case 'groups': item[field] = parseJsonOrEmpty(value); break;
+                default: item[field] = value;
+            }
+        }
+
+        const FIELD_SETTERS = { sites: setSitesFieldValue, parses: setParsesFieldValue, lives: setLivesFieldValue };
+
+        function importComplexSheet(workbook, sheetName, configKey, fields) {
+            if (!workbook.Sheets[sheetName]) return;
+            const jsonData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: fields });
+            jsonData.shift();
+
+            jsonData.forEach(row => {
+                const item = {};
+                let hasData = false;
+                const setter = FIELD_SETTERS[configKey];
+
+                if (configKey === 'hosts') {
+                    if (row['规则'] !== undefined && row['规则'] !== '') {
+                        vodConfig[configKey].push(row['规则']);
+                    }
+                    return;
+                }
+
+                Object.keys(row).forEach(field => {
+                    if (row[field] !== undefined && row[field] !== '') {
+                        if (setter) {
+                            setter(item, field, row[field]);
+                        } else {
+                            if (field === 'ips' || field === 'hosts' || field === 'urls' || field === 'regex' || field === 'script' || field === 'exclude') {
+                                item[field] = String(row[field]).split(',').filter(v => v);
+                            } else if (field === 'header') {
+                                item[field] = parseJsonOrEmpty(row[field]);
+                            } else {
+                                item[field] = row[field];
+                            }
+                        }
+                        hasData = true;
+                    }
+                });
+                if (hasData) vodConfig[configKey].push(item);
+            });
+        }
+
+        function importExcel(input) {
+            if (!input.files || !input.files[0]) return;
+            const fileReader = new FileReader();
+            fileReader.onload = function(e) {
+                try {
+                    const data = new Uint8Array(e.target.result);
+                    const workbook = XLSX.read(data, { type: 'array' });
+
+                    vodConfig = {
+                        spider: '', wallpaper: '', logo: '', notice: '',
+                        sites: [], parses: [], lives: [], doh: [], proxy: [],
+                        rules: [], headers: [], hosts: [], flags: [], ads: []
+                    };
+
+                    if (workbook.Sheets['基础配置']) {
+                        const basicData = XLSX.utils.sheet_to_json(workbook.Sheets['基础配置'], { header: 1 });
+                        for (let i = 1; i < basicData.length; i++) {
+                            const row = basicData[i];
+                            if (row[0] && row[1] !== undefined && row[1] !== '') {
+                                vodConfig[row[0]] = row[1];
+                            }
+                        }
+                    }
+
+                    if (workbook.Sheets['VIP解析标识']) {
+                        const flagsData = XLSX.utils.sheet_to_json(workbook.Sheets['VIP解析标识'], { header: 1 });
+                        for (let i = 1; i < flagsData.length; i++) {
+                            if (flagsData[i][0]) vodConfig.flags.push(flagsData[i][0]);
+                        }
+                    }
+                    if (workbook.Sheets['广告过滤']) {
+                        const adsData = XLSX.utils.sheet_to_json(workbook.Sheets['广告过滤'], { header: 1 });
+                        for (let i = 1; i < adsData.length; i++) {
+                            if (adsData[i][0]) vodConfig.ads.push(adsData[i][0]);
+                        }
+                    }
+
+                    importComplexSheet(workbook, '点播源', 'sites', getSitesFields());
+                    importComplexSheet(workbook, '解析规则', 'parses', getParsesFields());
+                    importComplexSheet(workbook, '直播源', 'lives', getLivesFields());
+                    importComplexSheet(workbook, 'Doh配置', 'doh', getDohFields());
+                    importComplexSheet(workbook, '代理配置', 'proxy', getProxyFields());
+                    importComplexSheet(workbook, '拦截规则', 'rules', getRulesFields());
+                    importComplexSheet(workbook, '注入响应头', 'headers', getHeadersFields());
+                    importComplexSheet(workbook, 'DNS覆盖', 'hosts', ['规则']);
+
+                    renderConfigToVisual();
+                    syncConfigToCode();
+                    toast('Excel导入成功', 'success');
+                } catch (err) {
+                    toast('Excel导入失败：' + err.message, 'error');
+                }
+                input.value = '';
+            };
+            fileReader.readAsArrayBuffer(input.files[0]);
+        }
+
+        // ========== Event Delegation ==========
+        document.addEventListener('click', function(e) {
+            const btn = e.target.closest('[data-action]');
+            if (!btn) return;
+            const action = btn.dataset.action;
+            const type = btn.dataset.type;
+
+            if (action === 'add-sub' && type) { e.preventDefault(); addSubItem(type); }
+            else if (action === 'del-sub' && type) { e.preventDefault(); deleteActiveSubItem(type); }
+            else if (action === 'add-arr' && type) { e.preventDefault(); addArrayItem(type); }
+            else if (action === 'del-arr') {
+                e.preventDefault();
+                const target = btn.dataset.target;
+                if (target) $(`#${target}`).remove();
+            }
+        });
+
+        // ========== Clear All Config ==========
+        function clearAllConfig() {
+            confirmDialog('确认清空', '确定要清空所有配置吗？此操作不可撤销。').then(confirmed => {
+                if (!confirmed) return;
+                vodConfig = {
+                    spider: '', wallpaper: '', logo: '', notice: '',
+                    sites: [], parses: [], lives: [], doh: [], proxy: [],
+                    rules: [], headers: [], hosts: [], flags: [], ads: []
+                };
+                renderConfigToVisual();
+                $('#codeEditor').val('');
+                toast('配置已清空', 'success');
+            });
+        }
+
+        // ========== Mode Switching ==========
+        $('#visualModeBtn').click(() => {
+            $('#vodTabs, #vodTabContent').removeClass('d-none');
+            $('#codeEditorArea').addClass('d-none');
+            $('#visualModeBtn').addClass('active-mode');
+            $('#codeModeBtn').removeClass('active-mode');
+            syncCodeToConfig();
+        });
+
+        $('#codeModeBtn').click(() => {
+            $('#vodTabs, #vodTabContent').addClass('d-none');
+            $('#codeEditorArea').removeClass('d-none');
+            $('#codeModeBtn').addClass('active-mode');
+            $('#visualModeBtn').removeClass('active-mode');
+            syncVisualToConfig();
+            syncConfigToCode();
+        });
+
+        $('#clearAllBtn').click(clearAllConfig);
+
+        $('#downloadBtn').click(() => {
+            syncVisualToConfig();
+            // Filter invalid items
+            const filteredConfig = Object.assign({}, vodConfig);
+            filteredConfig.sites = vodConfig.sites.filter(isValidSite);
+            filteredConfig.parses = vodConfig.parses.filter(isValidParse);
+            filteredConfig.lives = vodConfig.lives.filter(isValidLive);
+            filteredConfig.doh = vodConfig.doh.filter(isValidDoh);
+            filteredConfig.rules = vodConfig.rules.filter(isValidRule);
+            filteredConfig.headers = vodConfig.headers.filter(isValidHeader);
+            filteredConfig.proxy = vodConfig.proxy.filter(isValidProxy);
+
+            const cleaned = deepCleanObj(filteredConfig);
+            const result = {};
+            Object.keys(cleaned).forEach(key => {
+                const val = cleaned[key];
+                if (val !== '' && !(Array.isArray(val) && val.length === 0)) {
+                    result[key] = val;
+                }
+            });
+            const jsonStr = JSON.stringify(result, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'vod_config.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            toast('JSON下载成功', 'success');
+        });
+
+        $('#exportExcelBtn').click(exportToExcel);
+        $('#importExcelBtn').click(() => $('#importExcelInput').click());
+        $('#importExcelInput').on('change', function() { importExcel(this); });
+
+        // ========== Expose globally for inline handlers ==========
+        window.__syncTabName = syncTabName;
+        window.__updateApiPlaceholder = function(itemId) {
+            const contentEl = document.getElementById(itemId);
+            if (contentEl) updateApiPlaceholder(contentEl);
+        };
+
+        // ========== Init ==========
+        $(document).ready(() => {
+            initSortableTabs();
+        });
+
+    })();
+    </script>
+</body>
+</html>

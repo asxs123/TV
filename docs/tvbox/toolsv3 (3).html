@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vod配置可视化编辑器</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --success: #059669;
+            --success-hover: #047857;
+            --danger: #dc2626;
+            --danger-hover: #b91c1c;
+            --warning: #d97706;
+            --warning-hover: #b45309;
+            --info: #0891b2;
+            --info-hover: #0e7490;
+            --surface: #f8fafc;
+            --border: #e2e8f0;
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --radius: 8px;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,.05);
+            --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1);
+            --transition: all .15s ease;
+        }
+
+        body {
+            background: #f1f5f9;
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+        }
+
+        .container-main {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 24px 20px;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 28px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* ========== Toolbar ========== */
+        .toolbar {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .toolbar .divider {
+            width: 1px;
+            height: 28px;
+            background: var(--border);
+            margin: 0 4px;
+        }
+
+        .btn-tool {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: .85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+            line-height: 1.4;
+        }
+        .btn-tool:active { transform: scale(.97); }
+
+        .btn-primary-tool { background: var(--primary); color: #fff; }
+        .btn-primary-tool:hover { background: var(--primary-hover); color: #fff; }
+        .btn-secondary-tool { background: #e2e8f0; color: var(--text); }
+        .btn-secondary-tool:hover { background: #cbd5e1; color: var(--text); }
+        .btn-success-tool { background: var(--success); color: #fff; }
+        .btn-success-tool:hover { background: var(--success-hover); color: #fff; }
+        .btn-info-tool { background: var(--info); color: #fff; }
+        .btn-info-tool:hover { background: var(--info-hover); color: #fff; }
+        .btn-excel-tool { background: var(--warning); color: #fff; }
+        .btn-excel-tool:hover { background: var(--warning-hover); color: #fff; }
+
+        .btn-tool.active-mode {
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        #errorMsg {
+            color: var(--danger);
+            font-size: .85rem;
+            margin-left: auto;
+            font-weight: 500;
+        }
+
+        /* ========== Tabs ========== */
+        .nav-tabs {
+            border-bottom: 2px solid var(--border);
+            gap: 2px;
+            flex-wrap: wrap;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: .85rem;
+            padding: 10px 16px;
+            border-radius: var(--radius) var(--radius) 0 0;
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-tabs .nav-link:hover {
+            color: var(--text);
+            background: var(--surface);
+        }
+        .nav-tabs .nav-link.active {
+            color: var(--primary);
+            background: #fff;
+            font-weight: 600;
+        }
+        .nav-tabs .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .tab-content {
+            background: #fff;
+            margin-top: 0;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+            min-height: 300px;
+        }
+
+        /* ========== Sub-item Tabs ========== */
+        .sub-item-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            padding: 10px 0;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            cursor: grab;
+        }
+        .sub-item-tabs:active { cursor: grabbing; }
+
+        .sub-item-tab {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-bottom: none;
+            border-radius: 6px 6px 0 0;
+            cursor: pointer;
+            position: relative;
+            top: 1px;
+            white-space: nowrap;
+            user-select: none;
+            font-size: .82rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            max-width: 180px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sub-item-tab:hover {
+            background: #e0e7ff;
+            color: var(--primary);
+            border-color: #c7d2fe;
+        }
+        .sub-item-tab.active {
+            background: #fff;
+            color: var(--primary);
+            font-weight: 600;
+            border-color: var(--border);
+            border-bottom-color: #fff;
+        }
+        .sub-item-tab.sortable-ghost { opacity: .4; }
+        .sub-item-tab.sortable-chosen { background: #dbeafe; border-color: #93c5fd; }
+
+        .sub-item-content { display: none; animation: fadeIn .2s ease; }
+        .sub-item-content.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== Action buttons ========== */
+        .section-actions { display: flex; gap: 8px; margin-bottom: 16px; }
+        .btn-sm-action {
+            display: inline-flex; align-items: center; gap: 4px;
+            padding: 5px 14px; border: none; border-radius: 5px;
+            font-size: .8rem; font-weight: 500; cursor: pointer; transition: var(--transition);
+        }
+        .btn-sm-add { background: #dcfce7; color: #166534; }
+        .btn-sm-add:hover { background: #bbf7d0; color: #166534; }
+        .btn-sm-del { background: #fee2e2; color: #991b1b; }
+        .btn-sm-del:hover { background: #fecaca; color: #991b1b; }
+
+        /* ========== Form fields ========== */
+        .form-group { margin-bottom: 16px; }
+        .form-group label {
+            font-size: .82rem; font-weight: 600; color: var(--text);
+            margin-bottom: 5px; display: block;
+        }
+        .form-group label .text-muted { font-weight: 400; color: var(--text-muted); }
+        .form-control, .form-select {
+            font-size: .85rem; border-color: var(--border);
+            border-radius: 6px; transition: var(--transition);
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+        }
+
+        /* Input/select with value → green highlight */
+        .form-control.user-has-value,
+        .form-select.user-has-value {
+            background-color: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        textarea.form-control {
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+            font-size: .8rem; line-height: 1.5;
+        }
+
+        .field-group {
+            margin-bottom: 20px; padding-bottom: 16px;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .field-group:last-child { border-bottom: none; margin-bottom: 0; }
+
+        /* ========== Array items ========== */
+        .array-item-list {
+            display: flex; flex-wrap: wrap; gap: 8px; padding: 16px;
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius); margin-bottom: 12px; min-height: 56px;
+            cursor: grab;
+        }
+        .array-item-list:active { cursor: grabbing; }
+        .array-item {
+            display: inline-flex; align-items: center; gap: 4px;
+            background: #fff; border: 1px solid var(--border);
+            border-radius: 6px; padding: 2px; transition: var(--transition);
+        }
+        .array-item:hover { border-color: var(--primary); }
+        .array-item input {
+            border: none; outline: none; font-size: .82rem;
+            padding: 5px 8px; width: 180px; background: transparent;
+        }
+        .array-item-btn {
+            width: 26px; height: 26px; display: flex; align-items: center;
+            justify-content: center; border: none; background: #fee2e2;
+            color: var(--danger); border-radius: 4px; cursor: pointer;
+            font-size: .9rem; font-weight: 700; transition: var(--transition);
+            padding: 0; flex-shrink: 0;
+        }
+        .array-item-btn:hover { background: #fecaca; }
+
+        /* ========== Code editor ========== */
+        #codeEditor {
+            width: 100%; min-height: 600px;
+            font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+            font-size: .82rem; line-height: 1.6; resize: vertical;
+            border-color: var(--border); border-radius: var(--radius); padding: 16px;
+        }
+        #codeEditor:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(79,70,229,.1);
+        }
+
+        /* ========== Toast ========== */
+        .toast-container {
+            position: fixed; top: 20px; right: 20px; z-index: 9999;
+            display: flex; flex-direction: column; gap: 8px;
+        }
+        .toast-msg {
+            padding: 12px 20px; border-radius: 8px; font-size: .85rem;
+            font-weight: 500; color: #fff; box-shadow: var(--shadow-md);
+            animation: slideIn .25s ease, fadeOut .3s ease 2.7s forwards;
+            max-width: 360px; word-break: break-word;
+        }
+        .toast-success { background: var(--success); }
+        .toast-error { background: var(--danger); }
+        .toast-info { background: var(--info); }
+
+        @keyframes slideIn { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeOut { to { opacity: 0; transform: translateY(-10px); } }
+
+        /* ========== Modal ========== */
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,.4);
+            z-index: 10000; display: flex; align-items: center;
+            justify-content: center; animation: fadeInBg .15s ease;
+        }
+        @keyframes fadeInBg { from { opacity: 0; } }
+        .modal-card {
+            background: #fff; border-radius: 12px; padding: 28px;
+            max-width: 400px; width: 90%; box-shadow: 0 20px 60px rgba(0,0,0,.2);
+            animation: popIn .2s ease;
+        }
+        @keyframes popIn { from { opacity: 0; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+        .modal-card h5 { font-weight: 700; margin-bottom: 8px; }
+        .modal-card p { color: var(--text-muted); font-size: .9rem; margin-bottom: 20px; }
+        .modal-card .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+
+        /* ========== Basic config layout ========== */
+        #basic .form-group {
+            display: flex; flex-wrap: wrap; align-items: center;
+            gap: 8px 12px; margin-bottom: 16px;
+        }
+        #basic .form-group label {
+            width: 100%; margin-bottom: 0; font-weight: 600;
+            font-size: .85rem; color: var(--text);
+        }
+        #basic .form-group .field-key {
+            min-width: 80px; font-size: .82rem; color: var(--text-muted);
+            font-weight: 500; flex-shrink: 0;
+        }
+        #basic .form-group .form-control,
+        #basic .form-group textarea.form-control { flex: 1; min-width: 0; }
+
+        /* ========== Responsive ========== */
+        @media (max-width: 768px) {
+            .toolbar { gap: 6px; padding: 10px 12px; }
+            .btn-tool { padding: 6px 10px; font-size: .78rem; }
+            .toolbar .divider { display: none; }
+            .tab-content { padding: 16px; }
+            .nav-tabs .nav-link { padding: 8px 10px; font-size: .78rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-main">
+        <h2 class="mb-4">Vod配置可视化编辑器</h2>
+
+        <div class="toolbar">
+            <button type="button" class="btn-tool btn-primary-tool active-mode" id="visualModeBtn">📊 可视化编辑</button>
+            <button type="button" class="btn-tool btn-secondary-tool" id="codeModeBtn">{ } 代码编辑</button>
+            <div class="divider"></div>
+            <button type="button" class="btn-tool" style="background:#ef4444;color:#fff" id="clearAllBtn">🗑 清空配置</button>
+            <button type="button" class="btn-tool btn-info-tool" id="downloadBtn">⬇ 下载JSON</button>
+            <div class="divider"></div>
+            <button type="button" class="btn-tool btn-excel-tool" id="exportExcelBtn">📤 导出Excel</button>
+            <input type="file" id="importExcelInput" accept=".xlsx,.xls" style="display:none">
+            <button type="button" class="btn-tool btn-excel-tool" id="importExcelBtn">📥 导入Excel</button>
+            <span id="errorMsg"></span>
+        </div>
+
+        <ul class="nav nav-tabs" id="vodTabs" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" id="basic-tab" data-bs-toggle="tab" data-bs-target="#basic" type="button" role="tab">基础配置</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="sites-tab" data-bs-toggle="tab" data-bs-target="#sites" type="button" role="tab">点播源</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="parses-tab" data-bs-toggle="tab" data-bs-target="#parses" type="button" role="tab">解析规则</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="lives-tab" data-bs-toggle="tab" data-bs-target="#lives" type="button" role="tab">直播源</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="doh-tab" data-bs-toggle="tab" data-bs-target="#doh" type="button" role="tab">Doh配置</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="proxy-tab" data-bs-toggle="tab" data-bs-target="#proxy" type="button" role="tab">代理配置</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="rules-tab" data-bs-toggle="tab" data-bs-target="#rules" type="button" role="tab">拦截规则</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="headers-tab" data-bs-toggle="tab" data-bs-target="#headers" type="button" role="tab">注入响应头</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="hosts-tab" data-bs-toggle="tab" data-bs-target="#hosts" type="button" role="tab">DNS覆盖</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="flags-tab" data-bs-toggle="tab" data-bs-target="#flags" type="button" role="tab">VIP解析标识</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" id="ads-tab" data-bs-toggle="tab" data-bs-target="#ads" type="button" role="tab">广告过滤</button></li>
+        </ul>
+
+        <div class="tab-content" id="vodTabContent">
+            <div class="tab-pane fade show active" id="basic" role="tabpanel">
+                <div class="form-group"><label for="spider">全局 Spider JAR 路径或 URL，提供给所有 sites 作为默认爬虫。支持相对路径（./、../）。</label><span class="field-key">spider</span><input type="text" class="form-control" id="spider" placeholder="例：./custom_spider.jar 或 ./custom_spider.jar;md5;md5_value 或 https://xxx.jar"></div>
+                <div class="form-group"><label for="wallpaper">壁纸图片或视频的路径/URL。支持静态图、GIF、视频格式。</label><span class="field-key">wallpaper</span><input type="text" class="form-control" id="wallpaper" placeholder="例：./wallpaper.jpg 或 https://xxx.jpg"></div>
+                <div class="form-group"><label for="logo">应用程序 Logo 图片路径/URL。</label><span class="field-key">logo</span><input type="text" class="form-control" id="logo" placeholder="例：./logo.png 或 https://xxx.png"></div>
+                <div class="form-group"><label for="notice">启动公告文字，将显示给用户。</label><span class="field-key">notice</span><input type="text" class="form-control" id="notice" placeholder="例：欢迎使用本配置！"></div>
+            </div>
+            <div class="tab-pane fade" id="sites" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">点播源对象数组，每个对象代表一个点播来源。</div>
+                <div class="sub-item-tabs" id="sitesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="sites">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="sites">✕ 删除</button></div>
+                <div id="sitesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="parses" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">解析规则对象数组，定义视频 URL 的解析处理规则。</div>
+                <div class="sub-item-tabs" id="parsesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="parses">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="parses">✕ 删除</button></div>
+                <div id="parsesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="lives" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">直播源对象数组，每个对象代表一个直播来源。</div>
+                <div class="sub-item-tabs" id="livesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="lives">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="lives">✕ 删除</button></div>
+                <div id="livesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="doh" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">设置加密 DNS 解析服务器，保护 DNS 查询隐私并防止污染。</div>
+                <div class="sub-item-tabs" id="dohTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="doh">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="doh">✕ 删除</button></div>
+                <div id="dohContent"></div>
+            </div>
+            <div class="tab-pane fade" id="proxy" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">设置特定域名流量的代理规则。支持 HTTP、HTTPS、SOCKS4、SOCKS5 代理。</div>
+                <div class="sub-item-tabs" id="proxyTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="proxy">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="proxy">✕ 删除</button></div>
+                <div id="proxyContent"></div>
+            </div>
+            <div class="tab-pane fade" id="rules" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">设置 WebView 或播放器的网络请求拦截与处理规则。</div>
+                <div class="sub-item-tabs" id="rulesTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="rules">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="rules">✕ 删除</button></div>
+                <div id="rulesContent"></div>
+            </div>
+            <div class="tab-pane fade" id="headers" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">针对特定主机，在 HTTP 响应中注入自定义头（通常用于解除 CORS 限制）。</div>
+                <div class="sub-item-tabs" id="headersTabs"></div>
+                <div class="section-actions"><button class="btn-sm-action btn-sm-add" data-action="add-sub" data-type="headers">＋ 添加</button><button class="btn-sm-action btn-sm-del" data-action="del-sub" data-type="headers">✕ 删除</button></div>
+                <div id="headersContent"></div>
+            </div>
+            <div class="tab-pane fade" id="hosts" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">覆盖特定主机名的 DNS 解析结果，可用于 CDN 调度或绕过封锁。支持通配符 *。</div>
+                <div class="array-item-list" id="hostsList"></div>
+                <button class="btn-sm-action btn-sm-add" data-action="add-arr" data-type="hosts">＋ 添加DNS规则</button>
+            </div>
+            <div class="tab-pane fade" id="flags" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">VIP平台标识，用于标记VIP平台处理（如 "qq"）。</div>
+                <div class="array-item-list" id="flagsList"></div>
+                <button class="btn-sm-action btn-sm-add" data-action="add-arr" data-type="flags">＋ 添加平台标识</button>
+            </div>
+            <div class="tab-pane fade" id="ads" role="tabpanel">
+                <div class="alert alert-info" role="alert" style="margin-top: 15px;">广告域名黑名单，符合的 HTTP 请求将被直接拦截拒绝。</div>
+                <div class="array-item-list" id="adsList"></div>
+                <button class="btn-sm-action btn-sm-add" data-action="add-arr" data-type="ads">＋ 添加广告域名</button>
+            </div>
+        </div>
+
+        <div id="codeEditorArea" class="d-none mt-4">
+            <label for="codeEditor" class="mb-2 fw-semibold">JSON代码编辑</label>
+            <textarea class="form-control" id="codeEditor"></textarea>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    (function() {
+        'use strict';
+
+        /* ==================== Utility ==================== */
+
+        function esc(str) {
+            if (str == null) return '';
+            return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+        }
+
+        function toast(message, type) {
+            var el = document.createElement('div');
+            el.className = 'toast-msg toast-' + (type || 'info');
+            el.textContent = message;
+            document.getElementById('toastContainer').appendChild(el);
+            setTimeout(function(){ el.remove(); }, 3000);
+        }
+
+        /** Confirm dialog with ESC/Enter keyboard support */
+        var _confirmActive = false;
+        function confirmDialog(title, message) {
+            return new Promise(function(resolve) {
+                if (_confirmActive) { resolve(false); return; }
+                _confirmActive = true;
+                var overlay = document.createElement('div');
+                overlay.className = 'modal-overlay';
+                overlay.innerHTML = '<div class="modal-card">'
+                    + '<h5>' + esc(title) + '</h5>'
+                    + '<p>' + esc(message) + '</p>'
+                    + '<div class="modal-actions">'
+                    + '<button class="btn-tool btn-secondary-tool" data-action="cancel">取消</button>'
+                    + '<button class="btn-tool" style="background:var(--danger);color:#fff" data-action="confirm">确认删除</button>'
+                    + '</div></div>';
+                document.body.appendChild(overlay);
+
+                function cleanup(val) { overlay.remove(); _confirmActive = false; resolve(val); }
+                overlay.addEventListener('click', function(e) {
+                    var action = e.target.dataset.action;
+                    if (action === 'confirm') cleanup(true);
+                    else if (action === 'cancel' || e.target === overlay) cleanup(false);
+                });
+                // Keyboard: Enter=confirm, Escape=cancel
+                function onKey(e) {
+                    if (e.key === 'Enter') { document.removeEventListener('keydown', onKey); cleanup(true); }
+                    else if (e.key === 'Escape') { document.removeEventListener('keydown', onKey); cleanup(false); }
+                }
+                document.addEventListener('keydown', onKey);
+            });
+        }
+
+        function parseJsonOrEmpty(str) {
+            if (!str || typeof str !== 'string') return {};
+            try { return JSON.parse(str); } catch(e) { return {}; }
+        }
+
+        function deepCleanObj(data) {
+            if (Array.isArray(data)) {
+                return data.map(deepCleanObj).filter(function(item) {
+                    if (item === null || item === undefined || item === '') return false;
+                    if (Array.isArray(item) && item.length === 0) return false;
+                    if (typeof item === 'object' && !Array.isArray(item) && Object.keys(item).length === 0) return false;
+                    return true;
+                });
+            }
+            if (data !== null && typeof data === 'object') {
+                var result = {};
+                Object.keys(data).forEach(function(key) {
+                    var val = deepCleanObj(data[key]);
+                    if (val === null || val === undefined || val === '') return;
+                    if (Array.isArray(val) && val.length === 0) return;
+                    if (typeof val === 'object' && !Array.isArray(val) && Object.keys(val).length === 0) return;
+                    result[key] = val;
+                });
+                return result;
+            }
+            return data;
+        }
+
+        function uid(type) { return type + '_' + Date.now() + '_' + Math.floor(Math.random() * 1e5); }
+
+        /* ==================== State ==================== */
+
+        var EMPTY_CONFIG = {
+            spider:'', wallpaper:'', logo:'', notice:'',
+            sites:[], parses:[], lives:[], doh:[], proxy:[],
+            rules:[], headers:[], hosts:[], flags:[], ads:[]
+        };
+
+        var vodConfig = JSON.parse(JSON.stringify(EMPTY_CONFIG));
+        var sortableInstances = [];
+        var TAB_TYPES = ['sites','parses','lives','doh','proxy','rules','headers'];
+
+        // Friendly name map for tab type labels
+        var TYPE_LABELS = { sites:'点播源', parses:'解析规则', lives:'直播源', doh:'Doh配置', proxy:'代理配置', rules:'拦截规则', headers:'注入响应头' };
+
+        /* ==================== Sortable ==================== */
+
+        function initSortable() {
+            sortableInstances.forEach(function(s){ s.destroy(); });
+            sortableInstances = [];
+
+            TAB_TYPES.forEach(function(type) {
+                var container = document.getElementById(type + 'Tabs');
+                if (container) {
+                    sortableInstances.push(new Sortable(container, {
+                        animation: 150, ghostClass: 'sortable-ghost', chosenClass: 'sortable-chosen',
+                        handle: '.sub-item-tab',
+                        onEnd: function() { syncTabOrderToConfig(type); }
+                    }));
+                }
+            });
+
+            // Array item lists
+            ['flags','ads','hosts'].forEach(function(type) {
+                var container = document.getElementById(type + 'List');
+                if (container) {
+                    sortableInstances.push(new Sortable(container, {
+                        animation: 150, ghostClass: 'sortable-ghost', chosenClass: 'sortable-chosen',
+                        handle: '.array-item'
+                    }));
+                }
+            });
+        }
+
+        /* ==================== Data Extraction ==================== */
+
+        function extractSitesData(el) {
+            var $el = $(el), item = {};
+            var v;
+            v = $el.find('.key').val()?.trim();       if (v) item.key = v;
+            v = $el.find('.name').val()?.trim();       if (v) item.name = v;
+            v = $el.find('.type').val();               if (v !== '' && v != null) item.type = parseInt(v, 10);
+            v = $el.find('.api').val()?.trim();        if (v) item.api = v;
+            v = $el.find('.ext').val()?.trim();        if (v) item.ext = v;
+            v = $el.find('.jar').val()?.trim();        if (v) item.jar = v;
+            v = $el.find('.click').val()?.trim();      if (v) item.click = v;
+            v = $el.find('.playUrl').val()?.trim();    if (v) item.playUrl = v;
+
+            v = $el.find('.hide').val();
+            if (v !== '' && v != null) { var hv = parseInt(v, 10); if (hv === 1) item.hide = 1; }
+
+            v = $el.find('.timeout').val();
+            if (v !== '' && v != null) { var tv = parseInt(v, 10); if (tv > 0) item.timeout = tv; }
+
+            v = $el.find('.searchable').val();
+            if (v !== '' && v != null && parseInt(v, 10) === 0) item.searchable = 0;
+
+            v = $el.find('.changeable').val();
+            if (v !== '' && v != null && parseInt(v, 10) === 0) item.changeable = 0;
+
+            v = $el.find('.quickSearch').val();
+            if (v !== '' && v != null) { if (parseInt(v, 10) === 1) item.quickSearch = 1; }
+
+            v = $el.find('.indexs').val();
+            if (v !== '' && v != null) { if (parseInt(v, 10) === 1) item.indexs = 1; }
+
+            v = $el.find('.categories').val()?.trim();
+            if (v) { var cats = v.split(',').filter(Boolean); if (cats.length) item.categories = cats; }
+
+            v = $el.find('.header').val()?.trim();
+            if (v) { var h = parseJsonOrEmpty(v); if (Object.keys(h).length) item.header = h; }
+
+            v = $el.find('.style').val()?.trim();
+            if (v) { var s = parseJsonOrEmpty(v); if (Object.keys(s).length) item.style = s; }
+
+            return item;
+        }
+
+        function extractParsesData(el) {
+            var $el = $(el), item = {}, ext = {}, v;
+            v = $el.find('.name').val()?.trim();   if (v) item.name = v;
+            v = $el.find('.type').val();           if (v !== '' && v != null) item.type = parseInt(v, 10);
+            v = $el.find('.url').val()?.trim();    if (v) item.url = v;
+
+            v = $el.find('.ext-flag').val()?.trim();
+            if (v) { var flags = v.split(',').filter(Boolean); if (flags.length) ext.flag = flags; }
+
+            v = $el.find('.ext-header').val()?.trim();
+            if (v) { var h = parseJsonOrEmpty(v); if (Object.keys(h).length) ext.header = h; }
+
+            if (Object.keys(ext).length) item.ext = ext;
+            return item;
+        }
+
+        function extractLivesData(el) {
+            var $el = $(el), item = {}, v;
+            v = $el.find('.name').val()?.trim();     if (v) item.name = v;
+            v = $el.find('.url').val()?.trim();      if (v) item.url = v;
+            v = $el.find('.api').val()?.trim();      if (v) item.api = v;
+            v = $el.find('.ext').val()?.trim();      if (v) item.ext = v;
+            v = $el.find('.jar').val()?.trim();      if (v) item.jar = v;
+            v = $el.find('.click').val()?.trim();    if (v) item.click = v;
+            v = $el.find('.logo').val()?.trim();     if (v) item.logo = v;
+            v = $el.find('.epg').val()?.trim();      if (v) item.epg = v;
+            v = $el.find('.ua').val()?.trim();       if (v) item.ua = v;
+            v = $el.find('.origin').val()?.trim();   if (v) item.origin = v;
+            v = $el.find('.referer').val()?.trim();  if (v) item.referer = v;
+            v = $el.find('.timeZone').val()?.trim(); if (v) item.timeZone = v;
+
+            v = $el.find('.timeout').val();
+            if (v !== '' && v != null) { var tv = parseInt(v, 10); if (tv > 0) item.timeout = tv; }
+
+            v = $el.find('.header').val()?.trim();
+            if (v) { var h = parseJsonOrEmpty(v); if (Object.keys(h).length) item.header = h; }
+
+            v = $el.find('.catchup').val()?.trim();
+            if (v) { var c = parseJsonOrEmpty(v); if (Object.keys(c).length) item.catchup = c; }
+
+            if ($el.find('.boot').val() === 'true') item.boot = true;
+            return item;
+        }
+
+        function extractDohData(el) {
+            var $el = $(el), item = {}, v;
+            v = $el.find('.name').val()?.trim(); if (v) item.name = v;
+            v = $el.find('.url').val()?.trim();  if (v) item.url = v;
+            v = $el.find('.ips').val()?.trim();
+            if (v) { var ips = v.split(',').filter(Boolean); if (ips.length) item.ips = ips; }
+            return item;
+        }
+
+        function extractProxyData(el) {
+            var $el = $(el), item = {}, v;
+            v = $el.find('.name').val()?.trim();  if (v) item.name = v;
+            v = $el.find('.hosts').val()?.trim();
+            if (v) { var hosts = v.split(',').filter(Boolean); if (hosts.length) item.hosts = hosts; }
+            v = $el.find('.urls').val()?.trim();
+            if (v) { var urls = v.split(',').filter(Boolean); if (urls.length) item.urls = urls; }
+            return item;
+        }
+
+        function extractRulesData(el) {
+            var $el = $(el), item = {}, v;
+            v = $el.find('.name').val()?.trim();  if (v) item.name = v;
+            v = $el.find('.hosts').val()?.trim();
+            if (v) { var hosts = v.split(',').filter(Boolean); if (hosts.length) item.hosts = hosts; }
+            v = $el.find('.regex').val()?.trim();
+            if (v) { var regex = v.split(',').filter(Boolean); if (regex.length) item.regex = regex; }
+            v = $el.find('.script').val()?.trim();
+            if (v) { var script = v.split(',').filter(Boolean); if (script.length) item.script = script; }
+            v = $el.find('.exclude').val()?.trim();
+            if (v) { var ex = v.split(',').filter(Boolean); if (ex.length) item.exclude = ex; }
+            return item;
+        }
+
+        function extractHeadersData(el) {
+            var $el = $(el), item = {}, v;
+            v = $el.find('.host').val()?.trim();  if (v) item.host = v;
+            v = $el.find('.header').val()?.trim();
+            if (v) { var h = parseJsonOrEmpty(v); if (Object.keys(h).length) item.header = h; }
+            return item;
+        }
+
+        var EXTRACTORS = {
+            sites: extractSitesData, parses: extractParsesData, lives: extractLivesData,
+            doh: extractDohData, proxy: extractProxyData, rules: extractRulesData,
+            headers: extractHeadersData
+        };
+
+        /* ==================== Validation ==================== */
+
+        function isValidSite(o)    { return !!(o.key && o.name && o.type != null && o.api); }
+        function isValidParse(o)   { return !!(o.name && o.type != null && o.url); }
+        function isValidLive(o)    { return !!(o.name && o.url); }
+        function isValidDoh(o)     { return !!(o.name && o.url); }
+        function isValidRule(o)    { return !!(o.name && o.hosts && o.hosts.length && ((o.regex && o.regex.length) || (o.script && o.script.length))); }
+        function isValidHeader(o)  { return !!(o.host && o.header && Object.keys(o.header).length); }
+        function isValidProxy(o)   { return !!(o.name && o.hosts && o.hosts.length && o.urls && o.urls.length); }
+
+        var VALIDATORS = {
+            sites: isValidSite, parses: isValidParse, lives: isValidLive,
+            doh: isValidDoh, rules: isValidRule, headers: isValidHeader, proxy: isValidProxy
+        };
+
+        /* ==================== Sync helpers ==================== */
+
+        function syncTabOrderToConfig(type) {
+            var container = document.getElementById(type + 'Tabs');
+            if (!container) return;
+            var newOrder = [];
+            container.querySelectorAll('.sub-item-tab').forEach(function(tab) {
+                var itemId = tab.getAttribute('data-item-id');
+                var contentEl = document.getElementById(itemId);
+                if (contentEl) newOrder.push(EXTRACTORS[type](contentEl));
+            });
+            vodConfig[type] = newOrder;
+        }
+
+        function syncVisualToConfig() {
+            vodConfig.spider    = ($('#spider').val() || '').trim();
+            vodConfig.wallpaper = ($('#wallpaper').val() || '').trim();
+            vodConfig.logo      = ($('#logo').val() || '').trim();
+            vodConfig.notice    = ($('#notice').val() || '').trim();
+
+            TAB_TYPES.forEach(syncTabOrderToConfig);
+
+            // Array lists
+            ['flags','ads','hosts'].forEach(function(type) {
+                vodConfig[type] = [];
+                document.querySelectorAll('#' + type + 'List .array-item input').forEach(function(el) {
+                    var val = (el.value || '').trim();
+                    if (val) vodConfig[type].push(val);
+                });
+            });
+        }
+
+        /** Build filtered, cleaned config for export */
+        function buildExportConfig() {
+            syncVisualToConfig();
+            var fc = {};
+            Object.keys(vodConfig).forEach(function(key) {
+                if (Array.isArray(vodConfig[key])) {
+                    var v = VALIDATORS[key];
+                    fc[key] = v ? vodConfig[key].filter(v) : vodConfig[key].slice();
+                } else {
+                    fc[key] = vodConfig[key];
+                }
+            });
+            var cleaned = deepCleanObj(fc);
+            var result = {};
+            Object.keys(cleaned).forEach(function(key) {
+                var val = cleaned[key];
+                if (val !== '' && !(Array.isArray(val) && val.length === 0)) result[key] = val;
+            });
+            return result;
+        }
+
+        function syncConfigToCode() {
+            try {
+                var result = buildExportConfig();
+                $('#codeEditor').val(JSON.stringify(result, null, 2));
+                $('#errorMsg').text('');
+            } catch(e) {
+                $('#errorMsg').text('JSON格式化失败：' + e.message);
+            }
+        }
+
+        function syncCodeToConfig() {
+            var code = ($('#codeEditor').val() || '').trim();
+            if (!code) return;
+            try {
+                var p = JSON.parse(code);
+                var cfg = JSON.parse(JSON.stringify(EMPTY_CONFIG));
+                Object.keys(cfg).forEach(function(k) {
+                    if (Array.isArray(cfg[k])) { cfg[k] = Array.isArray(p[k]) ? p[k] : []; }
+                    else { cfg[k] = p[k] || ''; }
+                });
+                vodConfig = cfg;
+                renderConfigToVisual();
+                $('#errorMsg').text('');
+                toast('JSON解析成功', 'success');
+            } catch(e) {
+                $('#errorMsg').text('JSON解析错误：' + e.message);
+                toast('JSON解析错误', 'error');
+            }
+        }
+
+        /* ==================== Input Visual Feedback ==================== */
+
+        function updateInputVisualState(el) {
+            if (el.tagName === 'SELECT') {
+                el.classList.toggle('user-has-value', el.value !== '');
+            } else {
+                var val = (el.value || '').trim();
+                el.classList.toggle('user-has-value', val !== '' && val !== '0' && val !== '{}');
+            }
+        }
+
+        function bindInputVisualFeedback(containerId) {
+            var root = containerId ? document.getElementById(containerId) : document;
+            if (!root) return;
+            root.querySelectorAll('input[type="text"], input[type="number"], textarea, select').forEach(function(el) {
+                if (el.id === 'codeEditor') return;
+                updateInputVisualState(el);
+                var evt = el.tagName === 'SELECT' ? 'change' : 'input';
+                el.addEventListener(evt, function() { updateInputVisualState(el); });
+            });
+        }
+
+        /* ==================== Rendering ==================== */
+
+        function renderConfigToVisual() {
+            $('#spider').val(vodConfig.spider);
+            $('#wallpaper').val(vodConfig.wallpaper);
+            $('#logo').val(vodConfig.logo);
+            $('#notice').val(vodConfig.notice);
+
+            TAB_TYPES.forEach(function(type) {
+                document.getElementById(type + 'Tabs').innerHTML = '';
+                document.getElementById(type + 'Content').innerHTML = '';
+            });
+
+            vodConfig.sites.forEach(function(item, i)   { addSubItem('sites',   item, item.name || 'item ' + (i+1)); });
+            vodConfig.parses.forEach(function(item, i)  { addSubItem('parses',  item, item.name || 'item ' + (i+1)); });
+            vodConfig.lives.forEach(function(item, i)   { addSubItem('lives',   item, item.name || 'item ' + (i+1)); });
+            vodConfig.doh.forEach(function(item, i)     { addSubItem('doh',     item, item.name || 'item ' + (i+1)); });
+            vodConfig.proxy.forEach(function(item, i)   { addSubItem('proxy',   item, item.name || 'item ' + (i+1)); });
+            vodConfig.rules.forEach(function(item, i)   { addSubItem('rules',   item, item.name || 'item ' + (i+1)); });
+            vodConfig.headers.forEach(function(item, i) { addSubItem('headers', item, item.host || 'item ' + (i+1)); });
+
+            ['flags','ads','hosts'].forEach(function(type) {
+                var list = document.getElementById(type + 'List');
+                list.innerHTML = '';
+                if (vodConfig[type].length === 0) addArrayItem(type);
+                else vodConfig[type].forEach(function(val) { addArrayItem(type, val); });
+            });
+
+            TAB_TYPES.forEach(function(type) {
+                var first = document.querySelector('#' + type + 'Tabs .sub-item-tab');
+                if (first) switchSubItem(type, first.getAttribute('data-item-id'));
+            });
+
+            initSortable();
+            bindInputVisualFeedback(null);
+        }
+
+        /* ==================== Sub-item Management ==================== */
+
+        // Bind tab delegation once at init, not on every add
+        var _tabDelegationBound = {};
+        function ensureTabDelegation(type) {
+            if (_tabDelegationBound[type]) return;
+            _tabDelegationBound[type] = true;
+            $('#' + type + 'Tabs').on('click', '.sub-item-tab', function() {
+                switchSubItem(type, $(this).data('item-id'));
+            });
+        }
+
+        function addSubItem(type, prefillData, tabName) {
+            prefillData = prefillData || {};
+            tabName = tabName || '';
+            var tabContainer = document.getElementById(type + 'Tabs');
+            var contentContainer = document.getElementById(type + 'Content');
+            var itemId = uid(type);
+
+            if (!tabName) {
+                if (prefillData.name) tabName = prefillData.name;
+                else if (type === 'headers' && prefillData.host) tabName = prefillData.host;
+                else tabName = TYPE_LABELS[type] || type;
+            }
+
+            // Deactivate all tabs & contents
+            tabContainer.querySelectorAll('.sub-item-tab.active').forEach(function(t){ t.classList.remove('active'); });
+            contentContainer.querySelectorAll('.sub-item-content.active').forEach(function(c){ c.classList.remove('active'); });
+
+            // Add tab
+            var tab = document.createElement('div');
+            tab.className = 'sub-item-tab active';
+            tab.setAttribute('data-item-id', itemId);
+            tab.setAttribute('data-type', type);
+            tab.textContent = tabName;
+            tabContainer.appendChild(tab);
+
+            // Add content
+            contentContainer.insertAdjacentHTML('beforeend', buildSubItemContent(type, itemId, prefillData));
+
+            ensureTabDelegation(type);
+
+            // Bind visual feedback for new content
+            setTimeout(function() {
+                bindInputVisualFeedback(itemId);
+                var first = document.querySelector('#' + itemId + ' input, #' + itemId + ' select');
+                if (first) first.focus();
+            }, 50);
+        }
+
+        function switchSubItem(type, itemId) {
+            var tabContainer = document.getElementById(type + 'Tabs');
+            var contentContainer = document.getElementById(type + 'Content');
+            tabContainer.querySelectorAll('.sub-item-tab.active').forEach(function(t){ t.classList.remove('active'); });
+            contentContainer.querySelectorAll('.sub-item-content.active').forEach(function(c){ c.classList.remove('active'); });
+            var tab = tabContainer.querySelector('.sub-item-tab[data-item-id="' + itemId + '"]');
+            if (tab) tab.classList.add('active');
+            var content = document.getElementById(itemId);
+            if (content) content.classList.add('active');
+        }
+
+        function syncTabName(type, itemId, value) {
+            if (!value) return;
+            var tab = document.querySelector('#' + type + 'Tabs .sub-item-tab[data-item-id="' + itemId + '"]');
+            if (tab) tab.textContent = value;
+        }
+
+        function deleteActiveSubItem(type) {
+            var activeTab = document.querySelector('#' + type + 'Tabs .sub-item-tab.active');
+            if (!activeTab) { toast('请先选择要删除的子项', 'error'); return; }
+            var tabName = activeTab.textContent;
+            var itemId = activeTab.getAttribute('data-item-id');
+
+            confirmDialog('确认删除', '确定要删除「' + tabName + '」吗？此操作不可撤销。').then(function(ok) {
+                if (!ok) return;
+                activeTab.remove();
+                var content = document.getElementById(itemId);
+                if (content) content.remove();
+                var first = document.querySelector('#' + type + 'Tabs .sub-item-tab');
+                if (first) switchSubItem(type, first.getAttribute('data-item-id'));
+                toast('已删除「' + tabName + '」', 'success');
+            });
+        }
+
+        function addArrayItem(type, prefillValue) {
+            var listContainer = document.getElementById(type + 'List');
+            var itemId = type + '_arr_' + Date.now() + '_' + Math.floor(Math.random() * 1e5);
+            var placeholders = { flags:'平台标识（如qq）', ads:'广告域名（如ads.example.com）', hosts:'原始主机名=目标IP/主机名' };
+
+            var wrapper = document.createElement('div');
+            wrapper.className = 'array-item';
+            wrapper.id = itemId;
+            wrapper.innerHTML = '<input type="text" class="form-control" value="' + esc(prefillValue || '') + '" placeholder="' + (placeholders[type] || '') + '">'
+                + '<button class="array-item-btn" data-action="del-arr" data-target="' + itemId + '">✕</button>';
+            listContainer.appendChild(wrapper);
+
+            var input = wrapper.querySelector('input');
+            updateInputVisualState(input);
+            input.addEventListener('input', function() { updateInputVisualState(input); });
+            setTimeout(function(){ input.focus(); }, 50);
+        }
+
+        /* ==================== Dynamic API placeholder ==================== */
+
+        function updateApiPlaceholder(itemId) {
+            var contentEl = document.getElementById(itemId);
+            if (!contentEl) return;
+            var typeVal = contentEl.querySelector('.type')?.value;
+            var apiInput = contentEl.querySelector('.api');
+            if (!apiInput) return;
+            if (typeVal === '3') apiInput.placeholder = '例：csp_ClassName 或 xxx.js 或 xxx.py';
+            else if (typeVal === '0' || typeVal === '1' || typeVal === '4') apiInput.placeholder = '例：https://example.com/api.php/provide/vod/';
+            else apiInput.placeholder = '数据源Api地址';
+        }
+
+        /* ==================== HTML Templates ==================== */
+
+        function buildSubItemContent(type, itemId, d) {
+            switch (type) {
+            case 'sites': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('Key', '（唯一标识，不可重复）', '<input type="text" class="form-control key" value="' + esc(d.key) + '" placeholder="请输入数据源唯一标识" oninput="window.__syncTabName(\'sites\',\'' + itemId + '\',this.value)">')
+                + _fg('Name', '（数据源名称）', '<input type="text" class="form-control name" value="' + esc(d.name) + '" placeholder="请输入数据源名称，显示给用户的名称" oninput="window.__syncTabName(\'sites\',\'' + itemId + '\',this.value)">')
+                + _fg('Type', '（API格式）', '<select class="form-control type" onchange="window.__updateApiPlaceholder(\'' + itemId + '\')">'
+                    + _opt('', d.type, '请选择来源类型')
+                    + _opt('0', d.type, '0 - XML格式API')
+                    + _opt('1', d.type, '1 - JSON格式API（Filter筛选  f=）')
+                    + _opt('3', d.type, '3 - 爬虫直接调用')
+                    + _opt('4', d.type, '4 - JSON API（Base64扩展  ext=）')
+                    + '</select>')
+                + _fg('Api', '（数据源地址）', '<input type="text" class="form-control api" value="' + esc(d.api) + '" placeholder="数据源Api地址">')
+                + _fg('ext', '（额外扩展数据）', '<input type="text" class="form-control ext" value="' + esc(d.ext) + '" placeholder="./ext.json 或 JSON字符串">')
+                + _fg('jar', '（专属Spider JAR）', '<input type="text" class="form-control jar" value="' + esc(d.jar) + '" placeholder="覆盖全局spider">')
+                + _fg('click', '（点击拦截）', '<input type="text" class="form-control click" value="' + esc(d.click) + '" placeholder="点击拦截处理 URL 或规则">')
+                + _fg('PlayUrl', '（播放地址前缀）', '<input type="text" class="form-control playUrl" value="' + esc(d.playUrl) + '" placeholder="播放 URL 前缀或转换规则">')
+                + _fg('hide', '（是否在来源列表中隐藏）', '<select class="form-control hide">'
+                    + _opt('', d.hide, '请选择')
+                    + _opt('0', d.hide, '0 - 显示')
+                    + _opt('1', d.hide, '1 - 隐藏')
+                    + '</select>')
+                + _fg('timeout', '（请求超时秒数）', '<input type="number" class="form-control timeout" value="' + (d.timeout || '') + '" min="0" placeholder="留空使用默认值">')
+                + _fg('searchable', '（搜索开关）', '<select class="form-control searchable">'
+                    + _opt('0', d.searchable, '0 - 禁用')
+                    + _opt('1', d.searchable === 0 ? undefined : 1, '1 - 启用（默认）')
+                    + '</select>')
+                + _fg('changeable', '（线路切换开关）', '<select class="form-control changeable">'
+                    + _opt('0', d.changeable, '0 - 禁用')
+                    + _opt('1', d.changeable === 0 ? undefined : 1, '1 - 启用（默认）')
+                    + '</select>')
+                + _fg('quickSearch', '（快速搜索开关）', '<select class="form-control quickSearch">'
+                    + _opt('', d.quickSearch, '请选择')
+                    + _opt('0', d.quickSearch, '0 - 禁用')
+                    + _opt('1', d.quickSearch, '1 - 启用')
+                    + '</select>')
+                + _fg('indexs', '（索引模式）', '<select class="form-control indexs">'
+                    + _opt('', d.indexs, '请选择')
+                    + _opt('0', d.indexs, '0 - 否')
+                    + _opt('1', d.indexs, '1 - 是')
+                    + '</select>')
+                + _fg('categories', '（分类白名单，逗号分隔）', '<input type="text" class="form-control categories" value="' + esc((d.categories||[]).join(',')) + '" placeholder="电影,电视剧,综艺">')
+                + _fg('header', '（HTTP请求头JSON）', '<textarea class="form-control header" rows="3" placeholder=\'{"Referer": "https://www.example.com/"}\'>' + esc(d.header ? JSON.stringify(d.header, null, 2) : '') + '</textarea>')
+                + _fg('style', '（卡片样式JSON）', '<textarea class="form-control style" rows="3" placeholder=\'{"color": "#ff0000"}\'>' + esc(d.style ? JSON.stringify(d.style, null, 2) : '') + '</textarea>')
+                + '</div></div>';
+
+            case 'parses': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('name', '(解析器名称)', '<input type="text" class="form-control name" value="' + esc(d.name) + '" placeholder="请输入解析器名称" oninput="window.__syncTabName(\'parses\',\'' + itemId + '\',this.value)">')
+                + _fg('type', '(解析器类型)', '<select class="form-control type">'
+                    + _opt('', d.type, '请选择解析器类型')
+                    + _opt('0', d.type, '0 - 嗅探  (WebView 拦截媒体 URL)')
+                    + _opt('1', d.type, '1 - JSON API  (GET 请求，取响应的 url 字段)')
+                    + _opt('2', d.type, '2 - JSON扩展  (将所有 type=1 合并后送入 JAR)')
+                    + _opt('3', d.type, '3 - JSON聚合  (将所有解析器合并后送入 JAR)')
+                    + _opt('4', d.type, '4 - 超级解析  (自动并行尝试所有 type=0/1)')
+                    + '</select>')
+                + _fg('url', '(解析API地址)', '<input type="text" class="form-control url" value="' + esc(d.url) + '" placeholder="https://xxx/parse?url=">')
+                + _fg('ext.flag', '(适用VIP标识，逗号分隔)', '<input type="text" class="form-control ext-flag" value="' + esc((d.ext?.flag||[]).join(',')) + '" placeholder="qq,iqiyi,youku">')
+                + _fg('ext.header', '(解析请求头JSON)', '<textarea class="form-control ext-header" rows="3" placeholder=\'{"Referer": "https://www.example.com/"}\'>' + esc(d.ext?.header ? JSON.stringify(d.ext.header, null, 2) : '') + '</textarea>')
+                + '</div></div>';
+
+            case 'lives': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('name', '(直播源名称，主键)', '<input type="text" class="form-control name" value="' + esc(d.name) + '" placeholder="请输入直播源名称" oninput="window.__syncTabName(\'lives\',\'' + itemId + '\',this.value)">')
+                + _fg('url', '(外部直播列表URL)', '<input type="text" class="form-control url" value="' + esc(d.url) + '" placeholder="支持M3U、TXT 或 JSON，例： ./live.m3u">')
+                + _fg('api', '(直播API/爬虫类名)', '<input type="text" class="form-control api" value="' + esc(d.api) + '" placeholder="例： csp_ClassName">')
+                + _fg('ext', '(额外扩展数据)', '<input type="text" class="form-control ext" value="' + esc(d.ext) + '" placeholder="./ext.json 或 JSON字符串">')
+                + _fg('jar', '(专属Spider JAR)', '<input type="text" class="form-control jar" value="' + esc(d.jar) + '" placeholder="覆盖全局spider">')
+                + _fg('click', '(点击拦截)', '<input type="text" class="form-control click" value="' + esc(d.click) + '" placeholder="点击拦截处理 URL 或规则">')
+                + _fg('logo', '(频道默认Logo URL)', '<input type="text" class="form-control logo" value="' + esc(d.logo) + '" placeholder="支持{id}、{name}、{logo} 变量">')
+                + _fg('epg', '(EPG节目表URL)', '<input type="text" class="form-control epg" value="' + esc(d.epg) + '" placeholder="支持 {id}、{name}、{epg} 变量替换">')
+                + _fg('ua', '(User-Agent)', '<input type="text" class="form-control ua" value="' + esc(d.ua) + '" placeholder="Mozilla/5.0">')
+                + _fg('origin', '(Origin头)', '<input type="text" class="form-control origin" value="' + esc(d.origin) + '" placeholder="<scheme>://<hostname>:<port>">')
+                + _fg('referer', '(Referer头)', '<input type="text" class="form-control referer" value="' + esc(d.referer) + '" placeholder="<scheme>://<hostname>">')
+                + _fg('timeZone', '(EPG时区)', '<input type="text" class="form-control timeZone" value="' + esc(d.timeZone) + '" placeholder="Asia/Taipei">')
+                + _fg('timeout', '(请求超时秒数)', '<input type="number" class="form-control timeout" value="' + (d.timeout || '') + '" min="0" placeholder="留空使用默认值">')
+                + _fg('header', '(HTTP请求头JSON)', '<textarea class="form-control header" rows="2" placeholder=\'{"User-Agent": "Mozilla/5.0"}\'>' + esc(d.header ? JSON.stringify(d.header, null, 2) : '') + '</textarea>')
+                + _fg('catchup', '(追看/时移设置JSON)', '<textarea class="form-control catchup" rows="2" placeholder=\'{"type": "append"}\'>' + esc(d.catchup ? JSON.stringify(d.catchup, null, 2) : '') + '</textarea>')
+                + _fg('boot', '(启动自动选中)', '<select class="form-control boot">'
+                    + '<option value="false"' + (d.boot !== true ? ' selected' : '') + '>false</option>'
+                    + '<option value="true"' + (d.boot === true ? ' selected' : '') + '>true</option></select>')
+                + '</div></div>';
+
+            case 'doh': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('name', '(服务器名称)', '<input type="text" class="form-control name" value="' + esc(d.name) + '" placeholder="如 Google DoH" oninput="window.__syncTabName(\'doh\',\'' + itemId + '\',this.value)">')
+                + _fg('url', '(DoH查询URL)', '<input type="text" class="form-control url" value="' + esc(d.url) + '" placeholder="https://dns.google/dns-query">')
+                + _fg('ips', '(Bootstrap IP列表，逗号分隔)', '<input type="text" class="form-control ips" value="' + esc((d.ips||[]).join(',')) + '" placeholder="8.8.8.8,8.8.4.4">')
+                + '</div></div>';
+
+            case 'proxy': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('name', '(代理规则名称)', '<input type="text" class="form-control name" value="' + esc(d.name) + '" placeholder="请输入代理规则名称" oninput="window.__syncTabName(\'proxy\',\'' + itemId + '\',this.value)">')
+                + _fg('hosts', '(适用主机列表，逗号分隔)', '<input type="text" class="form-control hosts" value="' + esc((d.hosts||[]).join(',')) + '" placeholder="googlevideo.com,raw.githubusercontent.com">')
+                + _fg('urls', '(代理服务器URL列表，逗号分隔)', '<input type="text" class="form-control urls" value="' + esc((d.urls||[]).join(',')) + '" placeholder="http://127.0.0.1:7890">')
+                + '</div></div>';
+
+            case 'rules': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('name', '(规则名称)', '<input type="text" class="form-control name" value="' + esc(d.name) + '" placeholder="请输入规则名称" oninput="window.__syncTabName(\'rules\',\'' + itemId + '\',this.value)">')
+                + _fg('hosts', '(目标主机列表，逗号分隔)', '<input type="text" class="form-control hosts" value="' + esc((d.hosts||[]).join(',')) + '" placeholder="video.example.com">')
+                + _fg('regex', '(正则表达式列表，逗号分隔)', '<input type="text" class="form-control regex" value="' + esc((d.regex||[]).join(',')) + '" placeholder="m3u8?token=">')
+                + _fg('script', '(JS脚本，逗号分隔)', '<input type="text" class="form-control script" value="' + esc((d.script||[]).join(',')) + '" placeholder="document.querySelector(\'.close-btn\').click()">')
+                + _fg('exclude', '(排除列表，逗号分隔)', '<input type="text" class="form-control exclude" value="' + esc((d.exclude||[]).join(',')) + '" placeholder="preview.json">')
+                + '</div></div>';
+
+            case 'headers': return '<div class="sub-item-content active" id="' + itemId + '"><div class="field-group">'
+                + _fg('host', '(目标主机)', '<input type="text" class="form-control host" value="' + esc(d.host) + '" placeholder="不含协议，如 stream.example.com" oninput="window.__syncTabName(\'headers\',\'' + itemId + '\',this.value)">')
+                + _fg('header', '(HTTP头JSON)', '<textarea class="form-control header" rows="3" placeholder=\'{"Access-Control-Allow-Origin": "*"}\'>' + esc(d.header ? JSON.stringify(d.header, null, 2) : '') + '</textarea>')
+                + '</div></div>';
+            }
+            return '';
+        }
+
+        /** Helper: form-group HTML */
+        function _fg(label, hint, inner) {
+            return '<div class="form-group"><label>' + label + ' <span class="text-muted">' + hint + '</span></label>' + inner + '</div>';
+        }
+
+        /** Helper: option HTML */
+        function _opt(value, current, text) {
+            var selected = (current != null && String(current) === String(value)) ? ' selected' : '';
+            return '<option value="' + value + '"' + selected + '>' + text + '</option>';
+        }
+
+        /* ==================== Excel Export ==================== */
+
+        function getSitesFields() { return ['key','name','type','api','playUrl','searchable','quickSearch','changeable','hide','timeout','ext','jar','click','indexs','categories','header','style']; }
+        function getParsesFields() { return ['name','type','url','ext.flag','ext.header']; }
+        function getLivesFields() { return ['name','url','api','logo','epg','ua','origin','referer','timeZone','timeout','ext','jar','click','header','catchup','boot']; }
+        function getDohFields() { return ['name','url','ips']; }
+        function getProxyFields() { return ['name','hosts','urls']; }
+        function getRulesFields() { return ['name','hosts','regex','script','exclude']; }
+        function getHeadersFields() { return ['host','header']; }
+
+        /** Helper: resolve dot-notation path like "ext.flag" on an object */
+        function getNestedValue(obj, path) {
+            if (!obj || !path) return undefined;
+            var parts = path.split('.');
+            var cur = obj;
+            for (var i = 0; i < parts.length; i++) {
+                if (cur == null) return undefined;
+                cur = cur[parts[i]];
+            }
+            return cur;
+        }
+
+        /** Helper: stringify object/array for Excel, return '' for empty/plain values */
+        function stringifyForExcel(val) {
+            if (val == null) return '';
+            if (typeof val === 'object') {
+                if (Array.isArray(val) ? val.length === 0 : Object.keys(val).length === 0) return '';
+                return JSON.stringify(val, null, 2);
+            }
+            return String(val);
+        }
+
+        var FIELD_GETTERS = {
+            '点播源': function(item, field) {
+                switch (field) {
+                    case 'categories': return Array.isArray(item[field]) ? item[field].join(',') : '';
+                    case 'header': case 'style': return stringifyForExcel(item[field]);
+                    default: return item[field] !== undefined ? item[field] : '';
+                }
+            },
+            '解析规则': function(item, field) {
+                if (field === 'ext.flag') return Array.isArray(item.ext?.flag) ? item.ext.flag.join(',') : '';
+                if (field === 'ext.header') return stringifyForExcel(item.ext?.header);
+                return item[field] !== undefined ? item[field] : '';
+            },
+            '直播源': function(item, field) {
+                switch (field) {
+                    case 'header': case 'catchup': return stringifyForExcel(item[field]);
+                    case 'boot': return item[field] ? 'true' : 'false';
+                    default: return item[field] !== undefined ? item[field] : '';
+                }
+            }
+        };
+
+        function exportComplexSheet(workbook, sheetName, data, fields) {
+            var aoaData = [fields];
+            (data || []).forEach(function(item) {
+                aoaData.push(fields.map(function(field) {
+                    var getter = FIELD_GETTERS[sheetName];
+                    if (getter) return getter(item, field);
+                    var val = getNestedValue(item, field);
+                    if (Array.isArray(val)) return val.join(',');
+                    if (field === 'header') return stringifyForExcel(val);
+                    return val !== undefined ? val : '';
+                }));
+            });
+            XLSX.utils.book_append_sheet(workbook, XLSX.utils.aoa_to_sheet(aoaData), sheetName);
+        }
+
+        function exportToExcel() {
+            syncVisualToConfig();
+            var wb = XLSX.utils.book_new();
+
+            // Basic
+            XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet([
+                ['字段名','值'],['spider',vodConfig.spider||''],['wallpaper',vodConfig.wallpaper||''],['logo',vodConfig.logo||''],['notice',vodConfig.notice||'']
+            ]), '基础配置');
+
+            // Flags & Ads
+            var flagsData = [['平台标识']]; vodConfig.flags.forEach(function(v){ flagsData.push([v]); });
+            XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(flagsData), 'VIP解析标识');
+            var adsData = [['广告域名']]; vodConfig.ads.forEach(function(v){ adsData.push([v]); });
+            XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(adsData), '广告过滤');
+
+            exportComplexSheet(wb, '点播源', vodConfig.sites, getSitesFields());
+            exportComplexSheet(wb, '解析规则', vodConfig.parses, getParsesFields());
+            exportComplexSheet(wb, '直播源', vodConfig.lives, getLivesFields());
+            exportComplexSheet(wb, 'Doh配置', vodConfig.doh, getDohFields());
+            exportComplexSheet(wb, '代理配置', vodConfig.proxy, getProxyFields());
+            exportComplexSheet(wb, '拦截规则', vodConfig.rules, getRulesFields());
+            exportComplexSheet(wb, '注入响应头', vodConfig.headers, getHeadersFields());
+            exportComplexSheet(wb, 'DNS覆盖', vodConfig.hosts, ['规则']);
+
+            XLSX.writeFile(wb, 'Vod配置_' + new Date().toISOString().slice(0,19).replace(/[T:]/g,'-') + '.xlsx');
+            toast('Excel导出成功', 'success');
+        }
+
+        /* ==================== Excel Import ==================== */
+
+        var FIELD_SETTERS = {
+            sites: function(item, field, value) {
+                switch (field) {
+                    case 'type': case 'searchable': case 'quickSearch': case 'changeable': case 'hide': case 'timeout': case 'indexs':
+                        item[field] = parseInt(value, 10); break;
+                    case 'categories': item[field] = String(value).split(',').filter(Boolean); break;
+                    case 'header': case 'style': item[field] = parseJsonOrEmpty(value); break;
+                    default: item[field] = value;
+                }
+            },
+            parses: function(item, field, value) {
+                if (!item.ext) item.ext = {};
+                if (field === 'type') item[field] = parseInt(value, 10);
+                else if (field === 'ext.flag') item.ext.flag = String(value).split(',').filter(Boolean);
+                else if (field === 'ext.header') item.ext.header = parseJsonOrEmpty(value);
+                else item[field] = value;
+            },
+            lives: function(item, field, value) {
+                switch (field) {
+                    case 'timeout': item[field] = parseInt(value, 10); break;
+                    case 'boot': item[field] = value === 'true'; break;
+                    case 'header': case 'catchup': item[field] = parseJsonOrEmpty(value); break;
+                    default: item[field] = value;
+                }
+            }
+        };
+
+        function importComplexSheet(workbook, sheetName, configKey, fields) {
+            if (!workbook.Sheets[sheetName]) return;
+            var jsonData = XLSX.utils.sheet_to_json(workbook.Sheets[sheetName], { header: fields });
+            jsonData.shift();
+
+            jsonData.forEach(function(row) {
+                var item = {}, hasData = false, setter = FIELD_SETTERS[configKey];
+
+                if (configKey === 'hosts') {
+                    if (row['规则'] != null && row['规则'] !== '') vodConfig.hosts.push(String(row['规则']));
+                    return;
+                }
+
+                Object.keys(row).forEach(function(field) {
+                    if (row[field] != null && row[field] !== '') {
+                        if (setter) setter(item, field, row[field]);
+                        else if (['ips','hosts','urls','regex','script','exclude'].indexOf(field) >= 0) item[field] = String(row[field]).split(',').filter(Boolean);
+                        else if (field === 'header') item[field] = parseJsonOrEmpty(row[field]);
+                        else item[field] = row[field];
+                        hasData = true;
+                    }
+                });
+                if (hasData) vodConfig[configKey].push(item);
+            });
+        }
+
+        function importExcel(input) {
+            if (!input.files || !input.files[0]) return;
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    var wb = XLSX.read(new Uint8Array(e.target.result), { type: 'array' });
+                    vodConfig = JSON.parse(JSON.stringify(EMPTY_CONFIG));
+
+                    // Basic config
+                    if (wb.Sheets['基础配置']) {
+                        XLSX.utils.sheet_to_json(wb.Sheets['基础配置'], { header: 1 }).forEach(function(row, i) {
+                            if (i > 0 && row[0] && row[1] != null && row[1] !== '') vodConfig[row[0]] = row[1];
+                        });
+                    }
+                    // Flags & Ads
+                    if (wb.Sheets['VIP解析标识']) {
+                        XLSX.utils.sheet_to_json(wb.Sheets['VIP解析标识'], { header: 1 }).forEach(function(row, i) {
+                            if (i > 0 && row[0]) vodConfig.flags.push(String(row[0]));
+                        });
+                    }
+                    if (wb.Sheets['广告过滤']) {
+                        XLSX.utils.sheet_to_json(wb.Sheets['广告过滤'], { header: 1 }).forEach(function(row, i) {
+                            if (i > 0 && row[0]) vodConfig.ads.push(String(row[0]));
+                        });
+                    }
+
+                    importComplexSheet(wb, '点播源', 'sites', getSitesFields());
+                    importComplexSheet(wb, '解析规则', 'parses', getParsesFields());
+                    importComplexSheet(wb, '直播源', 'lives', getLivesFields());
+                    importComplexSheet(wb, 'Doh配置', 'doh', getDohFields());
+                    importComplexSheet(wb, '代理配置', 'proxy', getProxyFields());
+                    importComplexSheet(wb, '拦截规则', 'rules', getRulesFields());
+                    importComplexSheet(wb, '注入响应头', 'headers', getHeadersFields());
+                    importComplexSheet(wb, 'DNS覆盖', 'hosts', ['规则']);
+
+                    renderConfigToVisual();
+                    syncConfigToCode();
+                    toast('Excel导入成功', 'success');
+                } catch (err) {
+                    toast('Excel导入失败：' + err.message, 'error');
+                }
+                input.value = '';
+            };
+            reader.readAsArrayBuffer(input.files[0]);
+        }
+
+        /* ==================== Event Delegation ==================== */
+
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('[data-action]');
+            if (!btn) return;
+            var action = btn.dataset.action, type = btn.dataset.type;
+            if (action === 'add-sub' && type) { e.preventDefault(); addSubItem(type); }
+            else if (action === 'del-sub' && type) { e.preventDefault(); deleteActiveSubItem(type); }
+            else if (action === 'add-arr' && type) { e.preventDefault(); addArrayItem(type); }
+            else if (action === 'del-arr') {
+                e.preventDefault();
+                var target = btn.dataset.target;
+                if (target) { var el = document.getElementById(target); if (el) el.remove(); }
+            }
+        });
+
+        /* ==================== Clear ==================== */
+
+        function clearAllConfig() {
+            confirmDialog('确认清空', '确定要清空所有配置吗？此操作不可撤销。').then(function(ok) {
+                if (!ok) return;
+                vodConfig = JSON.parse(JSON.stringify(EMPTY_CONFIG));
+                _tabDelegationBound = {};
+                renderConfigToVisual();
+                $('#codeEditor').val('');
+                toast('配置已清空', 'success');
+            });
+        }
+
+        /* ==================== Mode Switching ==================== */
+
+        $('#visualModeBtn').click(function() {
+            $('#vodTabs, #vodTabContent').removeClass('d-none');
+            $('#codeEditorArea').addClass('d-none');
+            $('#visualModeBtn').addClass('active-mode');
+            $('#codeModeBtn').removeClass('active-mode');
+            syncCodeToConfig();
+        });
+
+        $('#codeModeBtn').click(function() {
+            $('#vodTabs, #vodTabContent').addClass('d-none');
+            $('#codeEditorArea').removeClass('d-none');
+            $('#codeModeBtn').addClass('active-mode');
+            $('#visualModeBtn').removeClass('active-mode');
+            syncVisualToConfig();
+            syncConfigToCode();
+        });
+
+        $('#clearAllBtn').click(clearAllConfig);
+
+        $('#downloadBtn').click(function() {
+            var result = buildExportConfig();
+            var blob = new Blob([JSON.stringify(result, null, 2)], { type: 'application/json' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url; a.download = 'vod_config.json'; a.click();
+            URL.revokeObjectURL(url);
+            toast('JSON下载成功', 'success');
+        });
+
+        $('#exportExcelBtn').click(exportToExcel);
+        $('#importExcelBtn').click(function() { $('#importExcelInput').click(); });
+        $('#importExcelInput').on('change', function() { importExcel(this); });
+
+        /* ==================== Global inline handlers ==================== */
+        window.__syncTabName = syncTabName;
+        window.__updateApiPlaceholder = updateApiPlaceholder;
+
+        /* ==================== Init ==================== */
+        $(function() { initSortable(); });
+
+    })();
+    </script>
+</body>
+</html>
