@@ -52,6 +52,14 @@
 # http://aktv.space/live.m3u
 # https://raw.githubusercontent.com/xzw832/cmys/main/S_weishi.txt
 #https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
+# https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv6.txt
+# https://gitee.com/yu_shan_fei/vvvzhy/raw/yu/yu/yqk3.m3u
+# https://gitee.com/myvisual/newzubo/raw/main/IPTV.txt
+# https://gitee.com/lwr851/live/raw/master/iptv.m3u
+# https://gitee.com/hzxs800274/iptv/raw/master/live/TV
+# https://gitee.com/hw2837/iptv/raw/master/iptv
+# https://gitee.com/g1753462733/zb/raw/main/itvlist.txt
+# https://live.hacks.tools/tv/ipv4/categories/卫视频道.txt
 https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt
 https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u
 https://raw.githubusercontent.com/iptv-org/iptv/gh-pages/sources/cn.m3u
@@ -83,16 +91,8 @@ https://raw.githubusercontent.com/develop202/migu_video/main/interface.txt
 https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv4.txt
 https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u
 https://live.hacks.tools/tv/ipv4/categories/央视频道.txt
-https://round-morning-d7fe.2524867649.workers.dev
 
-# https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv6.txt
-# https://gitee.com/yu_shan_fei/vvvzhy/raw/yu/yu/yqk3.m3u
-# https://gitee.com/myvisual/newzubo/raw/main/IPTV.txt
-# https://gitee.com/lwr851/live/raw/master/iptv.m3u
-# https://gitee.com/hzxs800274/iptv/raw/master/live/TV
-# https://gitee.com/hw2837/iptv/raw/master/iptv
-# https://gitee.com/g1753462733/zb/raw/main/itvlist.txt
-# https://live.hacks.tools/tv/ipv4/categories/卫视频道.txt
+# https://round-morning-d7fe.2524867649.workers.dev
 
 [WHITELIST]
 # 以下是订阅源的白名单，白名单内的订阅源获取的接口将不会参与测速，始终保留至结果最前。
