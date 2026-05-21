@@ -83,6 +83,7 @@ https://raw.githubusercontent.com/develop202/migu_video/main/interface.txt
 https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv4.txt
 https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u
 https://live.hacks.tools/tv/ipv4/categories/央视频道.txt
+https://round-morning-d7fe.2524867649.workers.dev
 
 # https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv6.txt
 # https://gitee.com/yu_shan_fei/vvvzhy/raw/yu/yu/yqk3.m3u
