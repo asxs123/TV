@@ -15,6 +15,11 @@ from utils.requests.tools import headers as request_headers
 from utils.tools import get_resolution_value
 from utils.types import TestResult, ChannelTestResult, TestResultCacheData
 
+from utils.tools import (
+    check_url_by_keywords,
+    get_urls_from_file
+)
+
 http.cookies._is_legal_key = lambda _: True
 cache: TestResultCacheData = {}
 speed_test_timeout = config.speed_test_timeout
@@ -196,6 +201,8 @@ async def get_result(url: str, headers: dict = None, resolution: str = None,
             if location:
                 info.update(await get_result(location, headers, resolution, filter_resolution, timeout))
             else:
+                if check_url_by_keywords(url, get_urls_from_file(constants.blacklist_path, pattern_search=False)):# 新增二次黑名单过滤
+                    return info
                 url_content = await get_url_content(url, headers, session, timeout)
                 if url_content:
                     m3u8_obj = m3u8.loads(url_content)
@@ -303,6 +310,14 @@ def get_video_info(video_info):
     video_codec = None
     audio_codec = None
     if video_info is not None:
+        if re.search(r"Duration:\s*\d+:\d+:\d+(\.\d+)?", video_info) is not None:
+            return {
+                'resolution': None,
+                'fps': None,
+                'video_codec': "vod_err",
+                'audio_codec': None,
+                'speed': 0,
+            }
         match = re.search(r"(\d{3,4}x\d{3,4})", video_info)
         if match:
             resolution = match.group(0)
