@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/asxs123/TV/refs/heads/master/output/epg/epg.gz"
-#EXTINF:-1 tvg-id="CCTV-1" tvg-name="CCTV-1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV-1.png" group-title="🕘️更新时间",2026-06-26 20:26:36
+#EXTINF:-1 tvg-id="CCTV-1" tvg-name="CCTV-1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV-1.png" group-title="🕘️更新时间",2026-07-04 23:27:04
 http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
 #EXTINF:-1 tvg-id="CCTV-1" tvg-name="CCTV-1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV-1.png" group-title="中央",CCTV-1
 http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
@@ -1739,6 +1739,8 @@ http://mgsp-zy2.live.miguvideo.com:8088/wd_r2/jstv/tzxinwenzonghe/600/index.m3u8
 http://mgsp-zy2.live.miguvideo.com:8088/wd_r2/jstv/tzxinwenzonghe/600/index.m3u8?msisdn=2be6b2ec9fcf10d2c2457e2c710e172c&mdspid=&spid=699067&netType=0&sid=5500469354&pid=2028597139&timestamp=20260626080213&Channel_ID=0116_2600034600-99000-201600010010028&ProgramID=639731818&ParentNodeID=-99&assertID=5500469354&client_ip=171.8.79.254&SecurityKey=20260626080213&promotionId=&mvid=5102012615&mcid=500020&playurlVersion=WX-A1-9.6.1.2-RELEASE&userid=&jmhm=&videocodec=h264&appCode=miguvideo_android&bean=mgspad&tid=android&conFee=0&encrypt=a55a55409af0c8817ca95073959ddffc&sv=10004&ct=android
 #EXTINF:-1 tvg-id="泰州新闻综合" tvg-name="泰州新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/泰州新闻综合.png" group-title="江苏",泰州新闻综合
 http://mgsp-zy2.live.miguvideo.com:8088/wd_r2/jstv/tzxinwenzonghe/600/index.m3u8?msisdn=2be6b2ec9fcf10d2c2457e2c710e172c&mdspid=&spid=699067&netType=0&sid=5500469354&pid=2028597139&timestamp=20260626160220&Channel_ID=0116_2600034600-99000-201600010010028&ProgramID=639731818&ParentNodeID=-99&assertID=5500469354&client_ip=171.8.79.254&SecurityKey=20260626160220&promotionId=&mvid=5102012615&mcid=500020&playurlVersion=WX-A1-9.6.1.2-RELEASE&userid=&jmhm=&videocodec=h264&appCode=miguvideo_android&bean=mgspad&tid=android&conFee=0&encrypt=fe80162766c489990a33819b17575905&sv=10004&ct=android
+#EXTINF:-1 tvg-id="泰州新闻综合" tvg-name="泰州新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/泰州新闻综合.png" group-title="江苏",泰州新闻综合
+http://hlszymgsplive.miguvideo.com:8080/wd_r2/jstv/tzxinwenzonghe/600/index.m3u8?msisdn=2be6b2ec9fcf10d2c2457e2c710e172c&mdspid=&spid=699067&netType=0&sid=5500469354&pid=2028597139&timestamp=20260704080239&Channel_ID=0116_2600034600-99000-201600010010028&ProgramID=639731818&ParentNodeID=-99&assertID=5500469354&client_ip=171.8.79.254&SecurityKey=20260704080239&promotionId=&mvid=5102012615&mcid=500020&playurlVersion=WX-A1-9.6.1.6-SNAPSHOT&userid=&jmhm=&videocodec=h264&appCode=miguvideo_android&bean=mgspad&tid=android&conFee=0&encrypt=d7172c9dd9abb5cdd90e794578f658b4&sv=10004&ct=android
 #EXTINF:-1 tvg-id="泗洪综合" tvg-name="泗洪综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/泗洪综合.png" group-title="江苏",泗洪综合
 http://live1.habctv.com/ggpdsl/sd/live.m3u8?zjiangsd#http://live1.habctv.com/ggpdsl/sd/live.m3u8
 #EXTINF:-1 tvg-id="宜兴新闻综合" tvg-name="宜兴新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/宜兴新闻综合.png" group-title="江苏",宜兴新闻综合
@@ -1798,8 +1800,6 @@ https://t.freetv.fun/live/zhe-jiang-qian-jiang-2.m3u8
 #EXTINF:-1 tvg-id="浙江钱江都市" tvg-name="浙江钱江都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江钱江都市.png" group-title="浙江",浙江钱江都市
 https://t.freetv.fun/live/zhe-jiang-qian-jiang-1.m3u8
 #EXTINF:-1 tvg-id="浙江经济生活" tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
-http://ali-xwl.cztv.com/live/channel031080Plxw.m3u8
-#EXTINF:-1 tvg-id="浙江经济生活" tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
 https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-2.m3u8
 #EXTINF:-1 tvg-id="浙江经济生活" tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
 https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-3.m3u8
@@ -1807,8 +1807,8 @@ https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-3.m3u8
 https://t.freetv.fun/live/zhe-jiang-sheng-huo.m3u8
 #EXTINF:-1 tvg-id="浙江经济生活" tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
 https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo.m3u8
-#EXTINF:-1 tvg-id="浙江教科影视" tvg-name="浙江教科影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江教科影视.png" group-title="浙江",浙江教科影视
-http://ali-xwl.cztv.com/live/channel041080Plxw.m3u8
+#EXTINF:-1 tvg-id="浙江经济生活" tvg-name="浙江经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江经济生活.png" group-title="浙江",浙江经济生活
+https://t.freetv.fun/live/zhe-jiang-jing-ji-sheng-huo-4.m3u8
 #EXTINF:-1 tvg-id="浙江教科影视" tvg-name="浙江教科影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江教科影视.png" group-title="浙江",浙江教科影视
 https://t.freetv.fun/live/zhe-jiang-jiao-yu.m3u8
 #EXTINF:-1 tvg-id="浙江教科影视" tvg-name="浙江教科影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江教科影视.png" group-title="浙江",浙江教科影视
@@ -1817,28 +1817,28 @@ https://t.freetv.fun/live/zhe-jiang-jiao-ke-1.m3u8
 https://t.freetv.fun/live/zhe-jiang-jiao-ke.m3u8
 #EXTINF:-1 tvg-id="浙江教科影视" tvg-name="浙江教科影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江教科影视.png" group-title="浙江",浙江教科影视
 http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221233002/1/index.m3u8?fmt=ts2hls
-#EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
-http://ali-xwl.cztv.com/live/channel061080Plxw.m3u8
-#EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
-http://ali-xwl.cztv.com/live/channel06720Plxw.m3u8
+#EXTINF:-1 tvg-id="浙江教科影视" tvg-name="浙江教科影视" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江教科影视.png" group-title="浙江",浙江教科影视
+http://hs.imyjy.cn:7088/rtp/233.50.201.134:5140
 #EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
 https://t.freetv.fun/live/zhe-jiang-min-sheng.m3u8
 #EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
 https://t.freetv.fun/live/zhe-jiang-min-sheng-4.m3u8
 #EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
 https://t.freetv.fun/live/zhe-jiang-min-sheng-1.m3u8
-#EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
-http://ali-xwl.cztv.com/live/channel071080Plxw.m3u8
-#EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
-http://ali-xwl.cztv.com/live/channel07720Plxw.m3u8
+#EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
+https://t.freetv.fun/live/zhe-jiang-min-sheng-3.m3u8
+#EXTINF:-1 tvg-id="浙江民生休闲" tvg-name="浙江民生休闲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江民生休闲.png" group-title="浙江",浙江民生休闲
+https://t.freetv.fun/live/zhe-jiang-min-sheng-xiu-xian-2.m3u8
 #EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
 https://t.freetv.fun/live/zhe-jiang-xin-wen-6.m3u8
 #EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
 https://t.freetv.fun/live/zhe-jiang-xin-wen-11.m3u8
 #EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
 https://t.freetv.fun/live/zhe-jiang-xin-wen-2.m3u8
-#EXTINF:-1 tvg-id="浙江少儿" tvg-name="浙江少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江少儿.png" group-title="浙江",浙江少儿
-http://ali-xwl.cztv.com/live/channel081080Plxw.m3u8
+#EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
+https://t.freetv.fun/live/zhe-jiang-xin-wen-1.m3u8
+#EXTINF:-1 tvg-id="浙江新闻" tvg-name="浙江新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江新闻.png" group-title="浙江",浙江新闻
+https://t.freetv.fun/live/zhe-jiang-xin-wen-4.m3u8
 #EXTINF:-1 tvg-id="浙江少儿" tvg-name="浙江少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江少儿.png" group-title="浙江",浙江少儿
 http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221233011/1/index.m3u8?fmt=ts2hls
 #EXTINF:-1 tvg-id="浙江少儿" tvg-name="浙江少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江少儿.png" group-title="浙江",浙江少儿
@@ -1847,6 +1847,8 @@ https://t.freetv.fun/live/zhe-jiang-shao-er-1.m3u8
 https://t.freetv.fun/live/zhe-jiang-shao-er-2.m3u8
 #EXTINF:-1 tvg-id="浙江少儿" tvg-name="浙江少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江少儿.png" group-title="浙江",浙江少儿
 http://hs.imyjy.cn:7088/rtp/233.50.201.138:5140
+#EXTINF:-1 tvg-id="浙江少儿" tvg-name="浙江少儿" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江少儿.png" group-title="浙江",浙江少儿
+http://ali-xwl.cztv.com/live/channel08720Plxw.m3u8
 #EXTINF:-1 tvg-id="之江纪录" tvg-name="之江纪录" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/之江纪录.png" group-title="浙江",之江纪录
 http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221228989/1/index.m3u8?fmt=ts2hls
 #EXTINF:-1 tvg-id="之江纪录" tvg-name="之江纪录" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/之江纪录.png" group-title="浙江",之江纪录
@@ -1854,15 +1856,15 @@ http://ali-xwl.cztv.com/live/channel121080Pnew.m3u8
 #EXTINF:-1 tvg-id="之江纪录" tvg-name="之江纪录" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/之江纪录.png" group-title="浙江",之江纪录
 http://huixingy.top:18888/rtsp/220.191.136.24/PLTV/88888913/224/3221229409/92749537.smil
 #EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
-http://ali-xwl.cztv.com/live/channel101080Plxw.m3u8
-#EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
-http://ali-xwl.cztv.com/live/channel10720Plxw.m3u8
-#EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
 https://t.freetv.fun/live/zhe-jiang-guo-ji-4.m3u8
 #EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
 https://t.freetv.fun/live/zhe-jiang-guo-ji-1.m3u8
 #EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
 https://t.freetv.fun/live/zhe-jiang-guo-ji-11.m3u8
+#EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
+https://t.freetv.fun/live/zhe-jiang-guo-ji-6.m3u8
+#EXTINF:-1 tvg-id="浙江国际" tvg-name="浙江国际" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江国际.png" group-title="浙江",浙江国际
+https://t.freetv.fun/live/zhe-jiang-guo-ji-3-1.m3u8
 #EXTINF:-1 tvg-id="杭州综合" tvg-name="杭州综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/杭州综合.png" group-title="浙江",杭州综合
 http://hwltc.tv.cdn.zj.chinamobile.com/PLTV/88888888/224/3221230497/index.m3u8
 #EXTINF:-1 tvg-id="杭州综合" tvg-name="杭州综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/杭州综合.png" group-title="浙江",杭州综合
@@ -2850,8 +2852,6 @@ http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3301.m3u8
 #EXTINF:-1 tvg-id="河源生活" tvg-name="河源生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河源生活.png" group-title="广东",河源生活
 http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3304.m3u8
 #EXTINF:-1 tvg-id="中山综合" tvg-name="中山综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中山综合.png" group-title="广东",中山综合
-http://v.zsbtv.com.cn/lsdream/qTl38me/1000/live.m3u8
-#EXTINF:-1 tvg-id="中山综合" tvg-name="中山综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中山综合.png" group-title="广东",中山综合
 http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3601.m3u8
 #EXTINF:-1 tvg-id="中山综合" tvg-name="中山综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/中山综合.png" group-title="广东",中山综合
 http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3605.m3u8
@@ -3089,6 +3089,8 @@ http://live1.gatv.com.cn:85/live/GGPD_ggpdzm.m3u8
 https://t.freetv.fun/live/yan-yuan-zong-he-1.m3u8
 #EXTINF:-1 tvg-id="广元综合" tvg-name="广元综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广元综合.png" group-title="四川",广元综合
 https://t.freetv.fun/live/yan-yuan-zong-he.m3u8
+#EXTINF:-1 tvg-id="甘孜综合" tvg-name="甘孜综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/甘孜综合.png" group-title="四川",甘孜综合
+https://m3u8channel.ganzitv.com/nmip-media/channellive/channel1/playlist.m3u8
 #EXTINF:-1 tvg-id="德阳新闻综合" tvg-name="德阳新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/德阳新闻综合.png" group-title="四川",德阳新闻综合
 https://t.freetv.fun/live/de-yang-xin-wen-zong-he-1.m3u8
 #EXTINF:-1 tvg-id="荥经综合" tvg-name="荥经综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/荥经综合.png" group-title="四川",荥经综合
@@ -4115,6 +4117,8 @@ http://tl.061833.xyz/tl/rockaction
 https://4gtv.158.qzz.io/163189/5580f139-0755-47fe-8321-2a5750977b97/
 #EXTINF:-1 tvg-id="ROCK Action" tvg-name="ROCK Action" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/ROCK Action.png" group-title="世界",ROCK Action
 https://cdn.19891230.eu.org/4gtv/4gtv-live138/index.m3u8
+#EXTINF:-1 tvg-id="ROCK Action" tvg-name="ROCK Action" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/ROCK Action.png" group-title="世界",ROCK Action
+http://4gtv.cnlive.club/channel/n21b197ce/index.m3u8?q=1782639885837
 #EXTINF:-1 tvg-id="Sky News" tvg-name="Sky News" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/Sky News.png" group-title="世界",Sky News
 https://i.mjh.nz/SamsungTVPlus/USBB52000022Q.m3u8
 #EXTINF:-1 tvg-id="Sky News" tvg-name="Sky News" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/Sky News.png" group-title="世界",Sky News
@@ -4145,6 +4149,8 @@ http://clawcloud.goiptv.de5.net/litv.php?id=litv-xinchuang11&token=xiatianshigou
 https://litv.tzh911.qzz.io/litv.php?id=litv-longturn11&token=https://t.me/GPT_858
 #EXTINF:-1 tvg-id="龍華日韓台" tvg-name="龍華日韓台" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/龍華日韓台.png" group-title="世界",龍華日韓台
 https://cdn8.163189.xyz/163189/lhrh
+#EXTINF:-1 tvg-id="龍華日韓台" tvg-name="龍華日韓台" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/龍華日韓台.png" group-title="世界",龍華日韓台
+https://cdn.qd.je/163189.php?id=lhrh
 #EXTINF:-1 tvg-id="寰宇新闻" tvg-name="寰宇新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻.png" group-title="世界",寰宇新闻
 https://hls-gateway.vpstv.net/streams/476270.m3u8
 #EXTINF:-1 tvg-id="寰宇新闻" tvg-name="寰宇新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻.png" group-title="世界",寰宇新闻

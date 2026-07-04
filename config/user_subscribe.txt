@@ -60,6 +60,7 @@
 # https://gitee.com/hw2837/iptv/raw/master/iptv
 # https://gitee.com/g1753462733/zb/raw/main/itvlist.txt
 # https://live.hacks.tools/tv/ipv4/categories/卫视频道.txt
+# https://round-morning-d7fe.2524867649.workers.dev
 https://raw.githubusercontent.com/Guovin/iptv-api/gd/output/result.txt
 https://raw.githubusercontent.com/iptv-org/iptv/master/streams/cn.m3u
 https://raw.githubusercontent.com/iptv-org/iptv/gh-pages/sources/cn.m3u
@@ -81,7 +82,6 @@ https://raw.githubusercontent.com/YueChan/Live/main/Hunan.txt
 https://raw.githubusercontent.com/zwc456baby/iptv_alive/master/live.txt
 https://raw.githubusercontent.com/Supprise0901/TVBox_live/main/live.txt
 https://raw.githubusercontent.com/q1017673817/iptvz/main/zubo_all.txt
-https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/IPTV.txt
 https://raw.githubusercontent.com/kakaxi-1/IPTV/main/iptv.txt
 https://raw.githubusercontent.com/Jsnzkpg/Jsnzkpg/Jsnzkpg/Jsnzkpg1.m3u
 https://raw.githubusercontent.com/jn950/live/main/tv/pllive.txt
@@ -92,7 +92,7 @@ https://raw.githubusercontent.com/alantang1977/iptv_api/main/output/live_ipv4.tx
 https://raw.githubusercontent.com/Kimentanm/aptv/master/m3u/iptv.m3u
 https://live.hacks.tools/tv/ipv4/categories/央视频道.txt
 
-# https://round-morning-d7fe.2524867649.workers.dev
+# https://raw.githubusercontent.com/lalifeier/IPTV/main/txt/IPTV.txt
 
 [WHITELIST]
 # 以下是订阅源的白名单，白名单内的订阅源获取的接口将不会参与测速，始终保留至结果最前。
