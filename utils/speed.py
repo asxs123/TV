@@ -65,7 +65,7 @@ ad_filter_keywords = [
     "/ad/",
     "/ads/",
 ]
-ad_max_loop_duration = 90
+ad_max_loop_duration = 180
 
 
 def create_speed_test_session(concurrency: int):
@@ -434,6 +434,14 @@ def get_video_info(video_info):
     video_codec = None
     audio_codec = None
     if video_info is not None:
+        if re.search(r"Duration:\s*\d+:\d+:\d+(\.\d+)?", video_info) is not None:
+            return {
+                'resolution': None,
+                'fps': None,
+                'video_codec': "vod_err",
+                'audio_codec': None,
+                'speed': 0,
+            }
         match = re.search(r"(\d{3,4}x\d{3,4})", video_info)
         if match:
             resolution = match.group(0)
