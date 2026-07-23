@@ -1,5 +1,5 @@
 #EXTM3U x-tvg-url="https://raw.githubusercontent.com/asxs123/TV/refs/heads/master/output/epg/epg.gz"
-#EXTINF:-1 tvg-id="CCTV-1" tvg-name="CCTV-1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV-1.png" group-title="🕘️更新时间",2026-07-12 18:27:09
+#EXTINF:-1 tvg-id="CCTV-1" tvg-name="CCTV-1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV-1.png" group-title="🕘️更新时间",2026-07-24 00:27:14
 http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
 #EXTINF:-1 tvg-id="CCTV-1" tvg-name="CCTV-1" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/CCTV-1.png" group-title="中央",CCTV-1
 http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
@@ -433,6 +433,8 @@ http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/1943.m3u8
 http://tvgslb.hn.chinamobile.com:8089/180000001002/00000001000000000050000000448843/main.m3u8?stbid=
 #EXTINF:-1 tvg-id="百姓健康" tvg-name="百姓健康" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/百姓健康.png" group-title="中央",百姓健康
 http://tvgslb.hn.chinamobile.com:8089/180000001002/00000001000000000010000000040371/main.m3u8?stbid=
+#EXTINF:-1 tvg-id="百姓健康" tvg-name="百姓健康" tvg-logo="https://gitee.com/suxuang/logo/raw/master/mylogo/卫生健康.png" group-title="中央",百姓健康
+http://nas.hssvm.com:8888/udp/225.1.1.210:5002
 #EXTINF:-1 tvg-id="睛彩竞技" tvg-name="睛彩竞技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/睛彩竞技.png" group-title="中央",睛彩竞技
 https://zby.130519.xyz/PLTV/11/224/3221226116/index.m3u8
 #EXTINF:-1 tvg-id="睛彩竞技" tvg-name="睛彩竞技" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/睛彩竞技.png" group-title="中央",睛彩竞技
@@ -1001,6 +1003,12 @@ http://rrs03.hw.gmcc.net:8088/PLTV/651/224/3221226658/1.m3u8
 http://rrs03.hw.gmcc.net:8088/PLTV/651/224/3221226656/1.m3u8
 #EXTINF:-1 tvg-id="萌宠TV" tvg-name="萌宠TV" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/萌宠TV.png" group-title="北京",萌宠TV
 http://[2409:8087:1:20:20::26]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226555/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7E_PpxWPtvSZRFtu_Ged-vQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNO0istnBuoA2R9ODSCqyIyS%2CEND
+#EXTINF:-1 tvg-id="天津新闻" tvg-name="天津新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/天津新闻.png" group-title="天津",天津新闻
+http://nas.hssvm.com:8888/udp/225.1.1.130:5002
+#EXTINF:-1 tvg-id="天津文艺" tvg-name="天津文艺" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/天津文艺.png" group-title="天津",天津文艺
+http://nas.hssvm.com:8888/udp/225.1.1.131:5002
+#EXTINF:-1 tvg-id="天津都市" tvg-name="天津都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/天津都市.png" group-title="天津",天津都市
+http://nas.hssvm.com:8888/udp/225.1.1.128:5002
 #EXTINF:-1 tvg-id="河北经济生活" tvg-name="河北经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河北经济生活.png" group-title="河北",河北经济生活
 https://tv.pull.hebtv.com/jishi/jingjishenghuo.m3u8?t=1963555098&k=188078e4cff948b7252bb3e5f88306b2
 #EXTINF:-1 tvg-id="河北经济生活" tvg-name="河北经济生活" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/河北经济生活.png" group-title="河北",河北经济生活
@@ -1789,6 +1797,8 @@ http://live1.habctv.com/ggpdsl/sd/live.m3u8?zjiangsd
 http://live1.habctv.com/ggpdsl/sd/live.m3u8
 #EXTINF:-1 tvg-id="沭阳综合" tvg-name="沭阳综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/沭阳综合.png" group-title="江苏",沭阳综合
 https://shuyang-tv-hls.cm.jstv.com:443/shuyang-tv/shuyangzh.m3u8
+#EXTINF:-1 tvg-id="沭阳综合" tvg-name="沭阳综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/沭阳综合.png" group-title="江苏",沭阳综合
+http://shuyang-tv-hls.cm.jstv.com/shuyang-tv/shuyangzh.m3u8
 #EXTINF:-1 tvg-id="浙江钱江都市" tvg-name="浙江钱江都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江钱江都市.png" group-title="浙江",浙江钱江都市
 https://t.freetv.fun/live/zhe-jiang-qian-jiang-du-shi-1.m3u8
 #EXTINF:-1 tvg-id="浙江钱江都市" tvg-name="浙江钱江都市" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/浙江钱江都市.png" group-title="浙江",浙江钱江都市
@@ -3097,8 +3107,6 @@ http://live1.gatv.com.cn:85/live/GGPD_ggpdzm.m3u8
 https://t.freetv.fun/live/yan-yuan-zong-he-1.m3u8
 #EXTINF:-1 tvg-id="广元综合" tvg-name="广元综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/广元综合.png" group-title="四川",广元综合
 https://t.freetv.fun/live/yan-yuan-zong-he.m3u8
-#EXTINF:-1 tvg-id="甘孜综合" tvg-name="甘孜综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/甘孜综合.png" group-title="四川",甘孜综合
-https://m3u8channel.ganzitv.com/nmip-media/channellive/channel1/playlist.m3u8
 #EXTINF:-1 tvg-id="德阳新闻综合" tvg-name="德阳新闻综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/德阳新闻综合.png" group-title="四川",德阳新闻综合
 https://t.freetv.fun/live/de-yang-xin-wen-zong-he-1.m3u8
 #EXTINF:-1 tvg-id="荥经综合" tvg-name="荥经综合" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/荥经综合.png" group-title="四川",荥经综合
@@ -3521,6 +3529,8 @@ http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3
 https://t.freetv.fun/live/tvbsya-zhou-4.m3u8
 #EXTINF:-1 tvg-id="TVBS亚洲" tvg-name="TVBS亚洲" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/TVBS亚洲.png" group-title="🌊港·澳·台",TVBS亚洲
 https://t.freetv.fun/live/tvbsya-zhou-5.m3u8
+#EXTINF:-1 tvg-id="TVBS亚洲" tvg-name="TVBS亚洲" tvg-logo="./pic/logosTVBS亚洲.png" group-title="🌊港·澳·台",TVBS亚洲
+http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
 #EXTINF:-1 tvg-id="纬来体育" tvg-name="纬来体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/纬来体育.png" group-title="🌊港·澳·台",纬来体育
 https://smart.pendy.dpdns.org/Smart.php?id=videolandsport
 #EXTINF:-1 tvg-id="纬来体育" tvg-name="纬来体育" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/纬来体育.png" group-title="🌊港·澳·台",纬来体育
@@ -4159,6 +4169,8 @@ https://litv.tzh911.qzz.io/litv.php?id=litv-longturn11&token=https://t.me/GPT_85
 https://cdn8.163189.xyz/163189/lhrh
 #EXTINF:-1 tvg-id="龍華日韓台" tvg-name="龍華日韓台" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/龍華日韓台.png" group-title="世界",龍華日韓台
 https://cdn.qd.je/163189.php?id=lhrh
+#EXTINF:-1 tvg-id="龍華日韓台" tvg-name="龍華日韓台" tvg-logo="./pic/logos龍華日韓台.png" group-title="世界",龍華日韓台
+https://cdn8.123.rr.kg/163189/lhrh
 #EXTINF:-1 tvg-id="寰宇新闻" tvg-name="寰宇新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻.png" group-title="世界",寰宇新闻
 https://hls-gateway.vpstv.net/streams/476270.m3u8
 #EXTINF:-1 tvg-id="寰宇新闻" tvg-name="寰宇新闻" tvg-logo="https://gh-proxy.com/https://raw.githubusercontent.com/taksssss/tv/main/icon/寰宇新闻.png" group-title="世界",寰宇新闻

@@ -1,5 +1,5 @@
 🕘️更新时间,#genre#
-2026-07-12 18:27:09,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
+2026-07-24 00:27:14,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
 
 中央,#genre#
 CCTV-1,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
@@ -218,6 +218,7 @@ CETV早期教育,http://tvgslb.hn.chinamobile.com:8089/180000001002/320230602223
 中国天气,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/1943.m3u8
 书画,http://tvgslb.hn.chinamobile.com:8089/180000001002/00000001000000000050000000448843/main.m3u8?stbid=
 百姓健康,http://tvgslb.hn.chinamobile.com:8089/180000001002/00000001000000000010000000040371/main.m3u8?stbid=
+百姓健康,http://nas.hssvm.com:8888/udp/225.1.1.210:5002
 睛彩竞技,https://zby.130519.xyz/PLTV/11/224/3221226116/index.m3u8
 睛彩竞技,http://[2409:8087:1a01:df::4061]:80/TVOD/88888888/224/3221225899/main.m3u8
 睛彩竞技,http://[2409:8087:1a01:df::4061]/TVOD/88888888/224/3221225899/main.m3u8
@@ -508,6 +509,9 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 萌宠TV,http://[2409:8087:1:20:20::26]/otttv.bj.chinamobile.com/PLTV/88888888/224/3221226555/1.m3u8?GuardEncType=2&accountinfo=%7E%7EV2.0%7E_PpxWPtvSZRFtu_Ged-vQ%7E_eNUbgU9sJGUcVVduOMKhafLvQUgE_zlz_7pvDimJNO0istnBuoA2R9ODSCqyIyS%2CEND
 
 天津,#genre#
+天津新闻,http://nas.hssvm.com:8888/udp/225.1.1.130:5002
+天津文艺,http://nas.hssvm.com:8888/udp/225.1.1.131:5002
+天津都市,http://nas.hssvm.com:8888/udp/225.1.1.128:5002
 
 河北,#genre#
 河北经济生活,https://tv.pull.hebtv.com/jishi/jingjishenghuo.m3u8?t=1963555098&k=188078e4cff948b7252bb3e5f88306b2
@@ -918,6 +922,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 涟水综合,http://live1.habctv.com/ggpdsl/sd/live.m3u8?zjiangsd
 涟水综合,http://live1.habctv.com/ggpdsl/sd/live.m3u8
 沭阳综合,https://shuyang-tv-hls.cm.jstv.com:443/shuyang-tv/shuyangzh.m3u8
+沭阳综合,http://shuyang-tv-hls.cm.jstv.com/shuyang-tv/shuyangzh.m3u8
 
 浙江,#genre#
 浙江钱江都市,https://t.freetv.fun/live/zhe-jiang-qian-jiang-du-shi-1.m3u8
@@ -1598,7 +1603,6 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 广安文旅乡村,http://live1.gatv.com.cn:85/live/GGPD_ggpdzm.m3u8
 广元综合,https://t.freetv.fun/live/yan-yuan-zong-he-1.m3u8
 广元综合,https://t.freetv.fun/live/yan-yuan-zong-he.m3u8
-甘孜综合,https://m3u8channel.ganzitv.com/nmip-media/channellive/channel1/playlist.m3u8
 德阳新闻综合,https://t.freetv.fun/live/de-yang-xin-wen-zong-he-1.m3u8
 荥经综合,https://file.ysxtv.cn/nmip-media/channellive/channel101492/playlist.m3u8
 荥经综合,http://file.ysxtv.cn/cms/videos/nmip-media/channellive/channel4/playlist.m3u8
@@ -1832,6 +1836,7 @@ TVB Plus,http://cdn.132.us.kg/live/tvbp/stream.m3u8
 TVBS亚洲,http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8?zshijd
 TVBS亚洲,https://t.freetv.fun/live/tvbsya-zhou-4.m3u8
 TVBS亚洲,https://t.freetv.fun/live/tvbsya-zhou-5.m3u8
+TVBS亚洲,http://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8
 纬来体育,https://smart.pendy.dpdns.org/Smart.php?id=videolandsport
 纬来体育,https://hls-gateway.vpstv.net/streams/477026.m3u8
 纬来体育,https://smt.1678520.xyz/163189/b10b2645c6d9de2b
@@ -2163,6 +2168,7 @@ tvN,https://hls-gateway.vpstv.net/streams/477799.m3u8
 龍華日韓台,https://litv.tzh911.qzz.io/litv.php?id=litv-longturn11&token=https://t.me/GPT_858
 龍華日韓台,https://cdn8.163189.xyz/163189/lhrh
 龍華日韓台,https://cdn.qd.je/163189.php?id=lhrh
+龍華日韓台,https://cdn8.123.rr.kg/163189/lhrh
 寰宇新闻,https://hls-gateway.vpstv.net/streams/476270.m3u8
 寰宇新闻,http://breezy-audrie-zspace-7524863c.koyeb.app/vipsir?token=leifeng&id=litv-longturn14
 寰宇新闻,https://mao.ffmking888.dpdns.org/?id=5aaw5a6H5paw6IGe5Yaw&auth=30234cedf871581989d3c91a3daec1e9f50e024aafcfa2247e7d44d91bb8d02fbc3f571b2d67f9d82642cc1d0f133d89
