@@ -1,5 +1,5 @@
 🕘️更新时间,#genre#
-2026-07-24 00:27:14,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
+2026-07-30 23:26:15,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
 
 中央,#genre#
 CCTV-1,http://iptv.huuc.edu.cn/hls/cctv1hd.m3u8
@@ -301,6 +301,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 广东卫视,https://zby.130519.xyz/PLTV/11/224/3221225731/index.m3u8
 广东卫视,http://php.jdshipin.com:8880/TVOD/gsyd.php?id=9900000520
 广东卫视,https://migu.188766.xyz/?migutoken=869502ab36e68ce8a531da1020f873a1&id=%E5%B9%BF%E4%B8%9C%E5%8D%AB%E8%A7%86&type=yy
+香港卫视,https://hkstv.tv/api/m3u8-proxy?url=http%3A%2F%2Fwebcast.hkstv.tv%2Flivestream%2Fmutfysrq%2Fplaylist.m3u8
 香港卫视,http://webcast.hkstv.tv/livestream/mutfysrq/playlist.m3u8
 香港卫视,http://cctvtxyh5c.liveplay.myqcloud.com/cstv/xianggangweishi_2/index.m3u8
 香港卫视,http://anren.live/HK/BSJDUFpB.m3u8
@@ -1441,6 +1442,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 汕头综合,https://gd.luzong.cc.cd/stzh
 汕头综合,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/2501.m3u8
 汕头综合,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/2506.m3u8
+汕头综合,https://t.freetv.fun/live/shan-tou-zong-he-1.m3u8
 汕头经济生活,https://gd.luzong.cc.cd/stjj
 汕头经济生活,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/2502.m3u8
 汕头经济生活,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/2507.m3u8
@@ -1501,6 +1503,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 江门综合,https://gd.luzong.cc.cd/jmzh
 江门综合,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3712.m3u8
 江门综合,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3702.m3u8
+江门综合,https://t.freetv.fun/live/jiang-men-zong-he-1.m3u8
 江门侨乡生活,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3711.m3u8
 江门侨乡生活,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/3701.m3u8
 揭阳生活,http://[2605:6400:20:e33:19c6:b2fe:332b:d62d]:9090/live/2901.m3u8
@@ -1603,6 +1606,7 @@ China Travel,https://t.freetv.fun/live/china-travel.m3u8
 广安文旅乡村,http://live1.gatv.com.cn:85/live/GGPD_ggpdzm.m3u8
 广元综合,https://t.freetv.fun/live/yan-yuan-zong-he-1.m3u8
 广元综合,https://t.freetv.fun/live/yan-yuan-zong-he.m3u8
+甘孜综合,https://m3u8channel.ganzitv.com/nmip-media/channellive/channel1/playlist.m3u8
 德阳新闻综合,https://t.freetv.fun/live/de-yang-xin-wen-zong-he-1.m3u8
 荥经综合,https://file.ysxtv.cn/nmip-media/channellive/channel101492/playlist.m3u8
 荥经综合,http://file.ysxtv.cn/cms/videos/nmip-media/channellive/channel4/playlist.m3u8
@@ -2073,24 +2077,25 @@ CN卡通,https://t.freetv.fun/live/cnqia-tong.m3u8
 七龙珠,https://live.metshop.top/huya/11601966
 火影忍者,http://cdn.jdshipin.com:8880/huya.php?id=29465866
 火影忍者,https://live.ottiptv.cc/huya/29465866
+火影忍者,https://www.goodiptv.club/huya/29465866
 海绵宝宝,https://live.metshop.top/douyu/3949681
 海绵宝宝,https://live.ottiptv.cc/huya/11352919
+海绵宝宝,https://www.goodiptv.club/huya/11352919
 中华小当家,http://cdn.jdshipin.com:8880/huya.php?id=11342413
 中华小当家,https://live.metshop.top/huya/11342413
-中华小当家,https://live.ottiptv.cc/huya/11342413
 中华小当家,https://live.iill.top/huya/11342413
 猫和老鼠,https://live.metshop.top/huya/11352879
-猫和老鼠,https://live.ottiptv.cc/huya/11352879
 猫和老鼠,http://live.iill.top/huya.php?id=11352879
 猫和老鼠,http://cdn.jdshipin.com:8880/huya.php?id=11352879
 猫和老鼠,https://live.iill.top/huya.php?id=11352879
+猫和老鼠,https://lbds.us.ci/11352879
 经典动漫,https://www.goodiptv.club/yy/22777075
 经典动漫,https://lunbo.v1.mk/yy/22777075
 经典动漫,https://lunbo.v1.mk/yy/24180320
 经典动漫,https://www.goodiptv.club/yy/24180320
 经典动漫,https://live.iill.top/yy/24180320
-蜡笔小新,https://live.ottiptv.cc/huya/11352970
 蜡笔小新,https://live.ottiptv.cc/bilibili/30837590
+蜡笔小新,https://www.goodiptv.club/huya/11352970
 漫画解说,https://www.goodiptv.club/douyu/5907076
 漫画解说,https://lunbo.v1.mk/yy/1382735568
 漫画解说,https://yylunbo.ottiptv.cc/yy/1382735568
@@ -2224,7 +2229,6 @@ CGN中文台,https://d3e05csss9c272.cloudfront.net/out/v1/f0bf71c57581470fb9379f
 西游记续集,http://www.goodiptv.club/douyu/3113309
 华语影院,http://[2409:8087:5e00:24::2d]:6610/000000001000/1/5000000011000288005/index.m3u8?channel-id=bestzb&Contentid=5000000011000288005&livemode=1&stbId=YanG-1989
 林正英电影,http://cdn.jdshipin.com:8880/huya.php?id=11342421
-林正英电影,https://live.ottiptv.cc/huya/11342421
 林正英电影,https://www.goodiptv.club/yy/1382841203
 林正英电影,http://live.ottiptv.cc/yy/1351505899
 邵氏影院,https://www.goodiptv.club/douyu/4246519
