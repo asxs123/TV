@@ -2,6 +2,9 @@ import asyncio
 import json
 import subprocess
 
+from utils.ffmpeg.executable import resolve_ffprobe_executable
+from utils.process import no_window_process_kwargs
+
 
 def _parse_probe_data(data: dict) -> dict | None:
     """
@@ -65,20 +68,29 @@ async def probe_url(url: str, headers: dict = None, timeout: int = 10) -> dict |
     """
     proc = None
     try:
+        executable = resolve_ffprobe_executable()
+        if not executable:
+            return None
         header_str = ''.join(f'{k}: {v}\r\n' for k, v in (headers or {}).items()) if headers else ''
         args = [
-            'ffprobe',
+            executable,
             '-v', 'error',
-            '-show_format',
-            '-show_streams',
+            '-probesize', '512000',
+            '-analyzeduration', '1000000',
+            '-show_entries',
+            'stream=codec_type,codec_name,width,height,avg_frame_rate,r_frame_rate',
             '-print_format', 'json',
         ]
         if header_str:
             args += ['-headers', header_str]
         args += [url]
 
-        proc = await asyncio.create_subprocess_exec(*args, stdout=asyncio.subprocess.PIPE,
-                                                    stderr=asyncio.subprocess.PIPE)
+        proc = await asyncio.create_subprocess_exec(
+            *args,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+            **no_window_process_kwargs(),
+        )
         try:
             out, err = await asyncio.wait_for(proc.communicate(), timeout=timeout)
         except asyncio.TimeoutError:
@@ -138,9 +150,13 @@ def probe_url_sync(url: str, headers: dict = None, timeout: int = 10) -> dict | 
     Synchronous wrapper around ffprobe to obtain metadata for the first video and audio streams.
     This uses subprocess.run and returns the same dict structure as the async `probe_url`.
     """
+    executable = resolve_ffprobe_executable()
+    if not executable:
+        return None
+
     header_str = ''.join(f'{k}: {v}\r\n' for k, v in (headers or {}).items()) if headers else ''
     args = [
-        'ffprobe',
+        executable,
         '-v', 'error',
         '-show_format',
         '-show_streams',
@@ -151,7 +167,14 @@ def probe_url_sync(url: str, headers: dict = None, timeout: int = 10) -> dict | 
     args += [url]
 
     try:
-        res = subprocess.run(args, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=timeout)
+        res = subprocess.run(
+            args,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            timeout=timeout,
+            **no_window_process_kwargs(),
+        )
     except subprocess.TimeoutExpired:
         return None
     except FileNotFoundError:
@@ -188,9 +211,12 @@ async def get_resolution_ffprobe(url: str, headers: dict = None, timeout: int = 
     """
     proc = None
     try:
+        executable = resolve_ffprobe_executable()
+        if not executable:
+            return None
         header_str = ''.join(f'{k}: {v}\r\n' for k, v in (headers or {}).items()) if headers else ''
         args = [
-            'ffprobe',
+            executable,
             '-v', 'error',
             '-select_streams', 'v:0',
             '-show_entries', 'stream=width,height',
@@ -200,8 +226,12 @@ async def get_resolution_ffprobe(url: str, headers: dict = None, timeout: int = 
             args += ['-headers', header_str]
         args += [url]
 
-        proc = await asyncio.create_subprocess_exec(*args, stdout=asyncio.subprocess.PIPE,
-                                                    stderr=asyncio.subprocess.PIPE)
+        proc = await asyncio.create_subprocess_exec(
+            *args,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+            **no_window_process_kwargs(),
+        )
         try:
             out, err = await asyncio.wait_for(proc.communicate(), timeout=timeout)
         except asyncio.TimeoutError:
