@@ -14,6 +14,7 @@
 <details open>
 <summary><strong>Contents</strong></summary>
 
+- [Program execution flow](#program-execution-flow)
 - [Workflow deployment](#workflow-deployment)
 - [Command Line](#command-line)
 - [GUI Software](#gui-software)
@@ -22,23 +23,47 @@
 
 </details>
 
+## Program execution flow
+
+All runtimes share the update flow below: prepare templates and sources, match channels, apply the test mode, and export results. EPG is fetched and written separately. See the [architecture guide](./architecture_en.md) for UI and background dependencies.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./images/architecture/pipeline-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./images/architecture/pipeline-en.svg">
+  <img src="./images/architecture/pipeline-en.svg" alt="Program execution flow" width="100%">
+</picture>
+
+`quick` stops at the channel target, `full` tests all candidates, and `manual` collects candidates for GUI retesting. Source EPG extraction fetches subscriptions before EPG; otherwise both can run concurrently.
+
 ## Workflow deployment
 
-Use GitHub Actions workflows to deploy and manually trigger the update endpoint.
+Visit the main repository's [GitHub Pages results page](https://guovin.github.io/iptv-api/) to copy online links for player subscriptions, preview files, or download results. No fork or workflow run is needed to use these results. To generate results with your own configuration, follow the deployment steps below.
+
+Use GitHub Actions to generate results manually, serve player subscriptions from the fork's own GitHub Pages site, and create a separate Release for every run to download and save result files.
 
 > [!IMPORTANT]
-> Because GitHub resources are limited, workflow updates can only be triggered manually.
-> If you need frequent updates or scheduled runs, please deploy using another method.
+> Because GitHub resources are limited, the workflow can only be triggered manually. Generated results are deployed
+> through a Pages artifact and a separate prerelease for every run. They are not committed to Git, and no `gh-pages`
+> branch is created. For frequent or scheduled runs, use Docker, the command line, the GUI, or external object storage.
+
+### Workflow generation and publication
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./images/architecture/workflow-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./images/architecture/workflow-en.svg">
+  <img src="./images/architecture/workflow-en.svg" alt="Workflow generation and publication" width="100%">
+</picture>
+
+`generate` prepares Pages and Release artifacts. `publish-release` creates the playlist prerelease for this run. `deploy-pages` waits for generation and Release publication to succeed before deploying. Pages provides subscriptions and previews; its Download buttons point to this Release. These playlist Releases are separate from desktop update packages.
 
 ### Enter the IPTV-API Project
 
-Open https://github.com/Guovin/iptv-api and click `Star` to favorite this project (Your Star is my motivation for
-continuous updates).
+Open the <a href="https://github.com/Guovin/iptv-api" target="_blank" rel="noopener noreferrer">IPTV-API project</a> and click `Star` to favorite it (Your Star is my motivation for continuous updates).
 ![Star](./images/star.png 'Star')
 
 ### Fork
 
-Copy the source code of this repository to your personal account repository.
+Open the <a href="https://github.com/Guovin/iptv-api/fork" target="_blank" rel="noopener noreferrer">Fork creation page</a> to copy this repository to your personal account.
 ![Fork button](./images/fork-btn.png 'Fork button')
 
 1. Name your personal repository as you like (the final live source result link depends on this name), here we use the
@@ -46,6 +71,22 @@ Copy the source code of this repository to your personal account repository.
 2. Confirm the information is correct and click to create.
 
 ![Fork details](./images/fork-detail.png 'Fork details')
+
+### Enable GitHub Pages
+
+Pages must be enabled separately in every fork; this setting is not inherited from the upstream repository:
+
+1. Open `Settings` in your fork.
+2. Select `Pages` in the sidebar.
+3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
+
+Do not create a `gh-pages` branch or commit `output/` to any branch. The workflow deploys a temporary Pages artifact directly to:
+
+```text
+https://your-github-username.github.io/repository-name/
+```
+
+If Pages is not enabled first, the workflow fails at `Configure GitHub Pages`.
 
 ### Update Source Code
 
@@ -55,7 +96,8 @@ following:
 > [!WARNING]
 > If you only want to update your fork, do not click `Contribute` or `Open pull request` to create a PR.
 > Go to your own repository and use `Sync fork` → `Update branch`.
-> If a synchronization conflict occurs, use `Discard commits` as described below.
+> If a synchronization conflict occurs, back up `user_*.ini`, custom templates, and source files before using
+> `Discard commits` as described below.
 > Create a Pull Request only when you intentionally want to contribute code to the upstream repository.
 
 #### 1. Watch
@@ -126,10 +168,9 @@ Like editing templates, modify the runtime configuration.
 2. Name the configuration file `user_config.ini`.
 3. Paste the default configuration. When creating `user_config.ini`, enter only the configuration items you want to
    modify; you do not need to copy the entire `config.ini`.
-4. Modify the template and result file configuration and CDN proxy acceleration (recommended):
+4. Modify the template and result file configuration:
     - source_file = config/user_demo.txt
     - final_file = output/user_result.txt
-    - cdn_url = (go to the `Govin` public account and reply `cdn` to get it)
 5. Click `Commit changes...` to save.
 
 ![Create user_config.ini](./images/edit-user-config.png 'Create user_config.ini')
@@ -197,7 +238,12 @@ headers can only be written into the `.m3u` result; the `.txt` format cannot car
 - Channel Aliases (`config/alias.txt`)
 
   A list of aliases for channel names, used to map multiple names to a single name when fetching from the interface,
-  improving the fetch volume and accuracy. Format: TemplateChannelName,Alias1,Alias2,Alias3
+  improving the fetch volume and accuracy. Format: TemplateChannelName,Alias1,Alias2,Alias3.
+
+  The program normalizes Traditional/Simplified Chinese, case, and common separators, then matches exact aliases and
+  constrained regex rules. You normally do not need to change a template merely because a source spells a channel
+  differently. Distinct channels are not merged, and ambiguous aliases are excluded. Prefix a custom regex with `re:`
+  and ensure it distinguishes related channels such as CCTV-5 and CCTV-5+.
 
 
 - Blacklist (`config/blacklist.txt`)
@@ -220,7 +266,7 @@ headers can only be written into the `.m3u` result; the `.txt` format cannot car
 
 ### Run Update
 
-If your template and configuration modifications are correct, you can configure `Actions` to achieve automatic updates.
+After updating your template and configuration, use `Actions` to generate and publish results manually.
 
 #### 1. Enter Actions:
 
@@ -232,14 +278,13 @@ If your template and configuration modifications are correct, you can configure 
 Since the Actions workflow of the forked repository is disabled by default, you need to manually confirm to enable it,
 click the button in the red box to confirm enabling.
 ![Actions workflow enabled successfully](./images/actions-home.png 'Actions workflow enabled successfully')
-After enabling successfully, you can see that there are no workflows running currently, don't worry, let's start running
-your first update workflow below.
+After enabling Actions, start your first manual generation below.
 
 #### 3. Run the update workflow:
 
-##### (1) Enable update schedule:
+##### (1) Enable the manual generation workflow:
 
-1. Click `update schedule` under the `Workflows` category.
+1. Click `Generate playlist manually` under the `Workflows` category.
 2. Since the workflow of the forked repository is disabled by default, click the `Enable workflow` button to confirm the
    activation.
 
@@ -259,10 +304,11 @@ Now you can run the update workflow.
 ##### (3) Workflow in progress:
 
 Wait a moment, and you will see that your first update workflow is running!
-> [!NOTE]\
-> The running time depends on the number of channels and pages in your template and other configurations, and also
-> largely depends on the current network conditions. Please be patient. The default template and configuration usually
-> take about 15 minutes.
+> [!NOTE]
+>
+> Runtime depends on the template size, page settings, and network conditions. Speed testing may take 30–60 minutes and
+> runs in a generation job with a five-hour timeout. The ten-minute Pages deployment limit applies only to the separate
+> deployment job after generation completes; it does not include speed-testing time.
 
 ![Workflow in progress](./images/workflow-running.png 'Workflow in progress')
 
@@ -278,20 +324,49 @@ If everything is normal, after a short wait, you will see that the workflow has 
 mark).
 ![Workflow executed successfully](./images/workflow-success.png 'Workflow executed successfully')
 
-At this point, you can visit the file link to see if the latest results have been synchronized:
-https://raw.githubusercontent.com/your-github-username/repository-name/master/output/user_result.txt
+The workflow summary contains Pages links and Release download URLs. For online player use, open the Pages page and use the applicable result address:
 
-Recommended CDN-accelerated URL:
-{cdn_url}/https://raw.githubusercontent.com/your-github-username/repository-name/master/output/user_result.txt
+```text
+https://your-github-username.github.io/repository-name/result.m3u
+https://your-github-username.github.io/repository-name/result.txt
+https://your-github-username.github.io/repository-name/epg.gz
+```
+
+The Pages results page lets you preview files; its Download buttons point to this run's Release assets, preserving per-run download counts and historical files. Redirects and download-oriented response headers make Release URLs unsuitable for player subscriptions. Asset URLs use this format:
+
+```text
+https://github.com/your-github-username/repository-name/releases/download/playlist-20260920-103000-utc-plus-0800/result.m3u
+```
+
+`result.txt` is always published. `result.m3u` and `epg.gz` exist only when their features are enabled and generation succeeds. The M3U uses the Pages link for EPG.
+
+Every file on the Pages results page offers Copy link, Preview, and Download. The viewer displays text as UTF-8 and decompresses `epg.gz` in the browser; Copy link retains the original Pages file URL.
+
+Release and Fork destinations are generated from the repository running the workflow. The upstream site points to `Guovin/iptv-api`, while a fork's site points to that user's own fork. `Fork 项目` in the upstream results notice links directly to the upstream repository's Fork creation page.
 
 ![Username and Repository Name](./images/rep-info.png 'Username and Repository Name')
 
 If you can access this link and it returns the updated interface content, then your live source interface link has been
 successfully created! Simply copy and paste this link into software like `TVBox` in the configuration field to use~
 
-> [!NOTE]\
-> If you have modified the template or configuration files and want to execute the update immediately, you can manually
-> trigger (2)`Run workflow`.
+> [!NOTE]
+>
+> 1. Run `Run workflow` again after changing templates or configuration. The Pages URLs remain unchanged.
+> 2. In Actions, `open_history` only attempts to restore short-lived cached state. A full run without history is used
+>    when that cache has expired.
+> 3. Changes made by `open_auto_disable_source` are not committed. Use another deployment method when those changes
+>    must persist.
+> 4. Pages is deployed from a temporary artifact and does not write generated results to Git. Do not change it to commit a `gh-pages` branch.
+> 5. Playlist snapshots remain prereleases so they do not take the Latest label or interfere with stable GUI releases and update checks.
+
+### Migrate from the legacy workflow
+
+1. Back up `config/user_config.ini`, `user_*.txt`, custom templates, and source files from your fork.
+2. Disable any old workflow containing `schedule`; do not allow it to commit `output/` again.
+3. Use `Sync fork` → `Update branch`. Complete step 1 before using `Discard commits` if conflicts require it.
+4. Under `Settings → Pages`, set the publishing source to `GitHub Actions`.
+5. Run `Generate playlist manually` and confirm both the Pages deployment and the prerelease for that run were created.
+6. Replace legacy raw or Release URLs in players with the Pages link from the summary. The old raw URL retains only its last result and no longer updates.
 
 ## Command Line
 
@@ -344,6 +419,16 @@ The desktop GUI for Windows and macOS provides one-click updates, live progress,
   </details>
 </div>
 
+### Desktop pages and component dependencies
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./images/architecture/gui-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./images/architecture/gui-en.svg">
+  <img src="./images/architecture/gui-en.svg" alt="Desktop pages and component dependencies" width="100%">
+</picture>
+
+`MainWindow` connects pages to controllers. Updates run in a `QThread`, manual retests and screenshots use a separate queue, and the HTTP service runs in its own process. Signals, SQLite, configuration, and log files supply page state. The [architecture guide](./architecture_en.md#desktop-pages-and-dependencies) maps each page to its dependencies.
+
 Install dependencies and start it from the project directory:
 
 ```shell
@@ -357,7 +442,15 @@ Build the desktop application for the current platform:
 pipenv run ui_build
 ```
 
-Settings are saved to `config/user_config.ini`; generated results, channel snapshots, task history, and logs are stored under `output/`. A packaged application places these directories in the operating system's application data directory on first launch. Install FFmpeg before enabling resolution probing. The Windows package can include nginx-rtmp. On macOS, install an nginx build with the RTMP module; the app generates and starts an isolated configuration automatically, while `IPTV_API_NGINX_PATH` and `IPTV_API_NGINX_RTMP_MODULE` can override discovery.
+Settings are saved to `config/user_config.ini`; generated results, channel snapshots, task history, and logs are stored under `output/`. On Windows, a packaged desktop application creates both directories beside its executable by default, making them easy to back up, move, and access directly; automatic updates retain that user data. It falls back to the operating system's application-data directory only when the application directory is not writable. macOS continues to use the system application-data directory.
+
+To choose a location in the desktop app, select **Data directory** on the **Settings** page, then restart the app; **Restore default directory** clears that choice. Deployment scripts can pass `--data-dir` when launching the application or set the `IPTV_API_DATA_DIR` environment variable. The command-line option takes precedence:
+
+```shell
+IPTV-API-GUI.exe --data-dir "D:\\IPTV-API Data"
+```
+
+Install FFmpeg before enabling resolution probing. The Windows package can include nginx-rtmp. On macOS, install an nginx build with the RTMP module; the app generates and starts an isolated configuration automatically, while `IPTV_API_NGINX_PATH` and `IPTV_API_NGINX_RTMP_MODULE` can override discovery.
 
 > [!WARNING]
 > The legacy Tkinter interface is deprecated, retained temporarily for existing users, and scheduled for removal in a future release. It no longer receives maintenance, bug fixes, or new features. During the transition, start it with `pipenv run legacy_ui` or package it with `pipenv run legacy_ui_build`.
@@ -477,6 +570,16 @@ common streaming scenarios: subscription (online) sources and local video files.
 > [!WARNING]
 > Use this only for content you are authorized to relay or for closed/internal technical testing.
 
+#### Streaming requests and media flow
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./images/architecture/streaming-en-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./images/architecture/streaming-en.svg">
+  <img src="./images/architecture/streaming-en.svg" alt="Streaming requests and media flow" width="100%">
+</picture>
+
+The first request for `/hls/{id}.m3u8` is proxied by Nginx to Flask at `/hls_proxy/{id}`. The service resolves the source and starts or reuses an FFmpeg stream. FFmpeg reads the online URL or local video, copies or transcodes it to RTMP, and Nginx generates HLS. Flask returns the playlist; Nginx serves TS segments directly. Idle timeouts and concurrency limits control resource use.
+
 #### 1. Preparations before start (Docker Compose example)
 
 - Use the repository's `docker-compose.yml` and confirm the following environment variables before starting:
@@ -507,6 +610,7 @@ services:
       PUBLIC_PORT: "${PORT:-80}" # Legacy compatibility value synchronized from PORT
       NGINX_HTTP_PORT: "8080" # Advanced compatibility setting; normally do not change
       CDN_URL: ""
+      # Used only for subscription sources and EPG data, not media speed tests
       HTTP_PROXY: ""
 ```
 

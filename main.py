@@ -16,7 +16,7 @@ from updates.epg import get_epg
 from updates.epg.tools import write_to_xml, compress_to_gz
 from updates.subscribe import get_channels_by_subscribe_urls
 from utils.aggregator import ResultAggregator
-from utils.channel import get_channel_items, append_total_data, get_speed_test_status, test_speed
+from utils.channel import channel_alias, get_channel_items, append_total_data, get_speed_test_status, test_speed
 from utils.channel_repository import finish_run, prune_stream_screenshots, start_run
 from utils.config import config
 from utils.i18n import t
@@ -150,6 +150,7 @@ class UpdateSource:
     # stage 1: prepare
     # ----------------------------
     def _prepare_channel_data(self):
+        channel_alias.reload()
         self.run_metrics = {}
         self.run_outcome = None
         self.whitelist_maps = load_whitelist_maps(constants.whitelist_path)
