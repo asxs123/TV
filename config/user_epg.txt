@@ -5,3 +5,10 @@
 http://e.erw.cc/e.xml.gz
 
 # http://epg.51zmt.top:8000/e.xml.gz
+
+https://cdn.jsdelivr.net/gh/fanmingming/live/e.xml
+https://epg.pw/xmltv/epg_TW.xml
+https://epg.pw/xmltv/epg_HK.xml
+https://epg.pw/xmltv/epg_CN.xml
+https://s.102031.xyz/xml/a1999882e.xml
+https://epg.v1.mk/fy.xml
