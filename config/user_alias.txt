@@ -43,7 +43,7 @@ CCTV-8K,re:(?i)^\s*CCTV[-\s_]*0?8(?![0-9])\s*(?:[Kk]|Ｋ)\b[\s\S]*$,CCTV8K,CCTV8
 文化精品,CCTV文化精品,CCTV-文化精品,CCTV央视文化精品,CCTV-央视文化精品,CCTV央视文化精品HD,cc央视文化精品,cctv文化精品,央视文化精品,央视文化精品hd,CCTV 文化精品,CCTV-Culture of Quality,CCTV-Culture_of_Quality_,CCTV-Culture of Quality (1080p),CCTV-Culture_of_Quality_(1080p),CCTV 央视精品
 百姓健康,CCTV卫生健康,CCTV-卫生健康,CCTV卫生与健康
 中学生,CCTV中学甿,CCTV中学生,CCTV-中学生,中央新影-中学甿,中学生HD,cctv中学生,中央新影-中学生
-电视指南,CCTV-电视指南
+电视指南,CCTV-电视指南,CCTV电视指南
 中国天气,中国气象
 
 CETV1,re:(?i)^\s*CETV[-\s_]*0?1(?![0-9])[\s\S]*$,CETV-1,CETV1中国教育,CETV1 中国教育,中国教育1,中国教育1HD,中国教育1台,cetv1 高清,CETV1HD,CETV 1 中国教育,ce1教育,cetv1,cetv1高清,中国教育,中国教育一台,中国教育电视台1,教育1台,中国教育电视台,教育1HD,CETV1SD,CETV-1 综合教育
@@ -53,7 +53,6 @@ CETV4,re:(?i)^\s*CETV[-\s_]*0?4(?![0-9])[\s\S]*$,CETV-4,CETV4中国教育,CETV4 
 CETV早期教育,CETV早教,早期教育
 CGTN英语,CGTN英语新闻,CGTN国际,CGTN国际 1080P,cgtn,cgtn新闻,[BD]cgtn,[BD]cgtn新闻,CGTNHD,cgtn英语,CGTN主频道,CGTN英語頻道,备用源1:CGTN,CGTN主,CGTNSD,CGTN英文,CGTN英语频道,CGTN (1080p)
 CGTN俄语,CGTN俄罗斯语,cgtnrussian,cgtn俄语,CGTN Russian,CGTN Pусский
-CGTN纪录,CGTN记录,CGTN Documentary (1080p)
 
 广东珠江,GDTV-2,珠江,珠江频道,珠江台,广东珠江高清,珠江高清,广东珠江HD,广东珠江频晴,备用源1:广东珠江
 广东体育,re:(?i)^\s*广东(?:体育|體育)[\s\S]*$,广东体育频道,广东体育高清,广东体育HD,广体,广东体育频晴,备用源1:广东体育
@@ -187,7 +186,6 @@ CHC动作电影,CHC動作電影,chc动作电影,[BD]chc动作电影,CHC动作电
 生活时尚,[BD]生活时尚,生活时尚HD,生活时尚HD 1080P,sitv生活时尚,Lifestyle Channel
 乐游,乐游HD,乐游HD 1080P,sitv乐游,全纪实
 求索记录,求索记录HD,求索记录HD 1080P
-CGTN纪录,CGTN Documentary,cgtn documentary,[BD]cgtn纪录,[BD]cgtn documentary,CGTN纪录HD,CGTN纪录频道,CGNT记录频道,CGTN外语纪录,CGTN-外语纪录,CGTN纪录片,CGNT记录,CGNT 记录频道
 华丽翡翠台,翡翠台华丽,翡翠台(馬來),翡翠台(马来),华丽翡翠台(多音轨字幕),华丽翡翠台(新加坡),无线华丽,TVB华丽翡翠,TVB华丽翡翠新加坡,tvb華麗,Astro华丽台 *b,无线华丽Pdtv,无线华丽台,華麗翡翠台
 TVB Plus,TVBPlus,TVB plus 超清,TVB+,TVB PLUS(多音轨字幕),tvb plus超清,tvb+,tvbplus,tvb plus,TVBS Plus,Plus综合Pdtv,Plus综合,Plus综合频晴,无线Plus频伍,TVB82,82台,无线82台,TVB Plus 82,TVB综合频道,TVB Plus82,TVBplus,TVB Plus H.265,备用源1:TVB Plus,TVB综合,无线Plus台,TVB PLUS,TVBPLUS,Plus综合高码,TVB plus
 TVB星河,无线星河,TVB星河国语,TVB星河(多音轨字幕),无线星河Pdtv,tvb星河,tvb星河频道,星河,TVB无线星河,无线星河频晴,星河频道,备用源1:TVB星河,备用源2:TVB星河,TVB星河频道,无线星河国,无线星河粤,TVB Xing He,TVB XingHe
@@ -337,7 +335,7 @@ beIN SPORTS 6,beinsports6
 Bloomberg Television,bloomberg,bloombergtelevision,彭博电视
 BRTV影视,br影视
 BRTV生活,br生活
-BRTV纪实科教,北京纪实科教频道,北京科教频道,BRTV科教,北京纪实频道,纪实科教高清,北京科教
+
 BRTV财经,br
 BS11イ,bs11イ
 BS11イレブン,bs11イレブン
@@ -365,13 +363,11 @@ CDTV4,cdtv4,成都4台
 CDTV5,cdtv5,成都5台
 CDTV6,cdtv6,成都6台
 CGN中文台,台湾CGN中文台,CGNTV Chinese,CGNTV_Chinese_,CGNTVChinese,CGNTV Chinese (1080p)
-CGTN法语,cgtnfrench,cgtn法语,CGTN法语频道,CGTN FRANCAIS,CGTN French (1080p),CGTN French,CGTN Français,CGTN_French_(1080p),CGTN_French_
-CGTN西班语,cgtnspanish,cgtn西班牙语,cgtn西语
-CGTN西语,CGTN西班牙语,CGTN-西班牙语,CGTN Espanol,CGTN ESPANOL,CGTN Spanish,CGTN Spanish (720p),CGTN Español,CGTN西班牙语(IPV6),CGTN_Spanish_(720p),CGTN Español (1080p),CGTN_Spanish_
-CGTN记录,cgtndocumentary
+CGTN法语,cgtnfrench,cgtn法语,CGTN法语频道,CGTN FRANCAIS,CGTN French (1080p),CGTN French,CGTN Français,CGTN_French_(1080p),CGTN_French_,CGTN-法语
+CGTN西语,CGTN西班牙语,CGTN-西班牙语,CGTN Espanol,CGTN ESPANOL,CGTN Spanish,CGTN Spanish (720p),CGTN Español,CGTN西班牙语(IPV6),CGTN_Spanish_(720p),CGTN Español (1080p),CGTN_Spanish_,CGTN西班语,cgtnspanish,cgtn西班牙语,cgtn西语
+CGTN纪录,CGTN Documentary,cgtn documentary,[BD]cgtn纪录,[BD]cgtn documentary,CGTN纪录HD,CGTN纪录频道,CGNT记录频道,CGTN外语纪录,CGTN-外语纪录,CGTN纪录片,CGNT记录,CGNT 记录频道,CGTN记录,cgtndocumentary,CGTN Documentary (1080p),CGTN记录片
 CGTN全球财经,CGTN财经,CGTN财经频道,CGTN Global Biz (1080p),CGTN Global Biz
-CGTN阿拉伯语,cgtnarabic,cgtn阿拉伯语,cgtn阿语
-CGTN阿语,CGTN-阿拉伯语,CGTN Arabic,CGTN العربية,CGTN阿拉伯语(IPV6),CGTN Arabic (1080p) [Not 24/7]
+CGTN阿语,CGTN-阿拉伯语,CGTN Arabic,CGTN العربية,CGTN阿拉伯语(IPV6),CGTN Arabic (1080p) [Not 24/7],CGTN阿拉伯语,cgtnarabic,cgtn阿拉伯语,cgtn阿语
 Channel V,频道V,卫视音乐台,Channel [V],Channel[V]
 CinemaWorld,cinemaworld
 CINEMAX,cinemax,cinemax电影
@@ -1674,7 +1670,7 @@ Z频道,zchannel,z频道
 收藏天下,收藏天下
 敦化综合,敦化电视台,敦化一套
 敦煌综合,敦煌电视台,敦煌电视台_,敦煌电视台 (1080p),敦煌电视台_(1080p)
-文山州新闻综合,文山电视台新闻综合频道,文山一套,文山电视台新闻综合
+文山新闻综合,文山壮族苗族自治州新闻综合,文山州新闻综合,文山电视台新闻综合频道,文山一套,文山电视台新闻综合
 文成新闻综合,文成电视台,文成综合
 文物宝库,河南文物宝库
 新乡2公共,新乡公共
@@ -2036,7 +2032,7 @@ Z频道,zchannel,z频道
 淮北新闻综合,淮北电视台新闻综合频道,淮北一套,淮北电视台新闻综合
 淮南公共,淮南公共频道
 淮南新闻综合,淮南新闻,淮南电视台新闻综合频道,淮南一套,淮南电视台新闻综合
-淮安公共,淮安公共频道
+淮安公共,淮安公共频道,无线淮安
 淮安影视娱乐,淮安影视
 淮安综合,淮安新闻综合,淮安新闻,淮安电视台新闻综合频道,淮安一套,淮安电视台新闻综合
 淮滨综合,淮滨综合频道
@@ -2065,7 +2061,8 @@ Z频道,zchannel,z频道
 渑池新闻综合,渑池新闻综合频道,渑池电视台新闻综合频道,渑池电视台新闻综合
 渠县新闻综合,渠县电视台新闻频道,渠县电视台新闻
 温县综合,温县综合频道
-温岭新闻综合,温岭电视台
+温岭新闻综合,温岭电视台,台州温岭综合
+温岭民生休闲,台州温岭民生
 温州公共,温州电视台公共频道,温州电视台公共
 温州新闻综合,温州电视台新闻综合频道,温州一套,温州电视台新闻综合
 温州经济科教,温州电视台经济科教频道,温州电视台经济科教
@@ -2284,7 +2281,7 @@ Z频道,zchannel,z频道
 红河州新闻综合,红河电视台新闻综合频道,红河一套,红河电视台新闻综合
 红色轮播,红色轮播
 纪实人文,纪实人文高清
-纪实科教,br纪实,记实科教
+纪实科教,br纪实,记实科教,北京纪实科教,BRTV纪实科教,北京纪实科教频道,北京科教频道,BRTV科教,北京纪实频道,纪实科教高清,北京科教
 纬来体育,緯來體育台,緯來體育,纬来体育频晴,纬来体育频陆
 纬来体育台,纬来体育台
 纬来戏剧,緯來戲劇,纬来戏剧频晴
@@ -2299,8 +2296,8 @@ Z频道,zchannel,z频道
 纯享4K,纯享
 纳溪新闻,纳溪电视台新闻频道,纳溪电视台新闻
 绍兴公共,绍兴电视台公共频道,绍兴电视台公共
-绍兴文化影视,上虞文化影院,绍兴文化影院
-绍兴新闻综合,绍兴,绍兴新闻综合频道
+绍兴文化影视,上虞文化影院,绍兴文化影院,绍兴文化
+绍兴新闻综合,绍兴,绍兴新闻综合频道,绍兴新闻
 经典剧场,经典剧场
 经典卡通台,经典卡通
 经典电影台,经典
@@ -2748,7 +2745,7 @@ Z频道,zchannel,z频道
 香港NewsWorld,NewsWorld,NewsWorld_
 香港国际财经台,香港国际财经
 香港开电视,香港开电视
-香港面包台,面包台,Bread TV,香港面包,Bread TV面包台 (720p),Bread TV面包台 
+面包台,Bread TV面包台 (720p),Bread TV面包台 ,香港面包台,Bread TV,香港面包
 香蕉台,香蕉
 马尔康综合,马尔康电视台
 马山新闻综合,马山电视台,马山频道
